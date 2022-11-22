@@ -21,6 +21,10 @@ const memberSchema = new Schema({
     minLength: 3,
     maxLength: 255,
   },
+  register_time: {
+    type: Date,
+    required: true,
+  },
   role: {
     type: String,
     enum: ["student", "instructor"],
@@ -44,7 +48,10 @@ const memberSchema = new Schema({
       },
     },
   ],
-  points: int,
+  points: {
+    type: Number,
+    default: 0,
+  },
   challenge_record: [
     {
       course_id: mongoose.Schema.Types.ObjectId,
