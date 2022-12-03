@@ -43,11 +43,13 @@ const userSchema = new Schema({
     required: "Password is required",
     minLength: 3,
     maxLength: 255,
+    select: false,
   },
   role: {
     type: String,
     enum: {
       values: ["student", "instructor"],
+      defaults: "student",
       message: "{VALUE}` is not support.",
     },
   },
@@ -92,23 +94,33 @@ userSchema.methods.isAdmin = function () {
 };
 
 // Hash password before saving into database.
-userSchema.pre("save", async function (next) {
-  if (this.isModified("password")) {
+userSchema.pre("save", function (next) {
+  const user = this;
+  if (user.isModified("password") || user.isNew) {
     const saltRounds = 10;
     bcrypt.genSalt(saltRounds, function (err, salt) {
-      bcrypt.hash(this.password, salt, function (err, hash) {
-        this.passsword = hash;
+      if (err) return next(err);
+      bcrypt.hash(user.password, salt, function (err, hash) {
+        if (err) return next(err);
+
+        // Store hash in your password DB.
+        user.password = hash;
+        next();
       });
     });
-    next();
   } else {
-    next();
+    return next();
   }
 });
 
 // Compare input password
-userSchema.methods.comparePassword = async function (password) {
-  return await bcrypt.compare(password, this.password);
+userSchema.methods.comparePassword = async function (password, cb) {
+  bcrypt.compare(password, this.password, (err, isMatch) => {
+    if (err) {
+      return cb(err, isMatch);
+    }
+    cb(null, isMatch);
+  });
 };
 
 module.exports = mongoose.model("User", userSchema);
