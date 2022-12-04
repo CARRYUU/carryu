@@ -7,7 +7,7 @@ const {
   updateUserPassword,
   deleteUser,
 } = require("../controllers/user-controller");
-const { isAuthenticatedUser, isAdmin } = require("../middlerware/authMiddleware");
+const { isAuthenticatedUser, isAdmin } = require("../middlerware/auth-middleware");
 
 router.route("/register").post(registerUser);
 router
