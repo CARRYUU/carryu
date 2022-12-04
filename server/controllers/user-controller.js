@@ -162,12 +162,40 @@ const updateUserPassword = async (req, res) => {
 // @desc    Get single user by id
 // @route   GET api/user/:id
 // @access  Private/Admin
-const getSingleUserByID = async (req, res) => {};
+const getSingleUserById = async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return res.status(404).json({
+      msg: "User not found",
+    });
+  }
+
+  return res.status(200).json({
+    _id: user._id,
+    username: user.username,
+    email: user.email,
+    role: user.role,
+    register_time: user.register_time,
+  });
+};
 
 // @desc    Get all user
 // @route   GET api/user/get-all-user
 // @access  Private/Admin
-const getAllUser = async (req, res) => {};
+const getAllUser = async (req, res) => {
+  const users = await User.find({});
+
+  if (!users) {
+    return res.status(404).json({
+      msg: "User not found",
+    });
+  }
+
+  return res.status(200).json({
+    users,
+  });
+};
 
 // @desc    Delete a user by id
 // @route   DELETE api/user/delete-user/:id
