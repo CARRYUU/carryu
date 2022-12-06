@@ -11,7 +11,7 @@ const registerUser = async (req, res) => {
 
   // Check if register data is valid.
   const { error } = registerValidation({ username, email, password, role });
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).json({ err_msg: error.details[0].message });
 
   // Check if the email already exists.
   const emailExist = await User.findOne({ email: email });
@@ -84,7 +84,7 @@ const updateUserProfile = async (req, res) => {
 
   // Check if the updated data is valid.
   const { error } = updateProfileValidation({ username, email });
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).json({ err_msg: error.details[0].message });
 
   // If the updated data is valid, update the user's profile and save to database.
   user.username = username;
@@ -131,11 +131,11 @@ const updateUserPassword = async (req, res) => {
 
   // Compare the input old_password is correct.
   user.comparePassword(old_password, async function (err, isMatch) {
-    if (err) return res.status(400).send(err);
+    if (err) return res.status(400).json({ err_msg: err });
     if (isMatch) {
       // Check if the new password is valid.
       const { error } = passwordValidation({ password: new_password });
-      if (error) return res.status(400).send(error.details[0].message);
+      if (error) return res.status(400).json({ err_msg: error.details[0].message });
 
       // Check if the new password is equal to confirmation one.
       if (new_password !== confirm_password) {
