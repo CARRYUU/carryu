@@ -10,17 +10,17 @@ const login = (req, res) => {
     // Check if email and password are valid
     const { email, password } = req.body;
     const { error } = loginValidation({ email, password });
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).json({ err_msg: error.details[0].message });
 
     // Find user and compare password
     User.findOne({ email: email }, function (err, user) {
       // Check if user exists
-      if (err) return res.status(400).send(err);
-      if (!user) return res.status(401).send("User not found!");
+      if (err) return res.status(400).json({ err_msg: err });
+      if (!user) return res.status(401).json({ msg: "User not found!" });
 
       // Compare password
       user.comparePassword(password, function (err, isMatch) {
-        if (err) return res.status(400).send(err);
+        if (err) return res.status(400).json({ err_msg: err });
         if (isMatch) {
           // Create  a token and assign it to user with 7 days for expiration time
           const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
@@ -36,7 +36,7 @@ const login = (req, res) => {
             },
           });
         } else {
-          return res.status(401).send("Password is incorrect!");
+          return res.status(401).json({ err_msg: "Password is incorrect!" });
         }
       });
     }).select(["_id", "username", "email", "+password"]);

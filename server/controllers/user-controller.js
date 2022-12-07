@@ -7,6 +7,7 @@ const passwordValidation = require("../config/validation.js").passwordValidation
 // @route   POST api/user/register
 // @access  Public
 const registerUser = async (req, res) => {
+  // Destruct register data from request body.
   let { username, email, password, role } = req.body;
 
   // Check if register data is valid.
