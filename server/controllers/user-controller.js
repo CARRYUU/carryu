@@ -159,6 +159,57 @@ const updateUserPassword = async (req, res) => {
   });
 };
 
+// @desc    Switch a user role to student
+// @route   PUT api/user/swtich-role
+// @access  Private
+const switchUserRole = async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (!user) {
+    return res.status(404).json({
+      msg: "User not found",
+    });
+  }
+
+  if (user.role === "student") {
+    user.role = "instructor";
+  } else if (user.role === "instructor") {
+    user.role = "student";
+  }
+
+  const updatedUser = await user.save();
+
+  return res.status(200).json({
+    success: true,
+    msg: "User role switched successfully",
+    user_profile: {
+      username: updatedUser.username,
+      email: updatedUser.email,
+      role: updatedUser.role,
+    },
+  });
+};
+
+// @desc    Delete a user by id
+// @route   DELETE api/user/delete-user/:id
+// @access  Private/Admin
+const deleteUser = async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return res.status(404).json({
+      msg: "User not found",
+    });
+  }
+
+  const deletedUser = await User.findOneAndDelete({ email: req.body.email });
+
+  res.status(200).json({
+    success: true,
+    msg: "User deleted successfully",
+  });
+};
+
 // @desc    Get single user by id
 // @route   GET api/user/:id
 // @access  Private/Admin
@@ -197,29 +248,10 @@ const getAllUser = async (req, res) => {
   });
 };
 
-// @desc    Delete a user by id
-// @route   DELETE api/user/delete-user/:id
-// @access  Private/Admin
-const deleteUser = async (req, res) => {
-  const user = await User.findById(req.params.id);
-
-  if (!user) {
-    return res.status(404).json({
-      msg: "User not found",
-    });
-  }
-
-  const deletedUser = await User.findOneAndDelete({ email: req.body.email });
-
-  res.status(200).json({
-    success: true,
-    msg: "User deleted successfully",
-  });
-};
-
 module.exports = {
   registerUser,
   getUserProfile,
   updateUserProfile,
   updateUserPassword,
+  switchUserRole,
 };
