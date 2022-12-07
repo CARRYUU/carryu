@@ -36,4 +36,14 @@ const isAdmin = (req, res, next) => {
   }
 };
 
+const isInstructor = (req, res, next) => {
+  if (req.user && req.user.isInstructor) {
+    next();
+  } else {
+    return res.status(401).json({
+      err_msg: "Only instructor can post a new course.",
+    });
+  }
+};
+
 module.exports = { isAuthenticatedUser, isAdmin };
