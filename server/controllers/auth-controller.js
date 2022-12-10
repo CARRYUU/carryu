@@ -23,7 +23,9 @@ const login = (req, res) => {
         if (err) return res.status(400).send(err);
         if (isMatch) {
           // Create  a token and assign it to user with 7 days for expiration time
-          const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+          const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: "7d",
+          });
           console.log("Login Successfully");
 
           return res.json({
