@@ -11,11 +11,14 @@ const {
 const { isAuthenticatedUser, isAdmin } = require("../middlerware/auth-middleware");
 
 router.route("/register").post(registerUser);
+
 router
   .route("/profile")
   .get(isAuthenticatedUser, getUserProfile)
-  .put(isAuthenticatedUser, updateUserProfile);
-router.route("/password/update").put(isAuthenticatedUser, updateUserPassword);
-router.route("/switch-role").put(isAuthenticatedUser, switchUserRole);
+  .patch(isAuthenticatedUser, updateUserProfile);
+
+router.route("/password/update").patch(isAuthenticatedUser, updateUserPassword);
+
+router.route("/switch-role").patch(isAuthenticatedUser, switchUserRole);
 
 module.exports = router;
