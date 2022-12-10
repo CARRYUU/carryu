@@ -68,7 +68,15 @@ const courseSchema = new Schema({
     default: 0,
   },
   students: {
-    type: [Schema.Types.ObjectId],
+    type: [String],
+    default: [],
+  },
+  comments: {
+    type: [{}],
+    default: [],
+  },
+  teaching_assistants: {
+    type: [String],
     default: [],
   },
   videos: {
