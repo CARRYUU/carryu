@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Import routes
 const authRoute = require("./routes/auth-route.js");
 const userRoute = require("./routes/user-route.js");
+const courseRoute = require("./routes/course-route.js");
 
 // Connect to database
 connect_db();
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
+app.use("/api/course", courseRoute);
 
 // Listen port
 app.listen(PORT, () => {
