@@ -1,16 +1,45 @@
 const express = require("express");
 const router = express.Router();
 
-const { isAuthenticatedUser, isAdmin, isInstructor } = require("../middlerware/auth-middleware");
+const {
+  isAuthenticatedUser,
+  isAdmin,
+  isInstructor,
+  isCourseMember,
+} = require("../middlerware/auth-middleware");
+
 const {
   createNewCourse,
   getCourseInfoById,
+  updateCourseInfo,
   getCourseContentById,
   getCoursesByTitle,
+  addCourseComment,
+  getCourseAllComments,
+  getAllCourses,
+  getTenMostPopularCourses,
+  getTenNewestCourses,
+  getCoursesByCategory,
+  getARandomCourse,
 } = require("../controllers/course-controller");
 
-router.post("/create", isAuthenticatedUser, isInstructor, createNewCourse);
-router.get("/:_id/info", getCourseInfoById);
-router.get("/search/:title", getCoursesByTitle);
+router.route("/create").post(isAuthenticatedUser, isInstructor, createNewCourse);
+
+router.route("/:_id/info").get(getCourseInfoById).patch(isAuthenticatedUser, updateCourseInfo);
+
+router.route("/search/:title").get(getCoursesByTitle);
+
+router.route("/:_id/content").get(isAuthenticatedUser, isCourseMember, getCourseContentById);
+
+router
+  .route("/:_id/comment")
+  .get(isAuthenticatedUser, isCourseMember, getCourseAllComments)
+  .post(isAuthenticatedUser, isCourseMember, addCourseComment);
+
+router.route("/all").get(getAllCourses);
+router.route("/popular").get(getTenMostPopularCourses);
+router.route("/newest").get(getTenNewestCourses);
+router.route("/category/:category").get(getCoursesByCategory);
+router.route("/random").get(getARandomCourse);
 
 module.exports = router;
