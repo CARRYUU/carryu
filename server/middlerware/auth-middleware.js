@@ -37,7 +37,7 @@ const isAdmin = (req, res, next) => {
 };
 
 const isInstructor = (req, res, next) => {
-  if (req.user && req.user.isInstructor) {
+  if (req.user && req.user.isInstructor()) {
     next();
   } else {
     return res.status(401).json({
@@ -46,4 +46,4 @@ const isInstructor = (req, res, next) => {
   }
 };
 
-module.exports = { isAuthenticatedUser, isAdmin };
+module.exports = { isAuthenticatedUser, isAdmin, isInstructor };

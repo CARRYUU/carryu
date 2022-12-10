@@ -16,6 +16,6 @@ router
   .get(isAuthenticatedUser, getUserProfile)
   .put(isAuthenticatedUser, updateUserProfile);
 router.route("/password/update").put(isAuthenticatedUser, updateUserPassword);
-router.route("/switch-role").put(isAuthenticatedUser, isAdmin, switchUserRole);
+router.route("/switch-role").put(isAuthenticatedUser, switchUserRole);
 
 module.exports = router;
