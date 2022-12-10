@@ -49,19 +49,21 @@ If you want to see the acrchieve files, please click [acrchieve](./docs/archieve
 
 #### Software
 
-| Category          | Requirement Content                   |
-| ----------------- | ------------------------------------- |
-| OS                | Windows 11 or MacOS                   |
-| Database Software | MongoDB Atlas                         |
-| IDE & Text Editor | Visual Studio Code、JetBrain Webstorm |
-| UI/UX Design      | Figma                                 |
-| API Testing       | Postman                               |
+| Category          | Requirement Content                    |
+| ----------------- | -------------------------------------- |
+| OS                | Windows 11 or MacOS                    |
+| Database Software | MongoDB Atlas                          |
+| IDE & Text Editor | Visual Studio Code、JetBrain Webstorm  |
+| Terminal          | Windows Terminal or Iterms2(for MacOS) |
+| UI/UX Design      | Figma                                  |
+| API Testing       | Postman                                |
 
 #### VSCode Extensions (Optional but highly recommended!)
 
 | Extenstion Name                        | Description                                                                                                                                                                       |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Prettier - Code formatter              | 文字排版對齊工具，基本上是必備。                                                                                                                                                  |
+| GitLens                                | Git 超好用的套件，包含圖形化、比較分支差異等等好處說不完。Student Developer Package 可以免費使用                                                                                  |
 | GitHub Copilot or Tabnine AI           | 程式碼自動補齊、生成。前者可以於 Student Developer Package 免費取得，後者有付費與免費版本。                                                                                       |
 | WakaTime                               | 紀錄打 code 的時間 ， 免費版最多紀錄兩周 。                                                                                                                                       |
 | Git History                            | 查看檔案 Git log、檔案歷史紀錄、比較分支或 commit 紀錄 。                                                                                                                         |
@@ -76,4 +78,9 @@ If you want to see the acrchieve files, please click [acrchieve](./docs/archieve
 
 ### Learning Resources
 
-@TODO
+- [MDN Resources for Developers, by Developers](https://developer.mozilla.org/en-US/) - 基本上是必備的，幾乎你想的到的所有網站開發的知識這裡都有。
+
+- [Udemy 2022 網頁開發全攻略(HTML, CSS, JavaScript, React, SQL, Node, more)](https://www.udemy.com/course/html5-css3-z/) - (無業配)網頁全端開發很好的入門磚，老師講得淺顯易懂，等特價的時候差不多三四百塊就買的到，非常划算。
+  ]
+
+其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
