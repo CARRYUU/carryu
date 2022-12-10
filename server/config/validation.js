@@ -38,7 +38,31 @@ const passwordValidation = (data) => {
   return schema.validate(data);
 };
 
+const courseValidation = (data) => {
+  const schema = Joi.object({
+    title: Joi.string().min(3).max(255).required("Title is required"),
+    price: Joi.number().required("Price is required"),
+    category: Joi.string()
+      .required("Category is required")
+      .valid(
+        "web-development",
+        "programming-language",
+        "finance",
+        "it-and-software",
+        "art-design",
+        "music",
+        "system-design",
+        "music",
+        "marketing",
+        "others"
+      ),
+  });
+
+  return schema.validate(data);
+};
+
 module.exports.loginValidation = loginValidation;
 module.exports.registerValidation = registerValidation;
 module.exports.updateProfileValidation = updateProfileValidation;
 module.exports.passwordValidation = passwordValidation;
+module.exports.courseValidation = courseValidation;
