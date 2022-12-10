@@ -16,7 +16,7 @@ const login = (req, res) => {
     User.findOne({ email: email }, function (err, user) {
       // Check if user exists
       if (err) return res.status(400).json({ err_msg: err });
-      if (!user) return res.status(401).json({ msg: "User not found!" });
+      if (!user) return res.status(401).json({ err_msg: "User not found!" });
 
       // Compare password
       user.comparePassword(password, function (err, isMatch) {
@@ -41,9 +41,9 @@ const login = (req, res) => {
       });
     }).select(["_id", "username", "email", "+password"]);
   } catch (err) {
-    console.error(err);
     return res.status(500).json({
-      error: "Could not sign in.",
+      err_msg: "Could not sign in.",
+      error: err,
     });
   }
 };
