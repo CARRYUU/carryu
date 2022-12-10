@@ -6,7 +6,7 @@ const passwordValidation = require("../config/validation.js").passwordValidation
 // @desc    Register new user
 // @route   POST api/user/register
 // @access  Public
-const registerUser = async (req, res) => {
+exports.registerUser = async (req, res) => {
   // Destruct register data from request body.
   let { username, email, password, role } = req.body;
 
@@ -21,7 +21,7 @@ const registerUser = async (req, res) => {
   if (emailExist) {
     res.status(400);
     return res.status(400).json({
-      msg: "Email has already been registered.",
+      err_msg: "Email has already been registered.",
     });
   }
 
@@ -42,7 +42,7 @@ const registerUser = async (req, res) => {
     });
   } catch (err) {
     return res.status(400).json({
-      msg: "Register failed",
+      err_msg: "Register failed",
     });
   }
 };
@@ -50,12 +50,12 @@ const registerUser = async (req, res) => {
 // @desc    Get user's profile
 // @route   GET api/user/profile
 // @access  Private
-const getUserProfile = async (req, res) => {
+exports.getUserProfile = async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (!user) {
     return res.status(404).json({
-      msg: "User not found",
+      err_msg: "User not found",
     });
   }
 
@@ -69,14 +69,14 @@ const getUserProfile = async (req, res) => {
 };
 
 // @desc    Update user's profile
-// @route   PUT api/user/profile
+// @route   PATCH api/user/profile
 // @access  Private
-const updateUserProfile = async (req, res) => {
+exports.updateUserProfile = async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (!user) {
     return res.status(404).json({
-      msg: "User not found",
+      err_msg: "User not found",
     });
   }
 
@@ -107,16 +107,16 @@ const updateUserProfile = async (req, res) => {
 };
 
 // @desc    Update user's password
-// @route   POST api/user/password/update
+// @route   PATCH api/user/password/update
 // @access  Private
-const updateUserPassword = async (req, res) => {
+exports.updateUserPassword = async (req, res) => {
   // Get user by id and select the password field
   // Use `+` to override schema-level `select: false` without making the projection inclusive
   const user = await User.findById(req.user._id).select("+password");
 
   if (!user) {
     return res.status(404).json({
-      msg: "User not found",
+      err_msg: "User not found",
     });
   }
 
@@ -126,13 +126,13 @@ const updateUserPassword = async (req, res) => {
   // Three password fields are required.
   if (!(old_password && new_password && confirm_password)) {
     return res.status(400).json({
-      msg: "Please enter all password fields: old_password, new_password, confirm_password",
+      err_msgs: "Please enter all password fields: old_password, new_password, confirm_password",
     });
   }
 
   // Compare the input old_password is correct.
   user.comparePassword(old_password, async function (err, isMatch) {
-    if (err) return res.status(400).json({ err_msg: err });
+    if (err) return res.status(400).json({ msg: err });
     if (isMatch) {
       // Check if the new password is valid.
       const { error } = passwordValidation({ password: new_password });
@@ -141,7 +141,7 @@ const updateUserPassword = async (req, res) => {
       // Check if the new password is equal to confirmation one.
       if (new_password !== confirm_password) {
         return res.status(400).json({
-          msg: "New password and confirmation password do not match",
+          err_msg: "New password and confirmation password do not match",
         });
       }
 
@@ -154,21 +154,21 @@ const updateUserPassword = async (req, res) => {
       });
     } else {
       return res.status(401).json({
-        msg: "Old password is incorrect",
+        err_msg: "Old password is incorrect",
       });
     }
   });
 };
 
 // @desc    Switch a user role to student
-// @route   PUT api/user/swtich-role
+// @route   PATCH api/user/swtich-role
 // @access  Private
-const switchUserRole = async (req, res) => {
+exports.switchUserRole = async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (!user) {
     return res.status(404).json({
-      msg: "User not found",
+      err_msg: "User not found",
     });
   }
 
@@ -194,12 +194,12 @@ const switchUserRole = async (req, res) => {
 // @desc    Delete a user by id
 // @route   DELETE api/user/delete-user/:id
 // @access  Private/Admin
-const deleteUser = async (req, res) => {
+exports.deleteUser = async (req, res) => {
   const user = await User.findById(req.params.id);
 
   if (!user) {
     return res.status(404).json({
-      msg: "User not found",
+      err_msg: "User not found",
     });
   }
 
@@ -214,12 +214,12 @@ const deleteUser = async (req, res) => {
 // @desc    Get single user by id
 // @route   GET api/user/:id
 // @access  Private/Admin
-const getSingleUserById = async (req, res) => {
+exports.getSingleUserById = async (req, res) => {
   const user = await User.findById(req.params.id);
 
   if (!user) {
     return res.status(404).json({
-      msg: "User not found",
+      err_msg: "User not found",
     });
   }
 
@@ -235,24 +235,16 @@ const getSingleUserById = async (req, res) => {
 // @desc    Get all user
 // @route   GET api/user/get-all-user
 // @access  Private/Admin
-const getAllUser = async (req, res) => {
+exports.getAllUser = async (req, res) => {
   const users = await User.find({});
 
   if (!users) {
     return res.status(404).json({
-      msg: "User not found",
+      err_msg: "User not found",
     });
   }
 
   return res.status(200).json({
     users,
   });
-};
-
-module.exports = {
-  registerUser,
-  getUserProfile,
-  updateUserProfile,
-  updateUserPassword,
-  switchUserRole,
 };
