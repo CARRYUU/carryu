@@ -88,7 +88,7 @@ const getPoints = async (req, res) => {
       });
     } else {
       return res.status(400).json({
-        msg: `Failed to get points`,
+        msg: "Failed to get points",
       });
     }
   });
