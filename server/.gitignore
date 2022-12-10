@@ -42,7 +42,7 @@ jspm_packages
 .env.production.local
 
 #Excluding build directory
-public/
+# public/
 
 # IDE
 .vscode/
