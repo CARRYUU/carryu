@@ -15,6 +15,7 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
     - [Developer Tools](#developer-tools)
     - [Tools' Official Document](#tools-official-document)
     - [Learning Resources](#learning-resources)
+  - [How to Run?](#how-to-run)
 
 ## Project Documents
 
@@ -84,3 +85,41 @@ If you want to see the acrchieve files, please click [acrchieve](./docs/archieve
   ]
 
 其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
+
+## How to Run?
+
+Clone this repository first. If you are our developer, please use SSH.
+
+```Bash
+
+git clone git@github.com:CARRYUU/carryu.git
+cd carryu
+
+```
+
+Download all backend package.
+
+```Bash
+
+cd server
+npm install
+
+```
+
+Run the backend server in `localhost`.
+
+You can use `nodemon`
+
+```Bash
+
+nodemon index.js
+
+```
+
+or just `node`
+
+```
+
+node index.js
+
+```
