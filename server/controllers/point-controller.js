@@ -84,7 +84,7 @@ const getPoints = async (req, res) => {
       });
     } else if (gotpoints == 0) {
       return res.status(400).json({
-        msg: `You have 0 points`,
+        msg: "You have 0 points",
       });
     } else {
       return res.status(400).json({
