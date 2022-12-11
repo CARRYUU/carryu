@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 const authRoute = require("./routes/auth-route.js");
 const userRoute = require("./routes/user-route.js");
 const courseRoute = require("./routes/course-route.js");
+const cartRoute = require("./routes/cart-route.js");
 
 // Connect to database
 connect_db();
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/course", courseRoute);
+app.use("/api/cart", cartRoute);
 
 // Listen port
 app.listen(PORT, () => {
