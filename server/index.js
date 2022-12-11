@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 const authRoute = require("./routes/auth-route.js");
 const userRoute = require("./routes/user-route.js");
 const pointRoute = require("./routes/point-route.js");
+const paymentRoute = require("./routes/payment-route.js");
 // Connect to database
 connect_db();
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/points", pointRoute);
+app.use("/api/payment", paymentRoute);
 // Listen port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

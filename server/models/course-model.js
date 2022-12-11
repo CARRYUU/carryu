@@ -14,7 +14,7 @@ const videoSchema = new Schema({
   },
 });
 
-exports = mongoose.Model("Video", videoSchema);
+exports = mongoose.model("Video", videoSchema);
 
 const courseSchema = new Schema({
   id: {
@@ -81,4 +81,4 @@ const courseSchema = new Schema({
   },
 });
 
-module.exports = mongoose.Model("Course", courseSchema);
+module.exports = mongoose.model("Course", courseSchema);
