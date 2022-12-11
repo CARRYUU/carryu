@@ -1,6 +1,5 @@
 const User = require("../models/user-model.js");
 const Course = require("../models/course-model.js");
-// const pointcontroller = require("./point-controller.js");
 
 //@desc Buy course
 //@route Get api/payment/buycourse
