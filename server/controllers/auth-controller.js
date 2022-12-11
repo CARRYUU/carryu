@@ -4,7 +4,7 @@ const loginValidation = require("../config/validation.js").loginValidation;
 
 // @desc    Login user
 // @route   POST api/auth/login
-// @access  Private
+// @access  Public
 const login = (req, res) => {
   try {
     // Check if email and password are valid
