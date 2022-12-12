@@ -13,6 +13,7 @@ const userRoute = require("./routes/user-route.js");
 const courseRoute = require("./routes/course-route.js");
 const cartRoute = require("./routes/cart-route.js");
 
+const pointRoute = require("./routes/point-route.js");
 // Connect to database
 connect_db();
 
@@ -26,6 +27,7 @@ app.use("/api/user", userRoute);
 app.use("/api/course", courseRoute);
 app.use("/api/cart", cartRoute);
 
+app.use("/api/points", pointRoute);
 // Listen port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
