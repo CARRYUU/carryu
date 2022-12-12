@@ -6,28 +6,27 @@ const User = require("../models/user-model.js");
 const addPoints = async (req, res) => {
   const { add_points } = req.body;
   //check if user exists
-  const user = await User.findById(req.user._id); //哪抓的user
-  if (!user) {
-    return res.status(404).json({
-      msg: "User not found",
-    });
-  }
-  //get newpoints
-  const newPoints = user.points + add_points;
-  const updatedUser = await User.updateOne(
-    { _id: req.user._id },
-    { $set: { points: newPoints } }
-  )
-    .then(() => {
-      return res.status(200).json({
-        msg: "Points added successfully",
+  User.findById(req.user._id).then((user) => {
+    if (!user) {
+      return res.status(404).json({
+        msg: "User not found",
       });
-    })
-    .catch(() => {
-      return res.status(400).json({
-        msg: "Failed to add points",
+    }
+
+    //get newpoints
+    const newPoints = user.points + add_points;
+    User.updateOne({ _id: user._id }, { $set: { points: newPoints } })
+      .then(() => {
+        return res.status(200).json({
+          msg: "Points added successfully",
+        });
+      })
+      .catch(() => {
+        return res.status(400).json({
+          msg: "Failed to add points",
+        });
       });
-    });
+  });
 };
 
 //@desc Delete points
@@ -36,59 +35,59 @@ const addPoints = async (req, res) => {
 const deletePoints = async (req, res) => {
   const { delete_points } = req.body;
   //check if user exists
-  const user = await User.findById(req.user._id);
-  if (!user) {
-    return res.status(404).json({
-      msg: "User not found",
-    });
-  }
-  //get newpoints
-  const newPoints = user.points - delete_points;
-  //check if newpoints is negative
-  if (newPoints < 0) {
-    return res.status(400).json({
-      msg: "Not enough points",
-    });
-  } else {
-    const updatedUser = await User.updateOne(
-      { _id: req.user._id },
-      { $set: { points: newPoints } }
-    )
-      .then(() => {
-        return res.status(200).json({
-          msg: "Points deleted successfully",
-        });
-      })
-      .catch((e) => {
-        console.log(e);
-        return res.status(400).json({
-          msg: "Failed to delete points",
-        });
+  User.findById(req.user._id).then((user) => {
+    if (!user) {
+      return res.status(404).json({
+        msg: "User not found",
       });
-  }
+    }
+    //get newpoints
+    const newPoints = user.points - delete_points;
+
+    //check if newpoints is negative
+    if (newPoints < 0) {
+      return res.status(400).json({
+        msg: "Not enough points",
+      });
+    } else {
+      User.updateOne({ _id: user._id }, { $set: { points: newPoints } })
+        .then(() => {
+          return res.status(200).json({
+            msg: "Points deleted successfully",
+          });
+        })
+        .catch(() => {
+          return res.status(400).json({
+            msg: "Failed to delete points",
+          });
+        });
+    }
+  });
 };
+
 //@desc Get points
 //@route GET api/points/get
 //@access Private
 const getPoints = async (req, res) => {
-  const user = await User.findById(req.user._id);
-  //check if user exists
-  if (!user) {
-    return res.status(404).json({
-      msg: "User not found",
-    });
-  }
-  //get points
-  const gotpoints = user.points;
-  if (gotpoints) {
-    return res.status(200).json({
-      msg: `You have ${gotpoints} points`,
-    });
-  } else {
-    return res.status(400).json({
-      msg: "Failed to get points",
-    });
-  }
+  User.findById(req.user._id).then((user) => {
+    if (!user) {
+      return res.status(404).json({
+        msg: "User not found",
+      });
+    }
+
+    //get points
+    const gotpoints = user.points;
+    if (gotpoints) {
+      return res.status(200).json({
+        msg: `You have ${gotpoints} points`,
+      });
+    } else {
+      return res.status(400).json({
+        msg: "Failed to get points",
+      });
+    }
+  });
 };
 
 module.exports = { addPoints, deletePoints, getPoints };

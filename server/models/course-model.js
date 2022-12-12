@@ -14,7 +14,11 @@ const videoSchema = new Schema({
   },
 });
 
+<<<<<<< HEAD
 module.exports = mongoose.model("Video", videoSchema);
+=======
+exports = mongoose.model("Video", videoSchema);
+>>>>>>> 251e96d (add:payment-controller/payment-route)
 
 const courseSchema = new Schema({
   id: {
