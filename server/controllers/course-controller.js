@@ -255,7 +255,7 @@ exports.addCourseComment = async (req, res) => {
 };
 
 // @desc    Get course all comments
-// @route   Get api/course/:_id/comment
+// @route   GET api/course/:_id/comment
 // @access  Private/CourseMember
 exports.getCourseAllComments = async (req, res) => {
   const { _id } = req.params;
@@ -302,7 +302,7 @@ exports.getAllCourses = async (req, res) => {
 };
 
 // @desc    Get ten most popular courses (descending order by students count)
-// @route   Get api/course/popular
+// @route   GET api/course/popular
 // @access  Public
 exports.getTenMostPopularCourses = async (req, res) => {
   Course.find({})
@@ -323,7 +323,7 @@ exports.getTenMostPopularCourses = async (req, res) => {
 };
 
 // @desc    Get most ten popular newest
-// @route   Get api/course/newest
+// @route   GET api/course/newest
 // @access  Public
 exports.getTenNewestCourses = async (req, res) => {
   Course.find({})
@@ -344,7 +344,7 @@ exports.getTenNewestCourses = async (req, res) => {
 };
 
 // @desc    Get courses by category (sort by views count)
-// @route   Get api/course/category/:category
+// @route   GET api/course/category/:category
 // @access  Public
 exports.getCoursesByCategory = async (req, res) => {
   const { category } = req.params;
@@ -384,8 +384,8 @@ exports.getCoursesByCategory = async (req, res) => {
     });
 };
 
-// @desc    Get a  course in random
-// @route   Get api/course/random
+// @desc    Get a course in random
+// @route   GET api/course/random
 // @access  Public
 exports.getARandomCourse = async (req, res) => {
   Course.aggregate([{ $sample: { size: 1 } }])
@@ -398,6 +398,168 @@ exports.getARandomCourse = async (req, res) => {
     .catch((err) => {
       res.status(400).json({
         err_msg: "Get random course failed",
+        error: err,
+      });
+    });
+};
+
+// @desc    Add course teaching assistant
+// @route   POST api/course/:_id/teaching-assistants
+// @access  Private/Intructor
+exports.addCourseTA = async (req, res) => {
+  const { _id } = req.params;
+
+  Course.findById(_id)
+    .then((course) => {
+      if (!course) {
+        return res.status(404).json({
+          msg: "Course not found",
+        });
+      }
+
+      // Check if the user is the course instructor
+      if (course.instructor.toString() !== req.user._id.toString()) {
+        return res.status(401).json({
+          err_msg: "You are not the course instructor",
+        });
+      }
+
+      // Check if the user is exists
+      User.findById(req.body.ta)
+        .then((ta) => {
+          if (!ta) {
+            return res.status(404).json({
+              err_msg: "TA id not found",
+            });
+          }
+
+          // Check if the user is already a TA
+          if (course.ta.includes(ta._id)) {
+            return res.status(400).json({
+              err_msg: "The user is already a TA",
+            });
+          }
+
+          // Add the TA to the course
+          course.teaching_assistants.unshift(ta._id);
+
+          // Save the course to the database
+          course
+            .save()
+            .then((course) => {
+              res.status(200).json({
+                msg: "TA added successfully",
+                ta: course.teaching_assistants[0],
+                ta_name: ta.username,
+              });
+            })
+            .catch((err) => {
+              res.status(400).json({
+                err_msg: "Course save failed, which lead to add TA failed",
+                error: err,
+              });
+            });
+        })
+        .catch((err) => {
+          res.status(400).json({
+            err_msg: "Find user failed, which lead to add TA failed",
+            error: err,
+          });
+        });
+    })
+    .catch((err) => {
+      res.status(400).json({
+        err_msg: "Find course failed, which lead to add TA failed",
+        error: err,
+      });
+    });
+};
+
+// @desc    Remove course teaching assistant
+// @route   DELETE api/course/:_id/teaching-assistants
+// @access  Private/Intructor
+exports.removeCourseTA = async (req, res) => {
+  const { _id } = req.params;
+
+  Course.findById(_id)
+    .then((course) => {
+      if (!course) {
+        return res.status(404).json({
+          msg: "Course not found",
+        });
+      }
+
+      // Check if the user is the course instructor
+      if (course.instructor.toString() !== req.user._id.toString()) {
+        return res.status(401).json({
+          err_msg: "You are not the course instructor",
+        });
+      }
+
+      // Check if the user is already a TA
+      if (!course.ta.includes(req.body.ta)) {
+        return res.status(400).json({
+          err_msg: "The user is not a TA",
+        });
+      }
+
+      // Remove the TA from the course
+      const index = course.ta.indexOf(req.body.ta);
+      course.ta.splice(index, 1);
+
+      // Save the course to the database
+      course
+        .save()
+        .then((course) => {
+          res.status(200).json({
+            msg: "TA removed successfully",
+            ta: course.ta,
+          });
+        })
+        .catch((err) => {
+          res.status(400).json({
+            err_msg: "Remove TA failed",
+            error: err,
+          });
+        });
+    })
+    .catch((err) => {
+      res.status(400).json({
+        err_msg: "Remove TA failed",
+        error: err,
+      });
+    });
+};
+
+// @desc    Get course teaching assistants
+// @route   GET api/course/:_id/ta
+// @access  Private/Intructor
+exports.getCourseTAs = async (req, res) => {
+  const { _id } = req.params;
+
+  Course.findById(_id)
+    .then((course) => {
+      if (!course) {
+        return res.status(404).json({
+          msg: "Course not found",
+        });
+      }
+
+      // Check if the user is the course instructor
+      if (course.instructor.toString() !== req.user._id.toString()) {
+        return res.status(401).json({
+          err_msg: "You are not the course instructor",
+        });
+      }
+
+      res.status(200).json({
+        msg: "Found TAs",
+        tas: course.teaching_assistants,
+      });
+    })
+    .catch((err) => {
+      res.status(400).json({
+        err_msg: "Get TAs failed",
         error: err,
       });
     });
