@@ -135,6 +135,7 @@ exports.getCourseInfoById = async (req, res) => {
           price: course.price,
           thumbnail: course.thumbnail,
           category: course.category,
+          students_count: course.students.length,
         },
       });
     })
@@ -404,13 +405,13 @@ exports.getARandomCourse = async (req, res) => {
 };
 
 // @desc    Add course teaching assistant
-// @route   POST api/course/:_id/teaching-assistants
+// @route   PUT api/course/:_id/teaching-assistants
 // @access  Private/Intructor
 exports.addCourseTA = async (req, res) => {
   const { _id } = req.params;
 
   Course.findById(_id)
-    .then((course) => {
+    .then(async (course) => {
       if (!course) {
         return res.status(404).json({
           msg: "Course not found",
@@ -425,8 +426,9 @@ exports.addCourseTA = async (req, res) => {
       }
 
       // Check if the user is exists
-      User.findById(req.body.ta)
+      User.findOne({ _id: req.body.ta_id })
         .then((ta) => {
+          console.log(ta);
           if (!ta) {
             return res.status(404).json({
               err_msg: "TA id not found",
@@ -434,7 +436,7 @@ exports.addCourseTA = async (req, res) => {
           }
 
           // Check if the user is already a TA
-          if (course.ta.includes(ta._id)) {
+          if (course.teaching_assistants.includes(ta._id)) {
             return res.status(400).json({
               err_msg: "The user is already a TA",
             });
@@ -492,20 +494,21 @@ exports.removeCourseTA = async (req, res) => {
       // Check if the user is the course instructor
       if (course.instructor.toString() !== req.user._id.toString()) {
         return res.status(401).json({
-          err_msg: "You are not the course instructor",
+          err_msg: "Cannot remove TA. You are not the course instructor",
         });
       }
 
       // Check if the user is already a TA
-      if (!course.ta.includes(req.body.ta)) {
+      if (!course.teaching_assistants.includes(req.body.ta_id)) {
         return res.status(400).json({
-          err_msg: "The user is not a TA",
+          err_msg: "Cannot remove TA. The user is not a TA",
         });
       }
 
       // Remove the TA from the course
-      const index = course.ta.indexOf(req.body.ta);
-      course.ta.splice(index, 1);
+      const index = course.teaching_assistants.indexOf(req.body.ta_id);
+      const removedTA = course.teaching_assistants[index];
+      course.teaching_assistants.splice(index, 1);
 
       // Save the course to the database
       course
@@ -513,7 +516,7 @@ exports.removeCourseTA = async (req, res) => {
         .then((course) => {
           res.status(200).json({
             msg: "TA removed successfully",
-            ta: course.ta,
+            removedTA_username: removedTA.username,
           });
         })
         .catch((err) => {
@@ -533,36 +536,204 @@ exports.removeCourseTA = async (req, res) => {
 
 // @desc    Get course teaching assistants
 // @route   GET api/course/:_id/ta
-// @access  Private/Intructor
+// @access  Public
 exports.getCourseTAs = async (req, res) => {
   const { _id } = req.params;
 
   Course.findById(_id)
-    .then((course) => {
+    .then(async (course) => {
       if (!course) {
         return res.status(404).json({
           msg: "Course not found",
         });
       }
 
-      // Check if the user is the course instructor
-      if (course.instructor.toString() !== req.user._id.toString()) {
-        return res.status(401).json({
-          err_msg: "You are not the course instructor",
+      // Return if there is no TA
+      if (course.teaching_assistants.length === 0) {
+        return res.status(200).json({
+          msg: "No TA found",
         });
       }
 
-      res.status(200).json({
-        msg: "Found TAs",
-        tas: course.teaching_assistants,
+      // Return the TA's username after get all the TAs' username
+      let TAs = [];
+      for (let i = 0; i < course.teaching_assistants.length; i++) {
+        const ta = await User.findById(course.teaching_assistants[i])
+          .then((ta) => {
+            return ta;
+          })
+          .catch((err) => {
+            console.log(err);
+            return res.status(400).json({
+              err_msg: "Get TA failed",
+              error: err,
+            });
+          });
+        TAs.push(ta.username);
+      }
+
+      return TAs;
+    })
+    .then((TAs) => {
+      res.status(200).send({
+        msg: `Found ${TAs.length} TAs`,
+        TAs: TAs,
       });
     })
     .catch((err) => {
+      console.log(err);
       res.status(400).json({
         err_msg: "Get TAs failed",
         error: err,
       });
     });
+};
+
+// @desc    Add student to course
+// @route   PUT api/course/:_id/students
+// @access  Private
+exports.addStudentToCourse = async (req, res) => {
+  const { _id } = req.params;
+  const { user_id } = req.body;
+
+  Course.findById(_id).then(async (course) => {
+    if (!course) {
+      return res.status(404).json({
+        msg: "Course not found",
+      });
+    }
+
+    // Check if the user is exist in the database
+    const user = await User.findById(user_id);
+    if (!user) {
+      return res.status(404).json({
+        err_msg: "Add student failed. The user is not exist",
+      });
+    }
+
+    // Check if the user is already enrolled
+    if (course.students.includes(user_id)) {
+      return res.status(400).json({
+        err_msg: "This student already enrolled in this course",
+      });
+    }
+
+    // Add the student to the course
+    course.students.unshift(user_id);
+
+    // Save the course to the database
+    course
+      .save()
+      .then((course) => {
+        res.status(200).json({
+          msg: "Student added successfully",
+          student: course.students[0],
+        });
+      })
+      .catch((err) => {
+        res.status(400).json({
+          err_msg: "Course save failed, which lead to add student failed",
+          error: err,
+        });
+      });
+  });
+};
+
+// @desc    Remove student from course
+// @route   PUT api/course/:_id/students
+// @access  Private
+exports.removeStudentFromCourse = async (req, res) => {
+  const { _id } = req.params;
+  const { user_id } = req.body;
+
+  Course.findById(_id).then(async (course) => {
+    if (!course) {
+      return res.status(404).json({
+        msg: "Course not found",
+      });
+    }
+
+    // Check if the user is exist in the database
+    const user = await User.findById(user_id);
+    if (!user) {
+      return res.status(404).json({
+        err_msg: "Remove student failed. The user is not exist",
+      });
+    }
+    // Check if the user is enrolled
+    if (!course.students.includes(user_id)) {
+      return res.status(400).json({
+        err_msg:
+          "Cannot remove this student from the course. This student is not enrolled in this course",
+      });
+    }
+
+    // Remove the student from the course
+    const index = course.students.indexOf(user_id);
+    course.students.splice(index, 1);
+
+    // Save the course to the database
+    course
+      .save()
+      .then((course) => {
+        res.status(200).json({
+          msg: "Student removed successfully",
+        });
+      })
+      .catch((err) => {
+        res.status(400).json({
+          err_msg: "Course save failed, which lead to remove student failed",
+          error: err,
+        });
+      });
+  });
+};
+
+// @desc    Get course students
+// @route   GET api/course/:_id/students
+// @access  Public
+exports.getCourseStudents = async (req, res) => {
+  const { _id } = req.params;
+
+  Course.findById(_id).then((course) => {
+    if (!course) {
+      return res.status(404).json({
+        msg: "Course not found",
+      });
+    }
+
+    // Return if there is no student
+    if (course.students.length === 0) {
+      return res.status(200).json({
+        msg: "No student found",
+      });
+    }
+
+    // Get all the students' username
+    let students = [];
+    course.students.forEach((student_id) => {
+      User.findById(student_id)
+        .then(async (user) => {
+          students.push(user.username);
+
+          return students;
+        })
+        .then((students) => {
+          console.log("students: ", students);
+          // Return the students' username
+          res.status(200).json({
+            msg: `Found ${students.length} students`,
+            students: students,
+          });
+        })
+        .catch((err) => {
+          res.status(400).json({
+            err_msg: "Get students failed",
+            error: err,
+          });
+        });
+    });
+  });
 };
 
 // @desc    Add course video
