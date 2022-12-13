@@ -69,6 +69,7 @@ const isCourseMember = async (req, res, next) => {
 
       if (
         course.instructor.toString() === req.user._id.toString() ||
+        course.teaching_assistants.includes(req.user._id) ||
         course.students.includes(req.user._id)
       ) {
         next();
