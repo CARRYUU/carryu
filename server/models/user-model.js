@@ -3,26 +3,6 @@ const bcrypt = require("bcrypt");
 
 const { Schema } = mongoose;
 
-const purchaseRecordSchema = new Schema({
-  course_id: {
-    type: Schema.Types.ObjectId,
-    ref: "Course",
-  },
-  price: Number,
-  payment_type: {
-    type: String,
-    required: "Payment method is required.",
-    enum: ["atm", "points", "credit_card"],
-  },
-  status: {
-    type: String,
-    required: true,
-    enum: ["buy", "refund"],
-  },
-});
-
-module.exports = mongoose.model("PurchaseRecord", purchaseRecordSchema);
-
 const userSchema = new Schema({
   username: {
     type: String,
@@ -57,10 +37,30 @@ const userSchema = new Schema({
     type: [Schema.Types.ObjectId],
     ref: "Course",
   },
-  purchase_history: {
-    type: [Schema.Types.ObjectId],
-    ref: "PurchaseRecord",
-  },
+  purchase_history: [
+    {
+      type: {
+        type: String,
+        required: true,
+        enum: ["buy", "refund"],
+      },
+      course_id: {
+        type: Schema.Types.ObjectId,
+        ref: "Course",
+      },
+      course_name: String,
+      price: Number,
+      payment_type: {
+        type: String,
+        required: "Payment method is required.",
+        enum: ["ATM", "POINTS", "CREADIT_CARD"],
+      },
+      purchase_date: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+  ],
   points: {
     type: Number,
     default: 0,
