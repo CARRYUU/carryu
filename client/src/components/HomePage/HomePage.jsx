@@ -1,15 +1,12 @@
 import React from "react";
-import Header from "../layout/Header";
 import Card from "../layout/Card";
-import Footer from "../layout/Footer";
 import Title from "../layout/Title";
-import Button from "../layout/Button";
+import { Link } from "react-router-dom";
+
 
 const HomePage = () => {
   return (
     <div>
-      <Header />
-
       <body>
         <Title pageTitle="熱門排行｜Popular Course" />
         {/* card */}
@@ -93,10 +90,6 @@ const HomePage = () => {
           />
         </div>
       </body>
-
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 };
