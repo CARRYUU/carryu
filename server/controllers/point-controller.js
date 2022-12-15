@@ -21,7 +21,7 @@ const addPoints = async (req, res) => {
           msg: "Points added successfully",
         });
       })
-      .catch(() => {
+      .catch((err) => {
         return res.status(400).json({
           msg: "Failed to add points",
         });
@@ -56,7 +56,7 @@ const deletePoints = async (req, res) => {
             msg: "Points deleted successfully",
           });
         })
-        .catch(() => {
+        .catch((err) => {
           return res.status(400).json({
             msg: "Failed to delete points",
           });

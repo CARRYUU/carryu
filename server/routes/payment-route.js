@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { buyCourse } = require("../controllers/payment-controller");
+const { processPayment } = require("../controllers/payment-controller");
 const { isAuthenticatedUser } = require("../middlerware/auth-middleware");
 
-router.route("/buycourse").get(isAuthenticatedUser, buyCourse);
+router.route("/").get(isAuthenticatedUser, processPayment);
 
 module.exports = router;

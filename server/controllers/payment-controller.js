@@ -2,9 +2,9 @@ const User = require("../models/user-model.js");
 const Course = require("../models/course-model.js");
 
 //@desc Buy course
-//@route Get api/payment/buycourse
+//@route GET api/payment
 //@access Private
-const buyCourse = async (req, res) => {
+const processPayment = async (req, res) => {
   const { ATM, CreditCard, Points } = req.body;
   User.findById(req.user._id).then((user) => {
     if (!user) {
@@ -29,4 +29,4 @@ const buyCourse = async (req, res) => {
   }
 };
 
-module.exports = { buyCourse };
+module.exports = { processPayment };
