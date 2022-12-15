@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user-model");
 const Course = require("../models/course-model");
 
-// Check if the user is authenticated.
+// Check if the user is authenticated. Authenicated means the user has logged in successfully with a valid token.
 const isAuthenticatedUser = async (req, res, next) => {
   let token;
 
@@ -12,7 +12,10 @@ const isAuthenticatedUser = async (req, res, next) => {
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
+      // Find the user by id and exclude the password field.
       req.user = await User.findById(decoded._id).select("-password");
+
+      // If the user is not found, return error message.
       if (!req.user) {
         return res.status(401).json({ err_msg: "User not found." });
       }
@@ -69,6 +72,7 @@ const isCourseMember = async (req, res, next) => {
 
       if (
         course.instructor.toString() === req.user._id.toString() ||
+        course.teaching_assistants.includes(req.user._id) ||
         course.students.includes(req.user._id)
       ) {
         next();

@@ -106,6 +106,24 @@ exports.updateUserProfile = async (req, res) => {
   });
 };
 
+// @desc    Get my purchase history
+// @route   GET api/user/purchase-history
+// @access  Private
+exports.getUserPurchaseHistory = async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (!user) {
+    return res.status(404).json({
+      err_msg: "User not found",
+    });
+  }
+
+  return res.status(200).json({
+    msg: `Found ${user.purchase_history.length} records in ${user.username}'s purchase history.`,
+    purchase_history: user.purchase_history,
+  });
+};
+
 // @desc    Update user's password
 // @route   PATCH api/user/password/update
 // @access  Private
