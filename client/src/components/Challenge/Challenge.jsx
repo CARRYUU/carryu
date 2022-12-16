@@ -8,7 +8,6 @@ import Footer from "../layout/Footer";
 const Challenge = () => {
   return (
     <div>
-      <Header />
       <body>
         <Title pageTitle="請選擇：" />
         <div className="flex snap-x place-content-center gap-16">
@@ -16,9 +15,6 @@ const Challenge = () => {
           <Category buttonName="Choose Category" />
         </div>
       </body>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 };

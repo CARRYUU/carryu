@@ -1,13 +1,10 @@
 import React from "react";
-import Footer from "../layout/Footer";
-import Header from "../layout/Header";
 import SearchResultCard from "./SearchResultCard";
 import Title from "../layout/Title";
 
 const SearchResult = () => {
   return (
     <div>
-      <Header />
       <body>
         <Title pageTitle="「JAVA」有10000個結果" />
         <div className="flex-col">
