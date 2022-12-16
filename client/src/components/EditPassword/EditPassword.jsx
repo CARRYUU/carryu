@@ -3,18 +3,15 @@ import Title from "../layout/Title";
 import Button from "../layout/Button";
 import Input from "../layout/Input";
 
-const EditProfile = () => {
+const EditPassword = () => {
   return (
     <div>
-      <Title pageTitle="Profile & Setting" />
+      <Title pageTitle="Password Setting" />
       <div className="p-6 space-y-6">
         <div className="flex-col">
-          <Input labelName="User name" type="text" placeholder="carrie" />
-          <Input
-            labelName="Email"
-            type="email"
-            placeholder="carrie777@gmail.com"
-          />
+          <Input labelName="Old password" type="password" />
+          <Input labelName="New password" type="password" />
+          <Input labelName="Confirm New password" type="password" />
         </div>
       </div>
       <div className="mb-8">
@@ -24,4 +21,4 @@ const EditProfile = () => {
   );
 };
 
-export default EditProfile;
+export default EditPassword;
