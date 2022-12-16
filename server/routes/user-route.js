@@ -9,7 +9,10 @@ const {
   switchUserRole,
   deleteUser,
 } = require("../controllers/user-controller");
-const { isAuthenticatedUser, isAdmin } = require("../middlerware/auth-middleware");
+const {
+  isAuthenticatedUser,
+  isAdmin,
+} = require("../middlerware/auth-middleware");
 
 // register a new user
 router.route("/register").post(registerUser);
