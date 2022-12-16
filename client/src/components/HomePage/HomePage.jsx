@@ -3,7 +3,6 @@ import Card from "../layout/Card";
 import Title from "../layout/Title";
 import { Link } from "react-router-dom";
 
-
 const HomePage = () => {
   return (
     <div>
@@ -12,6 +11,7 @@ const HomePage = () => {
         {/* card */}
         <div className="flex snap-x scroll-pl-6">
           <Card
+            image={require("../../image/1.JPG")}
             badge1="html"
             badge2="css"
             badge3="react"
@@ -21,6 +21,7 @@ const HomePage = () => {
             originalPrice="500"
           />
           <Card
+            image={require("../../image/2.JPG")}
             badge1="html"
             badge2="css"
             badge3="react"
@@ -30,6 +31,7 @@ const HomePage = () => {
             originalPrice="500"
           />
           <Card
+            image={require("../../image/3.JPG")}
             badge1="html"
             badge2="css"
             badge3="react"
@@ -39,6 +41,7 @@ const HomePage = () => {
             originalPrice="500"
           />
           <Card
+            image={require("../../image/4.JPG")}
             badge1="html"
             badge2="css"
             badge3="react"
@@ -53,6 +56,7 @@ const HomePage = () => {
         {/* card */}
         <div className="flex snap-x scroll-pl-6">
           <Card
+            image={require("../../image/1.JPG")}
             badge1="html"
             badge2="css"
             badge3="react"
@@ -62,6 +66,7 @@ const HomePage = () => {
             originalPrice="500"
           />
           <Card
+            image={require("../../image/2.JPG")}
             badge1="html"
             badge2="css"
             badge3="react"
@@ -71,6 +76,7 @@ const HomePage = () => {
             originalPrice="500"
           />
           <Card
+            image={require("../../image/3.JPG")}
             badge1="html"
             badge2="css"
             badge3="react"
@@ -80,6 +86,7 @@ const HomePage = () => {
             originalPrice="500"
           />
           <Card
+            image={require("../../image/4.JPG")}
             badge1="html"
             badge2="css"
             badge3="react"
