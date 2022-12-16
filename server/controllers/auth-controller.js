@@ -10,7 +10,8 @@ const login = (req, res) => {
     // Check if email and password are valid
     const { email, password } = req.body;
     const { error } = loginValidation({ email, password });
-    if (error) return res.status(400).json({ err_msg: error.details[0].message });
+    if (error)
+      return res.status(400).json({ err_msg: error.details[0].message });
 
     // Find user and compare password
     User.findOne({ email: email }, function (err, user) {
@@ -51,10 +52,9 @@ const login = (req, res) => {
 };
 
 // @desc    Logout user
-// @route   POST api/auth/logout
+// @route   GET api/auth/logout
 // @access  Private
 const logout = (req, res) => {
-  res.clearCookie("token");
   return res.status(200).json({
     success: true,
     message: "Logout successfully",
