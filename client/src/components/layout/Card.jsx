@@ -5,11 +5,7 @@ const Card = (props) => {
     <div>
       <div className="snap-center card mt-6 ml-6">
         {/* 圖片 */}
-        <img
-          src={require("../../image/2.JPG")}
-          alt="課程圖片"
-          className="object-cover"
-        />
+        <img src={props.image} alt="課程圖片" className="object-cover" />
         {/* 內容 */}
         <div className="p-5 flex-col gap-3 text-left ">
           {/* bedge */}
