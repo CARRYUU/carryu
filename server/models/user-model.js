@@ -27,9 +27,9 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
+    default: "student",
     enum: {
       values: ["student", "instructor"],
-      defaults: "student",
       message: "{VALUE}` is not support.",
     },
   },
