@@ -1,7 +1,7 @@
 import * as api from "../api";
 import { LOGIN, LOGOUT } from "./constants";
 
-export const login = (formData, history) => async (dispatch) => {
+export const login = (formData) => async (dispatch) => {
   try {
     // Login the user...
     const { data } = await api.login(formData);
