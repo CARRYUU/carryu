@@ -1,17 +1,20 @@
 const User = require("../models/user-model.js");
-const registerValidation = require("../config/validation.js").registerValidation;
-const updateProfileValidation = require("../config/validation.js").updateProfileValidation;
-const passwordValidation = require("../config/validation.js").passwordValidation;
+const registerValidation =
+  require("../config/validation.js").registerValidation;
+const updateProfileValidation =
+  require("../config/validation.js").updateProfileValidation;
+const passwordValidation =
+  require("../config/validation.js").passwordValidation;
 
 // @desc    Register new user
 // @route   POST api/user/register
 // @access  Public
 exports.registerUser = async (req, res) => {
   // Destruct register data from request body.
-  let { username, email, password, role } = req.body;
+  let { username, email, password } = req.body;
 
   // Check if register data is valid.
-  const { error } = registerValidation({ username, email, password, role });
+  const { error } = registerValidation({ username, email, password });
   if (error) return res.status(400).json({ err_msg: error.details[0].message });
 
   // Check if the email already exists.
@@ -30,7 +33,6 @@ exports.registerUser = async (req, res) => {
     username,
     email,
     password,
-    role,
   });
 
   try {
@@ -144,7 +146,8 @@ exports.updateUserPassword = async (req, res) => {
   // Three password fields are required.
   if (!(old_password && new_password && confirm_password)) {
     return res.status(400).json({
-      err_msgs: "Please enter all password fields: old_password, new_password, confirm_password",
+      err_msgs:
+        "Please enter all password fields: old_password, new_password, confirm_password",
     });
   }
 
@@ -154,7 +157,8 @@ exports.updateUserPassword = async (req, res) => {
     if (isMatch) {
       // Check if the new password is valid.
       const { error } = passwordValidation({ password: new_password });
-      if (error) return res.status(400).json({ err_msg: error.details[0].message });
+      if (error)
+        return res.status(400).json({ err_msg: error.details[0].message });
 
       // Check if the new password is equal to confirmation one.
       if (new_password !== confirm_password) {
