@@ -405,7 +405,7 @@ exports.getARandomCourse = async (req, res) => {
 };
 
 // @desc    Add course teaching assistant
-// @route   PUT api/course/:_id/teaching-assistants
+// @route   PUT api/course/:_id/teaching-assistant
 // @access  Private/Intructor
 exports.addCourseTA = async (req, res) => {
   const { _id } = req.params;
@@ -478,7 +478,7 @@ exports.addCourseTA = async (req, res) => {
 };
 
 // @desc    Remove course teaching assistant
-// @route   DELETE api/course/:_id/teaching-assistants
+// @route   DELETE api/course/:_id/teaching-assistant
 // @access  Private/Intructor
 exports.removeCourseTA = async (req, res) => {
   const { _id } = req.params;
@@ -535,7 +535,7 @@ exports.removeCourseTA = async (req, res) => {
 };
 
 // @desc    Get course teaching assistants
-// @route   GET api/course/:_id/ta
+// @route   GET api/course/:_id/teaching-assistant
 // @access  Public
 exports.getCourseTAs = async (req, res) => {
   const { _id } = req.params;
@@ -590,7 +590,7 @@ exports.getCourseTAs = async (req, res) => {
 };
 
 // @desc    Add student to course
-// @route   PUT api/course/:_id/students
+// @route   POST api/course/:_id/student
 // @access  Private
 exports.addStudentToCourse = async (req, res) => {
   const { _id } = req.params;
@@ -640,7 +640,7 @@ exports.addStudentToCourse = async (req, res) => {
 };
 
 // @desc    Remove student from course
-// @route   PUT api/course/:_id/students
+// @route   DELETE api/course/:_id/student
 // @access  Private
 exports.removeStudentFromCourse = async (req, res) => {
   const { _id } = req.params;
@@ -690,7 +690,7 @@ exports.removeStudentFromCourse = async (req, res) => {
 };
 
 // @desc    Get course students
-// @route   GET api/course/:_id/students
+// @route   GET api/course/:_id/student
 // @access  Public
 exports.getCourseStudents = async (req, res) => {
   const { _id } = req.params;
