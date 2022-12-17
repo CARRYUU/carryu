@@ -45,6 +45,7 @@ const courseValidation = (data) => {
       .valid(
         "web-development",
         "programming-language",
+        "programming",
         "finance",
         "it-and-software",
         "art-design",
