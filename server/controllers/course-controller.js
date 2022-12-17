@@ -227,7 +227,7 @@ exports.addCourseComment = async (req, res) => {
       const newComment = {
         user: req.user._id,
         comment,
-        date: new Date(),
+        created: new Date(),
       };
 
       // Add the new comment to the course and save to database.
