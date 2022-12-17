@@ -4,9 +4,6 @@ import Nav from "./Nav";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-
-
-
   return (
     <div className="sticky top-0 ">
       <header className="flex backdrop-blur shadow-md py-2 w-full  sticky top-0 flex-wrap items-center bg-gradient-to-t">
