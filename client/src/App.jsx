@@ -37,9 +37,12 @@ function App() {
         <Route path="/course/search" element={<SearchResult />} />
         <Route path="/challenge" element={<Challenge />} />
         <Route path="/about" element={<About />} />
-        <Route path="/edit-profile" element={<EditProfile />} />
+
         <Route path="/auth/login" element={<Login />} />
+
         <Route path="/user/register" element={<Register />} />
+        <Route path="/user/edit-profile" element={<EditProfile />} />
+
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>
