@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const connect_db = () => {
+const connectDB = () => {
   console.log("Connecting to database...");
 
   mongoose
@@ -12,4 +12,4 @@ const connect_db = () => {
     .catch((err) => console.log(err));
 };
 
-module.exports = connect_db;
+module.exports = connectDB;
