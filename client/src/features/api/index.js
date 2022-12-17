@@ -11,7 +11,7 @@ API.interceptors.request.use(
     const user = getUserFromLocalStorage();
 
     if (user) {
-      config.headers.authroization = `Bearer ${user.token}`;
+      config.headers.authorization = `Bearer ${user.token}`;
     }
 
     return config;
