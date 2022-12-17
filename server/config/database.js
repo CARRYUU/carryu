@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const dbName = "carryu";
+
 const connectDB = () => {
   console.log("Connecting to database...");
 
@@ -7,8 +9,11 @@ const connectDB = () => {
     .connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      dbName,
     })
-    .then(() => console.log("MongoDB connected"))
+    .then(() =>
+      console.log(`MongoDB connected! Connected to database ${dbName}`)
+    )
     .catch((err) => console.log(err));
 };
 
