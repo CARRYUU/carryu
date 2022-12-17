@@ -45,6 +45,7 @@ const courseSchema = new Schema({
     enum: [
       "web-development",
       "programming-language",
+      "programming",
       "finance",
       "it-and-software",
       "art-design",
