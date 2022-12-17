@@ -620,6 +620,7 @@ exports.addStudentToCourse = async (req, res) => {
 
     // Add the student to the course
     course.students.unshift(user_id);
+    course.students_count = course.students.length;
 
     // Save the course to the database
     course
@@ -628,6 +629,7 @@ exports.addStudentToCourse = async (req, res) => {
         res.status(200).json({
           msg: "Student added successfully",
           student: course.students[0],
+          students_count: course.students_count,
         });
       })
       .catch((err) => {
