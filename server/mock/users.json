@@ -1,0 +1,52 @@
+[
+  {
+    "username": "student001",
+    "email": "student001@fakemail.com",
+    "password": "password"
+  },
+  {
+    "username": "student002",
+    "email": "student002@fakemail.com",
+    "password": "password"
+  },
+  {
+    "username": "student003",
+    "email": "student003@fakemail.com",
+    "password": "password"
+  },
+  {
+    "username": "student004",
+    "email": "student004@fakemail.com",
+    "password": "password"
+  },
+  {
+    "username": "student005",
+    "email": "student005@fakemail.com",
+    "password": "password"
+  },
+  {
+    "username": "student006",
+    "email": "student006@fakemail.com",
+    "password": "password"
+  },
+  {
+    "username": "student007",
+    "email": "student007@fakemail.com",
+    "password": "password"
+  },
+  {
+    "username": "student008",
+    "email": "student008@fakemail.com",
+    "password": "password"
+  },
+  {
+    "username": "student009",
+    "email": "student009@fakemail.com",
+    "password": "password"
+  },
+  {
+    "username": "student0010",
+    "email": "student0010@fakemail.com",
+    "password": "password"
+  }
+]
