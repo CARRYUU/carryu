@@ -1,0 +1,30 @@
+{
+  "name": "carryu_server",
+  "version": "1.0.0",
+  "description": "CarryU Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "CarryU"
+  },
+  "author": "CarryU Company",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdoc": "~4.0.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.2"
+  }
+}

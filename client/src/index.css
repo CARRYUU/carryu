@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    @apply bg-white text-gray-700
+      w-72 min-h-[10rem] 
+      shadow-lg rounded-md overflow-hidden
+      snap-center;
+  }
+
+  .cardSearch {
+    @apply bg-white text-gray-700
+      min-w-[10rem] w-screen
+      max-w-6xl
+      max-h-60
+      shadow-lg rounded-md overflow-hidden;
+  }
+
+  .badge {
+    @apply px-3 py-1 rounded-full text-xs bg-gray-100;
+  }
+  .class-title {
+    @apply font-semibold text-2xl
+      overflow-ellipsis overflow-hidden whitespace-nowrap;
+  }
+  .discount-percent {
+    @apply bg-mainOrange
+    px-1.5 py-0.5 rounded-md
+    text-xs text-white;
+  }
+
+  .button-search {
+    @apply bg-mainBlue hover:bg-mainBlue
+    px-2 py-1 rounded-md
+    mx-1
+    text-white font-medium
+    tracking-wider transition;
+  }
+
+  .button-primary {
+    @apply bg-mainBlue hover:bg-blue-700
+    px-6 py-2 rounded-md
+    text-white font-medium
+    tracking-wider transition;
+  }
+  .button-loveicon {
+    @apply flex-grow
+    flex justify-center items-center
+    bg-gray-300/60 hover:bg-gray-300/80
+    transition rounded-md;
+  }
+}
+
+@layer base {
+  body {
+    font-family: "Readex Pro", sans-serif;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
