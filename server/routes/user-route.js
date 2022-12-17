@@ -27,7 +27,9 @@ router
 router.route("/password/update").patch(isAuthenticatedUser, updateUserPassword);
 
 // get user purchase history
-router.route("/purchase-history").get(isAuthenticatedUser, getUserPurchaseHistory);
+router
+  .route("/purchase-history")
+  .get(isAuthenticatedUser, getUserPurchaseHistory);
 
 // switch user role
 router.route("/switch-role").patch(isAuthenticatedUser, switchUserRole);
