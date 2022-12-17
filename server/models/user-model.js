@@ -65,7 +65,7 @@ const userSchema = new Schema({
     type: Number,
     default: 0,
   },
-  challenge_record: [
+  challenge_history: [
     {
       course_id: Schema.Types.ObjectId,
       challenge_date: Date,
