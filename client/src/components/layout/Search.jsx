@@ -13,12 +13,8 @@ const Search = () => {
   };
 
   const handleSubmit = (event) => {
-
     navigate(`/courses/search/${searchInput}`);
-
-
   };
-
 
   // let dataSearch = CourseData.cardData.filter((item) => {
   //   return Object.keys(item).some((key) =>
@@ -32,7 +28,7 @@ const Search = () => {
   return (
     <div className="px-6 flex flex-[5_1_400px] items-center relative">
       <label
-        for="default-search"
+        htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
       >
         Search
@@ -47,9 +43,10 @@ const Search = () => {
         name="search"
       />
 
-      <button onClick={handleSubmit} className="button-search">Search</button>
-
-    </div >
+      <button onClick={handleSubmit} className="button-search">
+        Search
+      </button>
+    </div>
   );
 };
 
