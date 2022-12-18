@@ -3,7 +3,7 @@ import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import CheckoutList from "./CheckoutList";
 import TotalPrice from "../Cart/TotalPrice";
-import ShopList from "../Cart/ShopList";
+import ShopList from "../Cart/CartItem";
 import Payment from "./Payment";
 import CheckoutPrice from "./CheckoutPrice";
 
