@@ -52,15 +52,22 @@ export const getCourseAllComments = (id) => API.get(`/course/${id}/comment`);
 export const addCourseTA = (id, data) =>
   API.post(`/course/${id}/teaching-assistant`, data);
 export const removeCourseTA = (id, data) =>
-  API.delete(`/course/${id}/teaching-assistant`, data);
+  API.delete(`/course/${id}/teaching-assistant`, {
+    data,
+  });
 export const getCourseTAs = (id) => API.get(`/course/${id}/teaching-assistant`);
 export const addStudentToCourse = (id, data) =>
   API.post(`/course/${id}/student`, data);
 export const removeStudentFromCourse = (id, data) =>
-  API.delete(`/course/${id}/student`, data);
+  API.delete(`/course/${id}/student`, {
+    data,
+  });
 export const getCourseStudents = (id) => API.get(`/course/${id}/student`);
 
 // Path: baseURL/cart/
-export const addCourseToCart = () => API.post(`/cart`);
-export const removeCourseFormCart = () => API.delete(`/cart`);
+export const addCourseToCart = (data) => API.post(`/cart`, data);
+export const removeCourseFromCart = (data) =>
+  API.delete(`/cart`, {
+    data,
+  });
 export const getCartItems = () => API.get("/cart");
