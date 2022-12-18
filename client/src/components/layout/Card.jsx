@@ -1,5 +1,4 @@
 import React from "react";
-import processBuffer from "../../utils/processBuffer";
 
 const Card = (props) => {
   return (
