@@ -34,7 +34,6 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" exact element={<Homepage />} />
-        <Route path="/course/search" element={<SearchResult />} />
         <Route path="/challenge" element={<Challenge />} />
         <Route path="/about" element={<About />} />
 
@@ -42,6 +41,8 @@ function App() {
 
         <Route path="/user/register" element={<Register />} />
         <Route path="/user/edit-profile" element={<EditProfile />} />
+
+        <Route path="/course/search/:title" element={<SearchResult />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
