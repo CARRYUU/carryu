@@ -136,7 +136,7 @@ const getAllCourses = async (thunkAPI) => {
   }
 };
 
-const courseServices = {
+const allCoursesServices = {
   getCoursesByTitle,
   getCourseInfoById,
   getTenMostPopularCourses,
@@ -144,4 +144,4 @@ const courseServices = {
   getAllCourses,
 };
 
-export default courseServices;
+export default allCoursesServices;
