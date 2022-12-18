@@ -38,7 +38,7 @@ export const getAllCourses = createAsyncThunk(
 );
 
 const initialState = {
-  courses: [],
+  coursesByTitle: [],
   tenMostPopularCourses: [],
   tenMostNewestCourses: [],
   isLoading: false,
@@ -50,7 +50,7 @@ export const allCoursesSlice = createSlice({
   reducers: {},
   extraReducers: {
     [getCoursesByTitle.fulfilled]: (state, action) => {
-      state.courses = action.payload;
+      state.coursesByTitle = action.payload;
       state.isLoading = false;
     },
     [getCoursesByTitle.pending]: (state) => {
@@ -58,7 +58,7 @@ export const allCoursesSlice = createSlice({
     },
     [getCoursesByTitle.rejected]: (state) => {
       state.isLoading = false;
-      state.courses = null;
+      state.coursesByTitle = null;
     },
     [getCourseInfoById.fulfilled]: (state, action) => {
       state.courses = action.payload;
@@ -109,5 +109,7 @@ export const allCoursesSlice = createSlice({
     },
   },
 });
+
+export const { setSearchedText } = allCoursesSlice.actions;
 
 export default allCoursesSlice.reducer;
