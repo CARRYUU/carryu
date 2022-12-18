@@ -63,12 +63,15 @@ exports.updateCourseInfo = async (req, res) => {
         });
       }
 
+      const { title, description, price, category } = req.body;
+      const thumbnail = req.file ? req.file.filename : null;
+
       // Update the course info.
-      course.title = req.body.title || course.title;
-      course.description = req.body.description || course.description;
-      course.price = req.body.price || course.price;
-      course.thumbnail = req.body.thumbnail || course.thumbnail;
-      course.category = req.body.category || course.category;
+      course.title = title || course.title;
+      course.description = description || course.description;
+      course.price = price || course.price;
+      course.thumbnail = thumbnail || course.thumbnail;
+      course.category = category || course.category;
 
       //Validate the course data.
       const { error } = courseValidation({
@@ -95,14 +98,14 @@ exports.updateCourseInfo = async (req, res) => {
         })
         .catch((err) => {
           res.status(400).json({
-            err_msg: "Course info update failed",
+            err_msg: "Course info update failed in save()",
             error: err,
           });
         });
     })
     .catch((err) => {
       res.status(400).json({
-        msg: "Course info update failed",
+        msg: "Course info update failed in findById()",
         error: err,
       });
     });
@@ -181,8 +184,9 @@ exports.getCourseContentById = async (req, res) => {
 exports.getCoursesByTitle = async (req, res) => {
   const { title } = req.params;
 
+  // fuzzy search by title
   const courses = await Course.find({
-    title: { $regex: title },
+    title: { $regex: title, $options: "i" },
     $orderby: { views_count: -1 },
   });
 
@@ -196,6 +200,7 @@ exports.getCoursesByTitle = async (req, res) => {
 
   return res.status(200).json({
     msg: `Found ${courses.length} courses`,
+    title,
     courses,
   });
 };
@@ -393,7 +398,15 @@ exports.getARandomCourse = async (req, res) => {
     .then((course) => {
       res.status(200).json({
         msg: "Found a course",
-        course,
+        course_info: {
+          title: course.title,
+          instructor: instructor.username,
+          description: course.description,
+          price: course.price,
+          thumbnail: course.thumbnail,
+          category: course.category,
+          students_count: course.students.length,
+        },
       });
     })
     .catch((err) => {
