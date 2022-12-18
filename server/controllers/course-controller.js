@@ -3,7 +3,7 @@ const User = require("../models/user-model");
 const courseValidation = require("../config/validation").courseValidation;
 
 // @desc    Create new course
-// @route   GET api/course/create
+// @route   POST api/course/create
 // @access  Private/Instructor
 exports.createNewCourse = (req, res) => {
   // Desctructure the request body
