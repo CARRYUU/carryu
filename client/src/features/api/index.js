@@ -35,7 +35,7 @@ export const switchUserRole = () => API.patch("/user/switch-role");
 
 // Path: baseURL/course/
 export const createNewCourse = (data) => API.post("/course/create", data);
-export const getCourseByTitle = (title) => API.get(`/course/${title}`);
+export const getCoursesByTitle = (title) => API.get(`/course/search/${title}`);
 export const updateCourseInfo = (id, data) =>
   API.patch(`/course/${id}/info`, data);
 export const getCourseInfoById = (id) => API.get(`/course/${id}/info`);
