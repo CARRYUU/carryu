@@ -16,6 +16,7 @@ const HomePageCourseList = (props) => {
             badge3={course.badge3}
             title={course.title}
             description={course.description}
+            thumbnail={course.thumbnail}
             salePrice={course.salePrice ? course.salePrice : course.price}
             originalPrice={course.price}
           />
