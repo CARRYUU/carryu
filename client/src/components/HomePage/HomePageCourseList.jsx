@@ -11,6 +11,7 @@ const HomePageCourseList = (props) => {
         {coursesData?.courses?.map((course) => (
           <Card
             key={course._id}
+            _id={course._id}
             badge1={course.category}
             badge2={course.badge2}
             badge3={course.badge3}
