@@ -14,12 +14,13 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
+import CourseInfo from "./components/CourseInfo/CourseInfo";
 
 function App() {
   return (
     <div className="App">
       <ToastContainer
-        position="top-right"
+        position="top-center"
         autoClose={2000}
         limit={3}
         hideProgressBar={false}
@@ -43,6 +44,7 @@ function App() {
         <Route path="/user/edit-profile" element={<EditProfile />} />
 
         <Route path="/course/search/:title" element={<SearchResult />} />
+        <Route path="/course/:id/info" element={<CourseInfo />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
