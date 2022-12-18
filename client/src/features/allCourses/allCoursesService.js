@@ -1,15 +1,17 @@
 import { toast } from "react-toastify";
 import * as api from "../api";
 
-const getCourseByTitle = async (title, thunkAPI) => {
+const getCoursesByTitle = async (title, thunkAPI) => {
   try {
-    const response = await api.getCourseByTitle(title);
+    const response = await api.getCoursesByTitle(title);
 
     if (!response.data) {
       console.log("No data returned from getCoursesByTitle API call.");
 
       return;
     }
+
+    console.log("Get courses by title response:", response.data);
 
     return response.data;
   } catch (error) {
@@ -90,6 +92,8 @@ const getTenMostNewestCourses = async (thunkAPI) => {
       return;
     }
 
+    console.log("Get ten most newest courses response:", response.data);
+
     return response.data;
   } catch (error) {
     const message =
@@ -133,7 +137,7 @@ const getAllCourses = async (thunkAPI) => {
 };
 
 const courseServices = {
-  getCourseByTitle,
+  getCoursesByTitle,
   getCourseInfoById,
   getTenMostPopularCourses,
   getTenMostNewestCourses,
