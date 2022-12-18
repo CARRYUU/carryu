@@ -18,6 +18,10 @@ const HomePage = () => {
     dispatch(getTenMostNewestCourses());
   }, []);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <div>
