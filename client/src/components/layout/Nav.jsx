@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
 const Nav = () => {
 
@@ -14,10 +15,8 @@ const Nav = () => {
           <Link to="/challenge">我要挑戰|Chellnge</Link>
         </li>
       </ul>
-
-      <Link to="/user">
-        <img src={require("../../icon/iconMember.png")} className="p-2"></img>
-      </Link>
+      
+      <Dropdown />
       <Link href="/cart">
         <img src={require("../../icon/iconCart.png")} className="p-2"></img>
       </Link>
