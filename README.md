@@ -10,12 +10,12 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
   - [Table of Contents](#table-of-contents)
   - [Project Documents](#project-documents)
     - [3 Major Documents](#3-major-documents)
+  - [How to Run in Localhost?](#how-to-run-in-localhost)
   - [For Developer](#for-developer)
     - [Software Requirement](#software-requirement)
     - [Developer Tools](#developer-tools)
     - [Tools' Official Document](#tools-official-document)
     - [Learning Resources](#learning-resources)
-  - [How to Run?](#how-to-run)
 
 ## Project Documents
 
@@ -29,9 +29,77 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
 
 If you want to see the acrchieve files, please click [acrchieve](./docs/archieve/).
 
+## How to Run in Localhost?
+
+Clone this repository first. If you are our developer, please use SSH.
+
+```Bash
+$ git clone git@github.com:CARRYUU/carryu.git
+$ cd carryu
+```
+
+Download all backend package.
+
+```Bash
+$ cd server
+$ npm install
+```
+
+Rename `.env.example` to `.env` and then place those three variables.
+Default port is 3000.
+
+```javascript
+PORT=<PLACE PORT YOU WANT TO LISTEN>
+MONGO_URI=<PLACE YOUR MONGO CONNECTION LINK>
+JWT_SECRET=<PLACE YOUR JWT SECRET>
+```
+
+like this one.
+
+```
+PORT=8080
+MONGO_URI=mongodb+srv://example:example-password@cluster0.aaaaaa.mongodb.net/?retryWrites=true&w=majority
+JWT_SECRET=THIS_IS_MY_SECRET
+```
+
+Run the backend server in `localhost`.
+
+You can use `nodemon`
+
+```Bash
+$ nodemon index.js
+```
+
+or just using `node` to run
+
+```
+$ node index.js
+```
+
+After running the backend server, we can open the other terminal to start our frontend app. Also, don't forget to download package.
+
+```Bash
+$ cd client
+$ npm install
+```
+
+Rename `.env.example` to `.env` and then place the variable.
+You should place the same port as the the port you listen on the backend server.
+If you want to add other react app environment variable, you must start the name with `REACT_APP`.
+
+```
+REACT_APP_API_URL=http://localhost:8080/api
+```
+
+Start the react app!
+
+```Bash
+$ npm run start
+```
+
 ## For Developer
 
-> 學習看官方文件跟餵狗，即便很多官方文件寫得很爛 ==
+> 學習看官方文件跟餵狗，即便很多官方文件寫得很藝術
 
 ### Software Requirement
 
@@ -75,51 +143,23 @@ If you want to see the acrchieve files, please click [acrchieve](./docs/archieve
 
 ### Tools' Official Document
 
-@TODO
+- Frontend Tools
+  - React.js
+  - Tailwindcss
+  - Redux-tool kits
+  - Axios
+  - react-router-dom
+- Backend Tools
+  - Node.js
+  - Express
+  - MongoDB
+  - Mongoose
+  - jsonwebtoken
 
 ### Learning Resources
 
 - [MDN Resources for Developers, by Developers](https://developer.mozilla.org/en-US/) - 基本上是必備的，幾乎你想的到的所有網站開發的知識這裡都有。
 
 - [Udemy 2022 網頁開發全攻略(HTML, CSS, JavaScript, React, SQL, Node, more)](https://www.udemy.com/course/html5-css3-z/) - (無業配)網頁全端開發很好的入門磚，老師講得淺顯易懂，等特價的時候差不多三四百塊就買的到，非常划算。
-  ]
 
 其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
-
-## How to Run?
-
-Clone this repository first. If you are our developer, please use SSH.
-
-```Bash
-
-git clone git@github.com:CARRYUU/carryu.git
-cd carryu
-
-```
-
-Download all backend package.
-
-```Bash
-
-cd server
-npm install
-
-```
-
-Run the backend server in `localhost`.
-
-You can use `nodemon`
-
-```Bash
-
-nodemon index.js
-
-```
-
-or just `node`
-
-```
-
-node index.js
-
-```
