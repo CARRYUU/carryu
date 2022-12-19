@@ -1,6 +1,7 @@
-import React from "react";
+import React,{Component} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import {ReactComponent as LoveIcon} from '../../icon/heart.svg';
 
 import { addCourseToCart } from "../../features/cart/cartSlice";
 
@@ -75,11 +76,7 @@ const Card = (props) => {
               Add to cart
             </button>
             <button className="button-loveicon">
-              <img
-                src={require("../../icon/favorite.png")}
-                alt="add to favorite"
-                className="opacity-50"
-              ></img>
+              <LoveIcon className="w-8 fill-slate-500"/>
             </button>
           </div>
         </div>
