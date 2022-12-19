@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("../config/upload");
 
 const {
   isAuthenticatedUser,
@@ -30,16 +31,23 @@ const {
 } = require("../controllers/course-controller");
 
 // create a new course
-router.route("/create").post(isAuthenticatedUser, isInstructor, createNewCourse);
+router
+  .route("/create")
+  .post(isAuthenticatedUser, isInstructor, createNewCourse);
 
 // course info
-router.route("/:_id/info").get(getCourseInfoById).patch(isAuthenticatedUser, updateCourseInfo);
+router
+  .route("/:_id/info")
+  .get(getCourseInfoById)
+  .post(upload.single("thumbnail"), isAuthenticatedUser, updateCourseInfo);
 
 // search course by title
 router.route("/search/:title").get(getCoursesByTitle);
 
 // course content
-router.route("/:_id/content").get(isAuthenticatedUser, isCourseMember, getCourseContentById);
+router
+  .route("/:_id/content")
+  .get(isAuthenticatedUser, isCourseMember, getCourseContentById);
 
 // course comment
 router
@@ -56,16 +64,16 @@ router.route("/random").get(getARandomCourse);
 
 // course teaching assistants
 router
-  .route("/:_id/teaching-assistants")
+  .route("/:_id/teaching-assistant")
   .get(getCourseTAs)
   .put(isAuthenticatedUser, addCourseTA)
   .delete(isAuthenticatedUser, removeCourseTA);
 
 // course students
 router
-  .route("/:_id/students")
+  .route("/:_id/student")
   .get(getCourseStudents)
-  .put(isAuthenticatedUser, addStudentToCourse)
+  .post(isAuthenticatedUser, addStudentToCourse)
   .delete(isAuthenticatedUser, removeStudentFromCourse);
 
 module.exports = router;

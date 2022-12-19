@@ -5,6 +5,8 @@ const Course = require("../models/course-model");
 // @route   POST api/cart/
 // @access  Private
 exports.addCourseToCart = async (req, res) => {
+  console.log("Adding course to cart...");
+
   // Get course id from request body
   const { course_id } = req.body;
 
@@ -72,6 +74,8 @@ exports.addCourseToCart = async (req, res) => {
 // @route   DELETE api/cart/
 // @access  Private
 exports.removeCourseFromCart = async (req, res) => {
+  console.log("Removing course from cart...");
+
   // Get course id from request body
   const { course_id } = req.body;
 
@@ -139,6 +143,8 @@ exports.removeCourseFromCart = async (req, res) => {
 // @route   GET api/cart/
 // @access  Private
 exports.getCartItems = async (req, res) => {
+  console.log("Getting cart items...");
+
   // Check if user exists
   User.findById(req.user._id)
     .then((user) => {
