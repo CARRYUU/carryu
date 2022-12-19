@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
 import userIcon from "../../icon/userIcon.svg";
 // import { ReactComponent as Logo } from "./../icon/userIcon.svg";
@@ -26,6 +27,11 @@ const Nav = () => {
         </li>
       </ul>
 
+      
+      <Dropdown />
+      <Link href="/cart">
+
+
       {!user && (
         <Link to="/auth/login">
           <img src={userIcon} className="p-2"></img>
@@ -39,6 +45,7 @@ const Nav = () => {
       )}
 
       <Link to="/cart">
+
         <img src={require("../../icon/iconCart.png")} className="p-2"></img>
       </Link>
       <Link to="/language">
