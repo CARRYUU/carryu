@@ -30,7 +30,8 @@ export const registerUser = (data) => API.post("/user/register", data);
 export const getUserProfile = () => API.get("/user/profile");
 export const updateUserProfile = (data) => API.patch("/user/profile", data);
 export const getUserPurchaseHistory = () => API.get("/user/purchase-history");
-export const updateUserPassword = (data) => API.patch("/user/password", data);
+export const updateUserPassword = (data) =>
+  API.patch("/user/password/update", data);
 export const switchUserRole = () => API.patch("/user/switch-role");
 
 // Path: baseURL/course/
