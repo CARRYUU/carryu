@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const footer = () => {
+const Footer = () => {
   return (
     <div className="footer">
       <footer class="p-4 bg-white  shadow md:px-6 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
-          <a href="/logo" class="flex items-center mb-4 sm:mb-0">
+          <Link to="/" class="flex items-center mb-4 sm:mb-0">
             <img
               src={require("../../icon/logo.png")}
               className="mr-0 h-12 flex flex-none"
@@ -16,12 +16,12 @@ const footer = () => {
               src={require("../../icon/name.png")}
               className="text-mainBlue flex flex-none ml-1 w-32"
             ></img>
-          </a>
+          </Link>
           <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0">
             <li>
-              <a href="/about" class="mr-4 hover:underline md:mr-6 ">
+              <Link to="/about" class="mr-4 hover:underline md:mr-6 ">
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <Link href="/" class="mr-4 hover:underline md:mr-6">
@@ -43,9 +43,9 @@ const footer = () => {
         <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
         <span class="block text-sm text-gray-500 sm:text-center">
           © 2022{" "}
-          <a href="https://flowbite.com/" class="hover:underline">
+          <Link to="/" class="hover:underline">
             CarryU
-          </a>
+          </Link>
           . All Rights Reserved.
         </span>
       </footer>
@@ -53,4 +53,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;

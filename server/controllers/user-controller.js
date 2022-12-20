@@ -1,17 +1,20 @@
 const User = require("../models/user-model.js");
-const registerValidation = require("../config/validation.js").registerValidation;
-const updateProfileValidation = require("../config/validation.js").updateProfileValidation;
-const passwordValidation = require("../config/validation.js").passwordValidation;
+const registerValidation =
+  require("../config/validation.js").registerValidation;
+const updateProfileValidation =
+  require("../config/validation.js").updateProfileValidation;
+const passwordValidation =
+  require("../config/validation.js").passwordValidation;
 
 // @desc    Register new user
 // @route   POST api/user/register
 // @access  Public
 exports.registerUser = async (req, res) => {
   // Destruct register data from request body.
-  let { username, email, password, role } = req.body;
+  let { username, email, password } = req.body;
 
   // Check if register data is valid.
-  const { error } = registerValidation({ username, email, password, role });
+  const { error } = registerValidation({ username, email, password });
   if (error) return res.status(400).json({ err_msg: error.details[0].message });
 
   // Check if the email already exists.
@@ -30,7 +33,6 @@ exports.registerUser = async (req, res) => {
     username,
     email,
     password,
-    role,
   });
 
   try {
@@ -72,13 +74,21 @@ exports.getUserProfile = async (req, res) => {
 // @route   PATCH api/user/profile
 // @access  Private
 exports.updateUserProfile = async (req, res) => {
-  const user = await User.findById(req.user._id);
+  // Check if the input email already exists.
+  const emailExist = await User.findOne({
+    email: req.body.email,
+  });
 
-  if (!user) {
-    return res.status(404).json({
-      err_msg: "User not found",
+  // If email exists, return error message.
+  if (emailExist) {
+    console.log("Email has already been registered.");
+    return res.status(400).json({
+      err_msg: "Email has already been registered.",
     });
   }
+
+  // Destruct user from request.
+  const { user } = req;
 
   username = req.body.username || user.username;
   email = req.body.email || user.email;
@@ -144,7 +154,8 @@ exports.updateUserPassword = async (req, res) => {
   // Three password fields are required.
   if (!(old_password && new_password && confirm_password)) {
     return res.status(400).json({
-      err_msgs: "Please enter all password fields: old_password, new_password, confirm_password",
+      err_msgs:
+        "Please enter all password fields: old_password, new_password, confirm_password",
     });
   }
 
@@ -154,7 +165,8 @@ exports.updateUserPassword = async (req, res) => {
     if (isMatch) {
       // Check if the new password is valid.
       const { error } = passwordValidation({ password: new_password });
-      if (error) return res.status(400).json({ err_msg: error.details[0].message });
+      if (error)
+        return res.status(400).json({ err_msg: error.details[0].message });
 
       // Check if the new password is equal to confirmation one.
       if (new_password !== confirm_password) {
@@ -179,7 +191,7 @@ exports.updateUserPassword = async (req, res) => {
 };
 
 // @desc    Switch a user role to student
-// @route   PATCH api/user/swtich-role
+// @route   PATCH api/user/switch-role
 // @access  Private
 exports.switchUserRole = async (req, res) => {
   const user = await User.findById(req.user._id);

@@ -17,10 +17,6 @@ const videoSchema = new Schema({
 module.exports = mongoose.model("Video", videoSchema);
 
 const courseSchema = new Schema({
-  id: {
-    type: String,
-    require: true,
-  },
   instructor: {
     type: Schema.Types.ObjectId,
     require: true,
@@ -49,6 +45,7 @@ const courseSchema = new Schema({
     enum: [
       "web-development",
       "programming-language",
+      "programming",
       "finance",
       "it-and-software",
       "art-design",
@@ -72,7 +69,20 @@ const courseSchema = new Schema({
     default: [],
   },
   comments: {
-    type: [{}],
+    type: [
+      {
+        user_id: {
+          type: String,
+        },
+        comment: {
+          type: String,
+        },
+        created: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
     default: [],
   },
   teaching_assistants: {

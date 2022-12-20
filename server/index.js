@@ -1,6 +1,6 @@
 const express = require("express");
 require("dotenv").config();
-const connect_db = require("./config/database.js");
+const connectDB = require("./config/database.js");
 const cors = require("cors");
 const app = express();
 
@@ -17,7 +17,7 @@ const paymentRoute = require("./routes/payment-route.js");
 const transactionRoute = require("./routes/transaction-route.js");
 
 // Connect to database
-connect_db();
+connectDB();
 
 // Init middleware
 app.use(express.json()); // automatically parse incoming JSON to object

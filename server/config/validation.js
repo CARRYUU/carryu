@@ -5,7 +5,6 @@ const registerValidation = (data) => {
     username: Joi.string().min(3).max(255).required("Name is required"),
     email: Joi.string().min(6).max(255).required("Email is required").email(),
     password: Joi.string().min(6).max(255).required("Password is required"),
-    role: Joi.string().required().valid("student", "instructor"),
   });
 
   return schema.validate(data);
@@ -46,6 +45,7 @@ const courseValidation = (data) => {
       .valid(
         "web-development",
         "programming-language",
+        "programming",
         "finance",
         "it-and-software",
         "art-design",

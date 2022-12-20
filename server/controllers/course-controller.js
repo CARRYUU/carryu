@@ -3,7 +3,7 @@ const User = require("../models/user-model");
 const courseValidation = require("../config/validation").courseValidation;
 
 // @desc    Create new course
-// @route   GET api/course/create
+// @route   POST api/course/create
 // @access  Private/Instructor
 exports.createNewCourse = (req, res) => {
   // Desctructure the request body
@@ -63,12 +63,15 @@ exports.updateCourseInfo = async (req, res) => {
         });
       }
 
+      const { title, description, price, category } = req.body;
+      const thumbnail = req.file ? req.file.filename : null;
+
       // Update the course info.
-      course.title = req.body.title || course.title;
-      course.description = req.body.description || course.description;
-      course.price = req.body.price || course.price;
-      course.thumbnail = req.body.thumbnail || course.thumbnail;
-      course.category = req.body.category || course.category;
+      course.title = title || course.title;
+      course.description = description || course.description;
+      course.price = price || course.price;
+      course.thumbnail = thumbnail || course.thumbnail;
+      course.category = category || course.category;
 
       //Validate the course data.
       const { error } = courseValidation({
@@ -95,14 +98,14 @@ exports.updateCourseInfo = async (req, res) => {
         })
         .catch((err) => {
           res.status(400).json({
-            err_msg: "Course info update failed",
+            err_msg: "Course info update failed in save()",
             error: err,
           });
         });
     })
     .catch((err) => {
       res.status(400).json({
-        msg: "Course info update failed",
+        msg: "Course info update failed in findById()",
         error: err,
       });
     });
@@ -181,8 +184,9 @@ exports.getCourseContentById = async (req, res) => {
 exports.getCoursesByTitle = async (req, res) => {
   const { title } = req.params;
 
+  // fuzzy search by title
   const courses = await Course.find({
-    title: { $regex: title },
+    title: { $regex: title, $options: "i" },
     $orderby: { views_count: -1 },
   });
 
@@ -196,6 +200,7 @@ exports.getCoursesByTitle = async (req, res) => {
 
   return res.status(200).json({
     msg: `Found ${courses.length} courses`,
+    title,
     courses,
   });
 };
@@ -227,7 +232,7 @@ exports.addCourseComment = async (req, res) => {
       const newComment = {
         user: req.user._id,
         comment,
-        date: new Date(),
+        created: new Date(),
       };
 
       // Add the new comment to the course and save to database.
@@ -393,7 +398,15 @@ exports.getARandomCourse = async (req, res) => {
     .then((course) => {
       res.status(200).json({
         msg: "Found a course",
-        course,
+        course_info: {
+          title: course.title,
+          instructor: instructor.username,
+          description: course.description,
+          price: course.price,
+          thumbnail: course.thumbnail,
+          category: course.category,
+          students_count: course.students.length,
+        },
       });
     })
     .catch((err) => {
@@ -405,7 +418,7 @@ exports.getARandomCourse = async (req, res) => {
 };
 
 // @desc    Add course teaching assistant
-// @route   PUT api/course/:_id/teaching-assistants
+// @route   PUT api/course/:_id/teaching-assistant
 // @access  Private/Intructor
 exports.addCourseTA = async (req, res) => {
   const { _id } = req.params;
@@ -478,7 +491,7 @@ exports.addCourseTA = async (req, res) => {
 };
 
 // @desc    Remove course teaching assistant
-// @route   DELETE api/course/:_id/teaching-assistants
+// @route   DELETE api/course/:_id/teaching-assistant
 // @access  Private/Intructor
 exports.removeCourseTA = async (req, res) => {
   const { _id } = req.params;
@@ -535,7 +548,7 @@ exports.removeCourseTA = async (req, res) => {
 };
 
 // @desc    Get course teaching assistants
-// @route   GET api/course/:_id/ta
+// @route   GET api/course/:_id/teaching-assistant
 // @access  Public
 exports.getCourseTAs = async (req, res) => {
   const { _id } = req.params;
@@ -590,7 +603,7 @@ exports.getCourseTAs = async (req, res) => {
 };
 
 // @desc    Add student to course
-// @route   PUT api/course/:_id/students
+// @route   POST api/course/:_id/student
 // @access  Private
 exports.addStudentToCourse = async (req, res) => {
   const { _id } = req.params;
@@ -620,6 +633,7 @@ exports.addStudentToCourse = async (req, res) => {
 
     // Add the student to the course
     course.students.unshift(user_id);
+    course.students_count = course.students.length;
 
     // Save the course to the database
     course
@@ -628,6 +642,7 @@ exports.addStudentToCourse = async (req, res) => {
         res.status(200).json({
           msg: "Student added successfully",
           student: course.students[0],
+          students_count: course.students_count,
         });
       })
       .catch((err) => {
@@ -640,7 +655,7 @@ exports.addStudentToCourse = async (req, res) => {
 };
 
 // @desc    Remove student from course
-// @route   PUT api/course/:_id/students
+// @route   DELETE api/course/:_id/student
 // @access  Private
 exports.removeStudentFromCourse = async (req, res) => {
   const { _id } = req.params;
@@ -690,7 +705,7 @@ exports.removeStudentFromCourse = async (req, res) => {
 };
 
 // @desc    Get course students
-// @route   GET api/course/:_id/students
+// @route   GET api/course/:_id/student
 // @access  Public
 exports.getCourseStudents = async (req, res) => {
   const { _id } = req.params;
