@@ -24,7 +24,7 @@ router
   .patch(isAuthenticatedUser, updateUserProfile);
 
 // update user password
-router.route("/password").patch(isAuthenticatedUser, updateUserPassword);
+router.route("/password/update").patch(isAuthenticatedUser, updateUserPassword);
 
 // get user purchase history
 router
