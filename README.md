@@ -1,21 +1,31 @@
-# CarryU
+<img src="./images/carryu_big_logo_white_background.svg" alt="banner mabuhay"></img>
 
 We are CarryU, an online courses platform!
 
 This document is written by [@xxrjun](https://github.com/xxrjun).
 
+## Our teams
+
+- [@xxrjun](https://github.com/xxrjun)
+- [@Tsu-Yu carrie57](https://github.com/Tsu-Yu)
+- [@Chen-LiYin](https://github.com/Chen-LiYin)
+- [@heyuhsuan](https://github.com/heyuhsuan)
+- [@Elly520](https://github.com/Elly520)
+- [@HankLiu20](https://github.com/HankLiu20)
+- [@Joe-qwe](https://github.com/Joe-qwe)
+
 ## Table of Contents
 
-- [CarryU](#carryu)
-  - [Table of Contents](#table-of-contents)
-  - [Project Documents](#project-documents)
-    - [3 Major Documents](#3-major-documents)
-  - [How to Run in Localhost?](#how-to-run-in-localhost)
-  - [For Developer](#for-developer)
-    - [Software Requirement](#software-requirement)
-    - [Developer Tools](#developer-tools)
-    - [Tools' Official Document](#tools-official-document)
-    - [Learning Resources](#learning-resources)
+- [Our teams](#our-teams)
+- [Table of Contents](#table-of-contents)
+- [Project Documents](#project-documents)
+  - [3 Major Documents](#3-major-documents)
+- [How to Run in Localhost?](#how-to-run-in-localhost)
+- [For Developer](#for-developer)
+  - [Software Requirement](#software-requirement)
+  - [Developer Tools](#developer-tools)
+  - [Tools' Official Document](#tools-official-document)
+  - [Learning Resources](#learning-resources)
 
 ## Project Documents
 
