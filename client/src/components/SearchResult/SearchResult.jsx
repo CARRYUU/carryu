@@ -37,6 +37,7 @@ const SearchResult = () => {
         {courses?.map((course) => (
           <SearchResultCard
             key={course._id}
+            _id={course._id}
             badge1={course.category}
             badge2={course.badge2}
             badge3={course.badge3}
