@@ -1,6 +1,10 @@
-import React from "react";
+import React,{Component} from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
+import {ReactComponent as Usericon} from '../../icon/user.svg';
+import { ReactComponent as Carticon } from '../../icon/cart.svg';
+import { ReactComponent as  Courseicon} from '../../icon/book.svg';
+
 
 const Nav = () => {
   return (
@@ -17,13 +21,10 @@ const Nav = () => {
       <Dropdown />
 
       <Link to="/cart">
-        <img src={require("../../icon/iconCart.png")} className="p-2"></img>
+        <Carticon className=" w-10 p-2"/>
       </Link>
-      <Link to="/language">
-        <img
-          src={require("../../icon/iconGlobe.png")}
-          className="p-2 mr-4"
-        ></img>
+      <Link to="/Course">
+        <Courseicon className="w-10 p-2"/>
       </Link>
     </nav>
   );
