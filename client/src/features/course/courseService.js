@@ -63,6 +63,8 @@ const updateCourseInfo = async (courseData, thunkAPI) => {
 
 export const getCourseInfoById = async (id, thunkAPI) => {
   try {
+    console.log("Getting course info by id....", id);
+
     const response = await api.getCourseInfoById(id);
 
     if (!response.data) {
