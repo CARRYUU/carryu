@@ -82,9 +82,13 @@ const getPoints = async (req, res) => {
       return res.status(200).json({
         msg: `You have ${gotpoints} points`,
       });
+    } else if (gotpoints == 0) {
+      return res.status(400).json({
+        msg: `You have 0 points`,
+      });
     } else {
       return res.status(400).json({
-        msg: "Failed to get points",
+        msg: `Failed to get points`,
       });
     }
   });
