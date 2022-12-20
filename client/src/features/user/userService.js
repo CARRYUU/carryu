@@ -38,6 +38,7 @@ const registerUser = async (formData, thunkAPI) => {
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.err_msg) ||
+      error.response.data.message ||
       error.message ||
       error.toString();
 
@@ -64,6 +65,7 @@ const getUserProfile = async (thunkAPI) => {
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.err_msg) ||
+      error.response.data.message ||
       error.message ||
       error.toString();
 
@@ -90,6 +92,7 @@ const getUserPurchaseHistory = async (thunkAPI) => {
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.err_msg) ||
+      error.response.data.message ||
       error.message ||
       error.toString();
 
@@ -137,6 +140,7 @@ const updateUserProfile = async (formData, thunkAPI) => {
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.err_msg) ||
+      error.response.data.message ||
       error.message ||
       error.toString();
 
@@ -151,6 +155,8 @@ const updateUserProfile = async (formData, thunkAPI) => {
 
 const updateUserPassword = async (formData, thunkAPI) => {
   try {
+    console.log("Updating user password...");
+
     const response = await api.updateUserPassword(formData);
 
     if (!response.data) {
@@ -178,12 +184,13 @@ const updateUserPassword = async (formData, thunkAPI) => {
       )
       .then(() => {
         // history.push("/");
-        window.location.href = "/";
+        window.location.href = "/auth/login";
         return response.data;
       });
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.err_msg) ||
+      error.response.data.message ||
       error.message ||
       error.toString();
 
@@ -231,6 +238,7 @@ const switchUserRole = async (thunkAPI) => {
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.err_msg) ||
+      error.response.data.message ||
       error.message ||
       error.toString();
 
