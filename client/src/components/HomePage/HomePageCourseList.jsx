@@ -1,5 +1,4 @@
 import React from "react";
-import Title from "../layout/Title";
 import Card from "../layout/Card";
 
 const HomePageCourseList = (props) => {
@@ -7,20 +6,32 @@ const HomePageCourseList = (props) => {
 
   return (
     <div>
-      <div className="flex snap-x scroll-pl-6">
-        {coursesData?.courses?.map((course) => (
-          <Card
-            key={course._id}
-            badge1={course.category}
-            badge2={course.badge2}
-            badge3={course.badge3}
-            title={course.title}
-            description={course.description}
-            salePrice={course.salePrice ? course.salePrice : course.price}
-            originalPrice={course.price}
-          />
-        ))}
-      </div>
+      {coursesData ? (
+        <div className="flex snap-x overflow-x-scroll scroll-pl-6 scrollbar">
+          {coursesData?.courses?.map((course) => (
+            <div className="snap-center">
+              <Card
+                key={course._id}
+                _id={course._id}
+                category={course.category}
+                students_count={course.students_count}
+                badge3={course.badge3}
+                title={course.title}
+                description={course.description}
+                thumbnail={course.thumbnail}
+                salePrice={course.salePrice ? course.salePrice : course.price}
+                originalPrice={course.price}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="flex justify-center items-center">
+          <h1 className="text-2xl">
+            No Courses Now! <br />
+          </h1>
+        </div>
+      )}
     </div>
   );
 };

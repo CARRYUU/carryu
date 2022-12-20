@@ -1,0 +1,146 @@
+[
+  {
+  "title": "Introduction to Programming",
+  "price": 500,
+  "description": "This course is an introduction to programming", 
+  "category": "programming-language"
+  },
+  {
+  "title": "Introduction to Python",
+  "price": 100,
+  "description": "This course is an introduction to Python",
+  "category": "programming-language"
+  },
+  {
+  "title": "Introduction to Java",
+  "price": 700,
+  "description": "This course is an introduction to Java",
+  "category": "programming-language"
+  },
+  {
+  "title": "Introduction to C++",
+  "price": 850,
+  "description": "This course is an introduction to C++",
+  "category": "programming-language"
+  },
+  {
+  "title": "Introduction to C",
+  "price": 500,
+  "description": "This course is an introduction to C",
+  "category": "programming-language"
+  },
+  {
+    "title": "Web Development",
+    "price": 1500,
+    "description": "This course is an introduction to Web Development",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to HTML",
+    "price": 100,
+    "description": "This course is an introduction to HTML",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to CSS",
+    "price": 150,
+    "description": "This course is an introduction to CSS",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to JavaScript",
+    "price": 400,
+    "description": "This course is an introduction to JavaScript",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to PHP",
+    "price": 100,
+    "description": "This course is an introduction to PHP",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to MySQL",
+    "price": 100,
+    "description": "This course is an introduction to MySQL",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to MongoDB",
+    "price": 300,
+    "description": "This course is an introduction to MongoDB",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to React",
+    "price": 1000,
+    "description": "This course is an introduction to React",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to Angular",
+    "price": 100,
+    "description": "This course is an introduction to Angular",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to Vue",
+    "price": 100,
+    "description": "This course is an introduction to Vue",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to Node",
+    "price": 120,
+    "description": "This course is an introduction to Node",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to Express",
+    "price": 470,
+    "description": "This course is an introduction to Express",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to Django",
+    "price": 400,
+    "description": "This course is an introduction to Django",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to Flask",
+    "price": 500,
+    "description": "This course is an introduction to Flask",
+    "category": "web-development"
+  },
+  {
+    "title": "Introduction to Art",
+    "price": 1020,
+    "description": "This course is an introduction to Art",
+    "category": "art-design"
+  },
+  {
+    "title": "Introduction to Design",
+    "price": 430,
+    "description": "This course is an introduction to Design",
+    "category": "art-design"
+  },
+  {
+    "title": "Introduction to Music",
+    "price": 430,
+    "description": "This course is an introduction to Music",
+    "category": "music"
+  },
+  {
+    "title": "Introduction to System Design",
+    "price": 1000,
+    "description": "This course is an introduction to System Design",
+    "category": "system-design"
+  },
+  {
+    "title": "Introduction to Marketing",
+    "price": 1200,
+    "description": "This course is an introduction to Marketing",
+    "category": "marketing"
+  }
+]

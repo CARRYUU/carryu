@@ -74,13 +74,21 @@ exports.getUserProfile = async (req, res) => {
 // @route   PATCH api/user/profile
 // @access  Private
 exports.updateUserProfile = async (req, res) => {
-  const user = await User.findById(req.user._id);
+  // Check if the input email already exists.
+  const emailExist = await User.findOne({
+    email: req.body.email,
+  });
 
-  if (!user) {
-    return res.status(404).json({
-      err_msg: "User not found",
+  // If email exists, return error message.
+  if (emailExist) {
+    console.log("Email has already been registered.");
+    return res.status(400).json({
+      err_msg: "Email has already been registered.",
     });
   }
+
+  // Destruct user from request.
+  const { user } = req;
 
   username = req.body.username || user.username;
   email = req.body.email || user.email;
@@ -127,9 +135,11 @@ exports.getUserPurchaseHistory = async (req, res) => {
 };
 
 // @desc    Update user's password
-// @route   PATCH api/user/password/update
+// @route   PATCH api/user/password
 // @access  Private
 exports.updateUserPassword = async (req, res) => {
+  console.log("Update user's password");
+
   // Get user by id and select the password field
   // Use `+` to override schema-level `select: false` without making the projection inclusive
   const user = await User.findById(req.user._id).select("+password");
@@ -146,8 +156,8 @@ exports.updateUserPassword = async (req, res) => {
   // Three password fields are required.
   if (!(old_password && new_password && confirm_password)) {
     return res.status(400).json({
-      err_msgs:
-        "Please enter all password fields: old_password, new_password, confirm_password",
+      err_msg:
+        "Please enter all password fields: Old password, New password, and Confirm password",
     });
   }
 
@@ -183,7 +193,7 @@ exports.updateUserPassword = async (req, res) => {
 };
 
 // @desc    Switch a user role to student
-// @route   PATCH api/user/swtich-role
+// @route   PATCH api/user/switch-role
 // @access  Private
 exports.switchUserRole = async (req, res) => {
   const user = await User.findById(req.user._id);

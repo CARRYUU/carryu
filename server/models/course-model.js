@@ -45,6 +45,7 @@ const courseSchema = new Schema({
     enum: [
       "web-development",
       "programming-language",
+      "programming",
       "finance",
       "it-and-software",
       "art-design",
@@ -71,8 +72,7 @@ const courseSchema = new Schema({
     type: [
       {
         user_id: {
-          type: Schema.Types.ObjectId,
-          ref: "User",
+          type: String,
         },
         comment: {
           type: String,

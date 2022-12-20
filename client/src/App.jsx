@@ -9,17 +9,20 @@ import Homepage from "./components/HomePage/HomePage";
 import SearchResult from "./components/SearchResult/SearchResult";
 import Challenge from "./components/Challenge/Challenge";
 import EditProfile from "./components/EditProfile/EditProfile";
-import About from "./components/About/About";
-import Login from "./components/Login/Login";
+import EditPassword from "./components/EditPassword/EditPassword";
 import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
+import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
+import CourseInfo from "./components/CourseInfo/CourseInfo";
+import Study from "./components/Study/Study";
 
 function App() {
   return (
     <div className="App">
       <ToastContainer
-        position="top-right"
+        position="top-center"
         autoClose={2000}
         limit={3}
         hideProgressBar={false}
@@ -34,14 +37,26 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" exact element={<Homepage />} />
-        <Route path="/course/search" element={<SearchResult />} />
         <Route path="/challenge" element={<Challenge />} />
         <Route path="/about" element={<About />} />
-        <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route path="/about" element={<About />} />
+
         <Route path="/auth/login" element={<Login />} />
+
         <Route path="/user/register" element={<Register />} />
+        <Route path="/user/profile/update" element={<EditProfile />} />
+        <Route path="/user/password/update" element={<EditPassword />} />
+
+        <Route path="/course/search/:title" element={<SearchResult />} />
+        <Route path="/course/:id/info" element={<CourseInfo />} />
+
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+
+        <Route path="/study" element={<Study />} />
       </Routes>
       <Footer />
     </div>

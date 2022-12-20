@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import Card from "../layout/Card";
 import Title from "../layout/Title";
 import HomePageCourseList from "./HomePageCourseList";
 import {
@@ -18,6 +17,10 @@ const HomePage = () => {
     dispatch(getTenMostPopularCourses());
     dispatch(getTenMostNewestCourses());
   }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>

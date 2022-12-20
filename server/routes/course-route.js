@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("../config/upload");
 
 const {
   isAuthenticatedUser,
@@ -38,7 +39,7 @@ router
 router
   .route("/:_id/info")
   .get(getCourseInfoById)
-  .patch(isAuthenticatedUser, updateCourseInfo);
+  .post(upload.single("thumbnail"), isAuthenticatedUser, updateCourseInfo);
 
 // search course by title
 router.route("/search/:title").get(getCoursesByTitle);

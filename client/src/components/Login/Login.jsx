@@ -39,11 +39,6 @@ const Login = () => {
   const handleLogin = (event) => {
     event.preventDefault();
 
-    const formData = {
-      email,
-      password,
-    };
-
     dispatch(login(formData));
   };
 

@@ -1,42 +1,53 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import SearchResultCard from "./SearchResultCard";
 import Title from "../layout/Title";
+import { getCoursesByTitle } from "../../features/allCourses/allCoursesSlice.js";
 
 const SearchResult = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  const { coursesByTitle, isLoading } = useSelector((state) => state.courses);
+
+  // get courses data and number of results
+  const { courses } = coursesByTitle;
+  const numResults = courses?.length;
+
+  // get searched text from location
+  const { searchedText } = location.state;
+
+  useEffect(() => {
+    dispatch(getCoursesByTitle(searchedText));
+  }, []);
+
+  useEffect(() => {
+    dispatch(getCoursesByTitle(searchedText));
+  }, [searchedText]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
-      <body>
-        <Title pageTitle="「JAVA」有10000個結果" />
-        <div className="flex-col">
+      <Title pageTitle={`「${searchedText}」有${numResults}個結果`} />
+      <div className="flex-col">
+        {courses?.map((course) => (
           <SearchResultCard
-            badge1="html"
-            badge2="css"
-            badge3="react"
-            vedioName="影片名稱"
-            vedioInfo="這是一段很長的影片資訊，會告訴你這堂課有關的詳細內容，可以不用太仔細看，謝謝。"
-            salePrice="250"
-            originalPrice="500"
+            key={course._id}
+            _id={course._id}
+            badge1={course.category}
+            badge2={course.badge2}
+            badge3={course.badge3}
+            title={course.title}
+            description={course.description}
+            salePrice={course.salePrice ? course.salePrice : course.price}
+            originalPrice={course.price}
           />
-          <SearchResultCard
-            badge1="html"
-            badge2="css"
-            badge3="react"
-            vedioName="影片名稱"
-            vedioInfo="這是一段很長的影片資訊，會告訴你這堂課有關的詳細內容，可以不用太仔細看，謝謝。"
-            salePrice="250"
-            originalPrice="500"
-          />
-          <SearchResultCard
-            badge1="html"
-            badge2="css"
-            badge3="react"
-            vedioName="影片名稱"
-            vedioInfo="這是一段很長的影片資訊，會告訴你這堂課有關的詳細內容，可以不用太仔細看，謝謝。"
-            salePrice="250"
-            originalPrice="500"
-          />
-        </div>
-      </body>
+        ))}
+      </div>
     </div>
   );
 };
