@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoEarthSharp } from "react-icons/io5";
 import Dropdown from "./Dropdown";
 
 const Nav = () => {
@@ -17,13 +19,10 @@ const Nav = () => {
       <Dropdown />
 
       <Link to="/cart">
-        <img src={require("../../icon/iconCart.png")} className="p-2"></img>
+        <AiOutlineShoppingCart size={42} className="p-2" />
       </Link>
       <Link to="/language">
-        <img
-          src={require("../../icon/iconGlobe.png")}
-          className="p-2 mr-4"
-        ></img>
+        <IoEarthSharp size={42} className="p-2" />
       </Link>
     </nav>
   );
