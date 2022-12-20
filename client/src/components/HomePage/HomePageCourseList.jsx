@@ -1,5 +1,4 @@
 import React from "react";
-import Title from "../layout/Title";
 import Card from "../layout/Card";
 
 const HomePageCourseList = (props) => {
@@ -12,8 +11,8 @@ const HomePageCourseList = (props) => {
           <Card
             key={course._id}
             _id={course._id}
-            badge1={course.category}
-            badge2={course.badge2}
+            category={course.category}
+            students_count={course.students_count}
             badge3={course.badge3}
             title={course.title}
             description={course.description}

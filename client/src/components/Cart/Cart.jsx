@@ -5,7 +5,7 @@ import CartItem from "./CartItem";
 
 import { getCartItems } from "../../features/cart/cartSlice";
 
-const Cart = (props) => {
+const Cart = () => {
   const dispatch = useDispatch();
 
   const { cartItems, isLoading } = useSelector((state) => state.cart);

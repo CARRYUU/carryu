@@ -9,9 +9,10 @@ import Homepage from "./components/HomePage/HomePage";
 import SearchResult from "./components/SearchResult/SearchResult";
 import Challenge from "./components/Challenge/Challenge";
 import EditProfile from "./components/EditProfile/EditProfile";
-import About from "./components/About/About";
-import Login from "./components/Login/Login";
+import EditPassword from "./components/EditPassword/EditPassword";
 import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
+import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
@@ -36,6 +37,12 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Homepage />} />
         <Route path="/challenge" element={<Challenge />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/edit-password" element={<EditPassword />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
         <Route path="/about" element={<About />} />
 
         <Route path="/auth/login" element={<Login />} />
