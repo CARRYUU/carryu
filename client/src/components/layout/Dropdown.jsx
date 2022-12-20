@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import userIcon from "../../icon/userIcon.svg";
+import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -20,8 +20,8 @@ const Dropdown = () => {
     { key: "Logout", value: "/auth/logout" },
     { key: "Profile", value: "/user/profile" },
     { key: "Register", value: "/user/register" },
-    { key: "Edit Profile", value: "/user/edit-profile" },
-    { key: "Edit Password", value: "/user/edit-password" },
+    { key: "Edit Profile", value: "/user/profile/update" },
+    { key: "Edit Password", value: "/user/password/update" },
   ];
 
   const menuRef = useRef();
@@ -36,13 +36,15 @@ const Dropdown = () => {
   return (
     <div>
       <div className="relative">
-        <img
+        <button
           ref={imgRef}
           onClick={() => setOpen(!open)}
-          src={userIcon}
           className="p-2
-      object-cover cursor-pointer hover:ring-mainBlue rounded-xl"
-        />
+            object-cover cursor-pointer hover:ring-mainBlue rounded-xl"
+        >
+          <FaUserCircle size={27} className="pointer-events-none" />
+        </button>
+
         {open && (
           <div
             ref={menuRef}
@@ -56,6 +58,7 @@ const Dropdown = () => {
                       <li
                         onClick={handleLogout}
                         className="p-2 text-la cursor-pointer rounded hover:bg-mainBlue hover:text-white"
+                        key={obj.key}
                       >
                         {obj.key}
                       </li>
@@ -70,6 +73,7 @@ const Dropdown = () => {
                         <li
                           onClick={() => setOpen(false)}
                           className="p-2 text-la cursor-pointer rounded hover:bg-mainBlue hover:text-white"
+                          key={obj.key}
                         >
                           {obj.key}
                         </li>
@@ -87,6 +91,7 @@ const Dropdown = () => {
                         <li
                           onClick={() => setOpen(false)}
                           className="p-2 text-la cursor-pointer rounded hover:bg-mainBlue hover:text-white"
+                          key={obj.key}
                         >
                           {obj.key}
                         </li>
