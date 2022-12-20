@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BsFillCartPlusFill } from "react-icons/bs";
+import { AiFillHeart } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 
 import { addCourseToCart } from "../../features/cart/cartSlice";
@@ -71,15 +73,15 @@ const Card = (props) => {
           </div>
           {/* buy button */}
           <div className="mt-5 flex gap-2">
-            <button className="button-primary" onClick={handleAddToCard}>
+            <button
+              className="button-primary flex justify-center items-center"
+              onClick={handleAddToCard}
+            >
               Add to cart
+              <BsFillCartPlusFill className="ml-2" />
             </button>
             <button className="button-loveicon">
-              <img
-                src={require("../../icon/favorite.png")}
-                alt="add to favorite"
-                className="opacity-50"
-              ></img>
+              <AiFillHeart size={30} className="opacity-50" />
             </button>
           </div>
         </div>
