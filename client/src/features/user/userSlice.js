@@ -36,7 +36,7 @@ export const updateUserProfile = createAsyncThunk(
 );
 
 export const updateUserPassword = createAsyncThunk(
-  "/user/edit-password",
+  "/user/password/update",
   async (formData, thunkAPI) => {
     return await userService.updateUserPassword(formData, thunkAPI);
   }
