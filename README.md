@@ -55,7 +55,7 @@ $ cd server
 $ npm install
 ```
 
-Rename `.env.example` to `.env` and then place those three variables.
+In `./server/`, rename `.env.example` to `.env` and then place those three variables.
 Default port is 3000.
 
 ```javascript
@@ -64,7 +64,7 @@ MONGO_URI=<PLACE YOUR MONGO CONNECTION LINK>
 JWT_SECRET=<PLACE YOUR JWT SECRET>
 ```
 
-For instance
+It would be like this. (This is just an exmaple, you should replace your `MONGO_URI` and `JWT_SECRET`)
 
 ```
 PORT=8080
@@ -74,13 +74,13 @@ JWT_SECRET=THIS_IS_MY_SECRET
 
 Run the backend server in `localhost`.
 
-You can use `nodemon`
+You can use `nodemon`. When you modified files and save it, server side would reload automatically.
 
 ```Bash
 $ nodemon index.js
 ```
 
-or just using `node` to run
+If you encounter some errors, you can just using `node` to run.
 
 ```
 $ node index.js
@@ -93,7 +93,7 @@ $ cd client
 $ npm install
 ```
 
-Rename `.env.example` to `.env` and then place the variable.
+In `./client/`, ename `.env.example` to `.env` and then place the variable.
 You should place the same port as the the port you listen on the backend server.
 If you want to add other react app environment variable, you must start the name with `REACT_APP`.
 
