@@ -28,6 +28,7 @@ const CreateCourse = (course) => {
             />
             <Description />
             <UploadFile />
+            <Button buttonName="Upload" onClick="" />
           </div>
         </div>
       </div>
