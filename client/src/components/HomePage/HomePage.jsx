@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Title from "../layout/Title";
 import HomePageCourseList from "./HomePageCourseList";
+import Loading from "../layout/Loading";
 import {
   getTenMostPopularCourses,
   getTenMostNewestCourses,
@@ -19,7 +20,7 @@ const HomePage = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
