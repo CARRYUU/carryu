@@ -15,6 +15,7 @@ import Login from "./components/Login/Login";
 import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
+import CompleteBuy from "./components/CompleteBuy/CompleteBuy";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
 
@@ -55,6 +56,7 @@ function App() {
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/complete-buy" element={<CompleteBuy />} />
 
         <Route path="/study" element={<Study />} />
       </Routes>
