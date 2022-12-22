@@ -1,21 +1,31 @@
-# CarryU
+<img src="./images/carryu_big_logo_white_background.svg" alt="banner mabuhay"></img>
 
 We are CarryU, an online courses platform!
 
 This document is written by [@xxrjun](https://github.com/xxrjun).
 
+## Our teams
+
+- [@xxrjun](https://github.com/xxrjun)
+- [@Tsu-Yu carrie57](https://github.com/Tsu-Yu)
+- [@Chen-LiYin](https://github.com/Chen-LiYin)
+- [@heyuhsuan](https://github.com/heyuhsuan)
+- [@Elly520](https://github.com/Elly520)
+- [@HankLiu20](https://github.com/HankLiu20)
+- [@Joe-qwe](https://github.com/Joe-qwe)
+
 ## Table of Contents
 
-- [CarryU](#carryu)
-  - [Table of Contents](#table-of-contents)
-  - [Project Documents](#project-documents)
-    - [3 Major Documents](#3-major-documents)
-  - [How to Run in Localhost?](#how-to-run-in-localhost)
-  - [For Developer](#for-developer)
-    - [Software Requirement](#software-requirement)
-    - [Developer Tools](#developer-tools)
-    - [Tools' Official Document](#tools-official-document)
-    - [Learning Resources](#learning-resources)
+- [Our teams](#our-teams)
+- [Table of Contents](#table-of-contents)
+- [Project Documents](#project-documents)
+  - [3 Major Documents](#3-major-documents)
+- [How to Run in Localhost?](#how-to-run-in-localhost)
+- [For Developer](#for-developer)
+  - [Software Requirement](#software-requirement)
+  - [Developer Tools](#developer-tools)
+  - [Tools' Official Document](#tools-official-document)
+  - [Learning Resources](#learning-resources)
 
 ## Project Documents
 
@@ -45,7 +55,7 @@ $ cd server
 $ npm install
 ```
 
-Rename `.env.example` to `.env` and then place those three variables.
+In `./server/`, rename `.env.example` to `.env` and then place those three variables.
 Default port is 3000.
 
 ```javascript
@@ -54,7 +64,7 @@ MONGO_URI=<PLACE YOUR MONGO CONNECTION LINK>
 JWT_SECRET=<PLACE YOUR JWT SECRET>
 ```
 
-For instance
+It would be like this. (This is just an exmaple, you should replace your `MONGO_URI` and `JWT_SECRET`)
 
 ```
 PORT=8080
@@ -64,13 +74,13 @@ JWT_SECRET=THIS_IS_MY_SECRET
 
 Run the backend server in `localhost`.
 
-You can use `nodemon`
+You can use `nodemon`. When you modified files and save it, server side would reload automatically.
 
 ```Bash
 $ nodemon index.js
 ```
 
-or just using `node` to run
+If you encounter some errors, you can just using `node` to run.
 
 ```
 $ node index.js
@@ -83,7 +93,7 @@ $ cd client
 $ npm install
 ```
 
-Rename `.env.example` to `.env` and then place the variable.
+In `./client/`, ename `.env.example` to `.env` and then place the variable.
 You should place the same port as the the port you listen on the backend server.
 If you want to add other react app environment variable, you must start the name with `REACT_APP`.
 
@@ -98,8 +108,6 @@ $ npm run start
 ```
 
 ## For Developer
-
-> 學習看官方文件跟餵狗，即便很多官方文件寫得很藝術
 
 ### Software Requirement
 
@@ -143,23 +151,27 @@ $ npm run start
 
 ### Tools' Official Document
 
+> 學習看官方文件跟餵狗，即便很多官方文件寫得很藝術
+
 - Frontend Tools
-  - React.js
-  - Tailwindcss
-  - Redux-tool kits
-  - Axios
-  - react-router-dom
+  - [React.js](https://reactjs.org/docs/getting-started.html)
+  - [Tailwindcss](https://tailwindcss.com/docs/installation)
+  - [Redux-tool kits](https://redux-toolkit.js.org/)
+  - [Axios](https://axios-http.com/docs/intro)
+  - [react-router-dom](https://reactrouter.com/en/main)
 - Backend Tools
-  - Node.js
-  - Express
-  - MongoDB
-  - Mongoose
-  - jsonwebtoken
+  - [Node.js](https://nodejs.org/en/docs/)
+  - [Express](https://expressjs.com/)
+  - [MongoDB](https://www.mongodb.com/docs/manual/tutorial/getting-started/)
+  - [Mongoose](https://mongoosejs.com/docs/guide.html)
+  - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
 
 ### Learning Resources
 
 - [MDN Resources for Developers, by Developers](https://developer.mozilla.org/en-US/) - 基本上是必備的，幾乎你想的到的所有網站開發的知識這裡都有。
 
 - [Udemy 2022 網頁開發全攻略(HTML, CSS, JavaScript, React, SQL, Node, more)](https://www.udemy.com/course/html5-css3-z/) - (無業配)網頁全端開發很好的入門磚，老師講得淺顯易懂，等特價的時候差不多三四百塊就買的到，非常划算。
+
+- [2020 iT 邦鐵人賽 成為看起來很強的後端](https://youtube.com/playlist?list=PLS5AiLcCHgNxd341NwuY9EOpVvY5Z8VOs) - 花一個下午的時間就可以大致了解後端藍圖，賺。
 
 其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)

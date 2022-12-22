@@ -43,7 +43,7 @@ exports.createNewCourse = (req, res) => {
 };
 
 // @desc    Update course info (title, description, price, thumbnail, category)
-// @route   PATCH api/course/:_id/info
+// @route   POST api/course/:_id/info
 // @access  Private/Instructor
 exports.updateCourseInfo = async (req, res) => {
   const { _id } = req.params;

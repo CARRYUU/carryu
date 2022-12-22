@@ -117,7 +117,7 @@ const courseSlice = createSlice({
     },
     [getCourseInfoById.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.courseInfo = action.payload;
+      state.courseInfo = action.payload.course_info;
     },
     [getCourseInfoById.rejected]: (state, action) => {
       state.isLoading = false;

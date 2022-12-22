@@ -135,9 +135,11 @@ exports.getUserPurchaseHistory = async (req, res) => {
 };
 
 // @desc    Update user's password
-// @route   PATCH api/user/password/update
+// @route   PATCH api/user/password
 // @access  Private
 exports.updateUserPassword = async (req, res) => {
+  console.log("Update user's password");
+
   // Get user by id and select the password field
   // Use `+` to override schema-level `select: false` without making the projection inclusive
   const user = await User.findById(req.user._id).select("+password");
@@ -154,8 +156,8 @@ exports.updateUserPassword = async (req, res) => {
   // Three password fields are required.
   if (!(old_password && new_password && confirm_password)) {
     return res.status(400).json({
-      err_msgs:
-        "Please enter all password fields: old_password, new_password, confirm_password",
+      err_msg:
+        "Please enter all password fields: Old password, New password, and Confirm password",
     });
   }
 

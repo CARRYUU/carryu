@@ -15,7 +15,9 @@ import Login from "./components/Login/Login";
 import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
+import CompleteBuy from "./components/CompleteBuy/CompleteBuy";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
+import Study from "./components/Study/Study";
 
 function App() {
   return (
@@ -38,8 +40,6 @@ function App() {
         <Route path="/" exact element={<Homepage />} />
         <Route path="/challenge" element={<Challenge />} />
         <Route path="/about" element={<About />} />
-        <Route path="/edit-profile" element={<EditProfile />} />
-        <Route path="/edit-password" element={<EditPassword />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
@@ -48,13 +48,17 @@ function App() {
         <Route path="/auth/login" element={<Login />} />
 
         <Route path="/user/register" element={<Register />} />
-        <Route path="/user/edit-profile" element={<EditProfile />} />
+        <Route path="/user/profile" element={<EditProfile />} />
+        <Route path="/user/password/update" element={<EditPassword />} />
 
         <Route path="/course/search/:title" element={<SearchResult />} />
         <Route path="/course/:id/info" element={<CourseInfo />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/complete-buy" element={<CompleteBuy />} />
+
+        <Route path="/study" element={<Study />} />
       </Routes>
       <Footer />
     </div>

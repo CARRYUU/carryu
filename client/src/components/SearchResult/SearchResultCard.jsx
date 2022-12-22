@@ -1,6 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addCourseToCart } from "../../features/cart/cartSlice";
 
 const SearchResultCard = (props) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCard = () => {
+    dispatch(
+      addCourseToCart({
+        course_id: props._id,
+      })
+    );
+  };
+
   return (
     <div>
       <section class="parent-section">
@@ -37,7 +49,9 @@ const SearchResultCard = (props) => {
             </div>
 
             <div className=" flex gap-2 m-5">
-              <button className="button-primary">Add to cart</button>
+              <button className="button-primary" onClick={handleAddToCard}>
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
