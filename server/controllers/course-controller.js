@@ -139,6 +139,7 @@ exports.getCourseInfoById = async (req, res) => {
           thumbnail: course.thumbnail,
           category: course.category,
           students_count: course.students.length,
+          created: course.created,
         },
       });
     })
