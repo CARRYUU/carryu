@@ -44,35 +44,33 @@ const Login = () => {
 
   return (
     <div>
-      <Title pageTitle="Login" />
-      <div className="p-6 space-y-6">
-        <div className="flex-col">
-          <Input
-            labelName="Email"
-            type="email"
-            id="email"
-            name="email"
-            onChange={handleChange}
-            value={email}
-            palceholder="Enter your email..."
-          />
-          <Input
-            labelName="Password"
-            type="password"
-            id="password"
-            name="password"
-            onChange={handleChange}
-            value={password}
-            palceholder="Enter your password..."
-          />
-        </div>
-      </div>
-      <div>
-        <Checkbox labelName="Remember me" />
-      </div>
+      <div className="h-4/6">
+        <Title pageTitle="Login" />
+        <div className="flex flex-col items-center justfiy-center px-4 py-8 mx-auto md:h-screen lg:py-0">
+          <div className="w-3/4 py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
+            <Input
+              labelName="Email"
+              type="email"
+              id="email"
+              name="email"
+              onChange={handleChange}
+              value={email}
+              placeholder="Enter your email..."
+            />
+            <Input
+              labelName="Password"
+              type="password"
+              id="password"
+              name="password"
+              onChange={handleChange}
+              value={password}
+              placeholder="Enter your password..."
+            />
 
-      <div className="mb-8">
-        <Button buttonName="Login" onClick={handleLogin} />
+            <Checkbox labelName="Remember me" />
+            <Button buttonName="Login" onClick={handleLogin} />
+          </div>
+        </div>
       </div>
     </div>
   );
