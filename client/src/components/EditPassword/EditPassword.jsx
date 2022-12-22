@@ -30,7 +30,7 @@ const EditPassword = () => {
     <div>
       <Title pageTitle="Password Setting" />
       <div className="p-6 space-y-6">
-        <div className="flex-col">
+        <div className="flex flex-col items-center">
           <Input
             labelName="Old password"
             type="password"
@@ -55,10 +55,8 @@ const EditPassword = () => {
             name="confirm_password"
             placeholder="Enter your confimation password ..."
           />
+          <Button buttonName="Save all" onClick={handleSubmit} />
         </div>
-      </div>
-      <div className="mb-8">
-        <Button buttonName="Save all" onClick={handleSubmit} />
       </div>
     </div>
   );
