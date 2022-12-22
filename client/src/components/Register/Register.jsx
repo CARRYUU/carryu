@@ -58,7 +58,7 @@ const Register = () => {
         </div>
       )} */}
       <div className="p-6 space-y-6">
-        <div className="flex-col">
+        <div className="flex flex-col items-center">
           <Input
             labelName="Username"
             type="text"
@@ -86,10 +86,9 @@ const Register = () => {
             value={password}
             palceholder="Enter your password..."
           />
+
+          <Button buttonName="Register" onClick={handleRegister} />
         </div>
-      </div>
-      <div className="mb-8">
-        <Button buttonName="Register" onClick={handleRegister} />
       </div>
     </div>
   );
