@@ -1,3 +1,5 @@
+
+{/*需要連結直接購買按鍵與加入購物車按鍵*/}
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
