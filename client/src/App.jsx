@@ -54,7 +54,7 @@ function App() {
 
         <Route path="/course/search/:title" element={<SearchResult />} />
         <Route path="/course/:id/info" element={<CourseInfo />} />
-        <Route path="/course/create-course" element={<CreateCourse />} />
+        <Route path="/course/create" element={<CreateCourse />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
