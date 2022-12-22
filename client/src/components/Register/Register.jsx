@@ -14,12 +14,8 @@ const Register = () => {
     password: "",
   });
 
-  // For alert message
-  // const [message, setMessage] = useState("");
-
   const { username, email, password } = formData;
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -48,15 +44,7 @@ const Register = () => {
   return (
     <div>
       <Title pageTitle="Register" />
-      {/* {message && (
-        <div
-          class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
-          role="alert"
-        >
-          <span class="font-medium">Danger alert!</span> Change a few things up
-          and try submitting again.
-        </div>
-      )} */}
+
       <div className="p-6 space-y-6">
         <div className="flex flex-col items-center">
           <Input
