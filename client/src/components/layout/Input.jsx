@@ -2,7 +2,7 @@ import React from "react";
 
 const Input = (props) => {
   return (
-    <div>
+    <div className="w-full">
       <div className="mb-4">
         <label
           className="block mb-2 text-lg font-bold text-gray-900 "
