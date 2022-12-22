@@ -30,10 +30,23 @@ exports.addCourseToCart = async (req, res) => {
             });
           }
 
+          // Check if course is already in cart
           if (user.shopping_cart.includes(course_id)) {
             return res.status(400).json({
               success: false,
               message: "Course already in cart",
+            });
+          }
+
+          // Check if course is already purchased
+          if (
+            user.purchase_history.some(
+              (record) => record.course_id.toString() === course_id
+            )
+          ) {
+            return res.status(400).json({
+              success: false,
+              message: "Course already purchased",
             });
           }
 
