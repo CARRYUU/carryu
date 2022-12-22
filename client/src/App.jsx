@@ -47,7 +47,7 @@ function App() {
         <Route path="/auth/login" element={<Login />} />
 
         <Route path="/user/register" element={<Register />} />
-        <Route path="/user/profile/update" element={<EditProfile />} />
+        <Route path="/user/profile" element={<EditProfile />} />
         <Route path="/user/password/update" element={<EditPassword />} />
 
         <Route path="/course/search/:title" element={<SearchResult />} />

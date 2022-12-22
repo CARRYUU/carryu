@@ -5,13 +5,18 @@ import Title from "../layout/Title";
 import Button from "../layout/Button";
 import Input from "../layout/Input";
 
-import { updateUserProfile } from "../../features/user/userSlice";
+import {
+  updateUserProfile,
+  getUserProfile,
+} from "../../features/user/userSlice";
 
 const EditProfile = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
   });
+
+  const { user } = useSelector((state) => state.auth.user);
 
   const { username, email } = formData;
 
@@ -37,7 +42,7 @@ const EditProfile = () => {
             labelName="Username"
             name="username"
             type="text"
-            placeholder="Enter your new username..."
+            placeholder={user.username}
             onChange={handleChange}
             value={username}
           />
@@ -45,7 +50,7 @@ const EditProfile = () => {
             labelName="Email"
             name="email"
             type="email"
-            placeholder="Enter your new email..."
+            placeholder={user.email}
             onChange={handleChange}
             value={email}
           />
