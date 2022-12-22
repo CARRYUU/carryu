@@ -13,7 +13,6 @@ const {
   isAuthenticatedUser,
   isAdmin,
 } = require("../middlerware/auth-middleware");
-
 // register a new user
 router.route("/register").post(registerUser);
 
