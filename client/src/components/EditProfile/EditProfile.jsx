@@ -37,7 +37,7 @@ const EditProfile = () => {
     <div>
       <Title pageTitle="Profile & Setting" />
       <div className="p-6 space-y-6">
-        <div className="flex-col">
+        <div className="flex flex-col items-center">
           <Input
             labelName="Username"
             name="username"
@@ -54,10 +54,8 @@ const EditProfile = () => {
             onChange={handleChange}
             value={email}
           />
+          <Button buttonName="Save all" onClick={handleSubmit} />
         </div>
-      </div>
-      <div className="mb-8">
-        <Button buttonName="Save all" onClick={handleSubmit} />
       </div>
     </div>
   );
