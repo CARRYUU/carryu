@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as Carticon } from "../../icon/cart.svg";
-import { ReactComponent as Courseicon } from "../../icon/book.svg";
 import Dropdown from "./Dropdown";
+import { AiOutlineShoppingCart} from "react-icons/ai";
+import { BsBook } from "react-icons/bs";
 
 const Nav = () => {
   return (
@@ -19,10 +19,10 @@ const Nav = () => {
       <Dropdown />
 
       <Link to="/cart">
-        <Carticon className=" w-10 p-2" />
+        <AiOutlineShoppingCart className="p-2 " size={40}/>
       </Link>
-      <Link to="/language">
-        <Courseicon className="w-10 p-2" />
+      <Link to="/mycourse-page">
+        <BsBook size={40} className="p-2"/>
       </Link>
     </nav>
   );

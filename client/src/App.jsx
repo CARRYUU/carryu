@@ -18,6 +18,11 @@ import Checkout from "./components/Checkout/Checkout";
 import CompleteBuy from "./components/CompleteBuy/CompleteBuy";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
+import MyCoursePage from "./components/MyCoursePage/MyCoursePage";
+import HistoryTrade from "./components/HistoryTrade/HistoryTrade";
+import HistoryBuy from "./components/HistoryTrade/HistoryBuy";
+import HistoryReturn from "./components/HistoryTrade/HistoryReturn";
+
 
 function App() {
   return (
@@ -57,6 +62,11 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/complete-buy" element={<CompleteBuy />} />
+        <Route path="/mycourse-page" element={<MyCoursePage/>}/>
+        
+        <Route path="/history-trade" element={<HistoryTrade/>}/>
+        <Route path="/history-buy" element={<HistoryBuy/>}/>
+        <Route path="/history-return" element={<HistoryReturn/>}/>
 
         <Route path="/study" element={<Study />} />
       </Routes>
