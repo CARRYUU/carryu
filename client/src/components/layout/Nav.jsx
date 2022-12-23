@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
-import { IoEarthSharp } from "react-icons/io5";
+import { ReactComponent as Carticon } from "../../icon/cart.svg";
+import { ReactComponent as Courseicon } from "../../icon/book.svg";
 import Dropdown from "./Dropdown";
 
 const Nav = () => {
@@ -19,10 +19,10 @@ const Nav = () => {
       <Dropdown />
 
       <Link to="/cart">
-        <FaShoppingCart size={42} className="p-2" />
+        <Carticon className=" w-10 p-2" />
       </Link>
       <Link to="/language">
-        <IoEarthSharp size={42} className="p-2" />
+        <Courseicon className="w-10 p-2" />
       </Link>
     </nav>
   );
