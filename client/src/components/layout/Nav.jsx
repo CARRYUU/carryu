@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoEarthSharp } from "react-icons/io5";
+
 import Dropdown from "./Dropdown";
 import Button from "./Button";
 
@@ -39,5 +40,4 @@ const Nav = () => {
     </nav>
   );
 };
-
 export default Nav;

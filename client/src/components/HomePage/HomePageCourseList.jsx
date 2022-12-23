@@ -7,7 +7,7 @@ const HomePageCourseList = (props) => {
   return (
     <div>
       {coursesData ? (
-        <div className="flex snap-x overflow-x-scroll scroll-pl-6 scrollbar">
+        <div className="flex snap-x  scroll-pl-6 ">
           {coursesData?.courses?.map((course) => (
             <div className="snap-center">
               <Card
