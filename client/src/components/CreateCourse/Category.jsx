@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-const CategoryTitle = () => {
+const CategoryTitle = (props) => {
   const [open, setOpen] = useState(false);
   const allCategories = [
     { key: "web-development" },
@@ -53,9 +53,10 @@ const CategoryTitle = () => {
         </button>
         <div className="w-2/3">
           <input
+            onChange={props.onChange}
+            value={props.titleValue}
             type="text"
-            id="search-dropdown"
-            class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+            className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
             placeholder="ex. 30 days become the React master"
             required
           ></input>
@@ -70,7 +71,7 @@ const CategoryTitle = () => {
                 {allCategories.map((obj) => {
                   return (
                     <li
-                      onClick=""
+                      value={props.cayegoryValue}
                       className="p-1 text-la cursor-pointer rounded hover:bg-mainBlue hover:text-white"
                       key={obj.key}
                     >
