@@ -3,10 +3,13 @@ import { toast } from "react-toastify";
 
 const createNewCourse = async (courseData, thunkAPI) => {
   try {
-    const { response } = await api.createNewCourse(courseData);
+    console.log(courseData);
+    const response = await api.createNewCourse(courseData);
 
-    if (!response.data) {
-      console.log("No data returned from getCoursesByTitle API call.");
+    console.log(response?.data);
+
+    if (!response?.data) {
+      console.log("No data returned from createNewCourse API call.");
 
       toast.error("Something went wrong. Please try again later.");
 
@@ -17,6 +20,7 @@ const createNewCourse = async (courseData, thunkAPI) => {
 
     return response.data;
   } catch (error) {
+    console.log(error);
     const message =
       (error.response && error.response.data && error.response.data.err_msg) ||
       error.message ||
@@ -33,7 +37,7 @@ const createNewCourse = async (courseData, thunkAPI) => {
 
 const updateCourseInfo = async (courseData, thunkAPI) => {
   try {
-    const { response } = await api.updateCourseInfo(courseData);
+    const response = await api.updateCourseInfo(courseData);
 
     if (!response.data) {
       console.log("No data returned from updateCourseInfo API call.");

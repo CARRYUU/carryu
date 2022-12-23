@@ -5,10 +5,10 @@ const Button = (props) => {
     <div>
       <button
         type="button"
-        className="text-white bg-blue-900 hover:bg-blue-700 focus:ring-blue-700 focus:outline-none focus:ring-4 font-bold rounded-full text-xl w-40 h-16 text-center mx-2 mb-2"
+        className="text-white bg-blue-900 hover:bg-blue-700 focus:ring-blue-700 focus:outline-none focus:ring-4 font-bold rounded-full text-l min-w-40 max-w-fit h-12 text-center mx-2 my-2"
         onClick={props.onClick}
       >
-        {props.buttonName}
+        <div className="px-4">{props.buttonName}</div>
       </button>
     </div>
   );

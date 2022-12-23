@@ -173,20 +173,22 @@ exports.getCartItems = async (req, res) => {
         _id: {
           $in: user.shopping_cart,
         },
-      }).exec((err, courses) => {
-        if (err) {
-          return res.status(400).json({
-            success: false,
-            message: "Failed to get cart items",
-          });
-        }
+      })
+        .select("-thumbnail")
+        .exec((err, courses) => {
+          if (err) {
+            return res.status(400).json({
+              success: false,
+              message: "Failed to get cart items",
+            });
+          }
 
-        return res.status(200).json({
-          success: true,
-          message: `${courses.length} courses in cart returned.`,
-          courses,
+          return res.status(200).json({
+            success: true,
+            message: `${courses.length} courses in cart returned.`,
+            courses,
+          });
         });
-      });
     })
     .catch((err) => {
       return res.status(400).json({
