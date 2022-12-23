@@ -16,6 +16,7 @@ import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 import CompleteBuy from "./components/CompleteBuy/CompleteBuy";
+import CreateCourse from "./components/CreateCourse/CreateCourse";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
 
@@ -53,6 +54,7 @@ function App() {
 
         <Route path="/course/search/:title" element={<SearchResult />} />
         <Route path="/course/:id/info" element={<CourseInfo />} />
+        <Route path="/course/create" element={<CreateCourse />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
