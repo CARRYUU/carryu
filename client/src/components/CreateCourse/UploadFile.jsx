@@ -4,19 +4,18 @@ const UploadFile = () => {
   return (
     <div>
       <label className="block mb-2 text-lg font-bold text-gray-900">
-        Upload course thumbnail:
+        Upload course thumbnail
       </label>
-      <div className="px-24 mb-4">
-        <input
-          className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 mb-1"
-          aria-describedby="file_input_help"
-          type="file"
-        ></input>
-
-        <div className="flex items-center justify-center w-full">
+      <div className="mb-4 flex justify-center ">
+        <div className="w-4/5">
+          <input
+            className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 mb-1"
+            aria-describedby="file_input_help"
+            type="file"
+          ></input>
           <label
             for="dropzone-file"
-            className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 "
+            className="flex items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 "
           >
             <div className="flex flex-col items-center justify-center pt-5 pb-6">
               <svg
