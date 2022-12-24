@@ -698,7 +698,8 @@ exports.removeStudentFromCourse = async (req, res) => {
       })
       .catch((err) => {
         res.status(400).json({
-          err_msg: "Course save failed, which lead to remove student failed",
+          err_msg:
+            "Course save failed, which lead to remove student from course failed",
           error: err,
         });
       });
