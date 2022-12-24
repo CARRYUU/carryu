@@ -52,12 +52,12 @@ const CourseInfo = () => {
             <Title pageTitle="課程資訊" />
 
             <div className="flex justify-center items-center">
-              <div className="flex flex-wrap md:flex-row justify-center items-center bg-white border rounded-lg shadow-md  md:w-3/5   dark:bg-gray-100 dark:hover:bg-gray-200">
+              <div className="flex flex-wrap md:flex-row justify-center items-center bg-white border rounded-lg max-w-3xl shadow-md md:w-3/5   dark:bg-gray-100 dark:hover:bg-gray-200">
                 {/* 圖片 */}
                 <img
                   src={require("../../image/2.JPG")}
                   alt="課程圖片"
-                  className=" object-cover w-full h-96 rounded-l-lg  md:h-96 md:w-full md:rounded-t-lg my-auto"
+                  className=" object-cover w-full h-96 rounded-t-lg  md:h-96 md:w-full md:rounded-t-lg my-auto"
                 />
 
                 <div className="px-8 py-16 flex-col flex-wrap ">
