@@ -29,9 +29,9 @@ app.use("/api/user", userRoute);
 app.use("/api/course", courseRoute);
 app.use("/api/cart", cartRoute);
 app.use("/api/transaction", transactionRoute);
-
 app.use("/api/points", pointRoute);
 app.use("/api/payment", paymentRoute);
+
 // Listen port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
