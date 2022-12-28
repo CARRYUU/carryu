@@ -12,7 +12,7 @@ const Input = (props) => {
         </label>
         <input
           type={props.type}
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-700 w-7/12 p-2.5 "
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-700 w-5/6 p-2.5 "
           placeholder={props.placeholder}
           name={props.name}
           id={props.id}
