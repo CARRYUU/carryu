@@ -72,3 +72,14 @@ export const removeCourseFromCart = (data) =>
     data,
   });
 export const getCartItems = () => API.get("/cart");
+
+// Path: baseURL/transaction/
+export const addPurchaseRecord = (data) => API.post("/purchase", data);
+export const addRefundRecord = (data) => API.post("/refund", data);
+
+// Path: baseURL/points/
+export const deletePoints = (data) => API.put("/points/delete", data);
+export const getPoints = () => API.put("/points");
+
+// Path: baseURL/payment/
+export const createPaymentIntent = (data) => API.post("/payment", data);
