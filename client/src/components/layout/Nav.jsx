@@ -17,7 +17,7 @@ const Nav = () => {
 
   const Menus = [
     { key: "Sign in", value: "/auth/login" },
-    { key: "Switch", value: "/user/switch" },
+    { key: "Switch", value: "/intructor/homepage" },
     { key: "Sign up", value: "/user/register" }
   ];
 
