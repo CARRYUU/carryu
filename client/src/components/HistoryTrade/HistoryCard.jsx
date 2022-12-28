@@ -5,7 +5,7 @@ const HistoryCard = (props) => {
 
   return (
     <div>
-      <div class="list flex cardSearch hover:bg-slate-100/60 my-4 max-w-2xl h-32">
+      <div class="list flex cardSearch  my-4 max-w-xl h-32">
         <div class="card" className="w-48 h-full">
           <img
             className="w-48 object-fill h-32"

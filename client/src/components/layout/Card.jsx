@@ -12,7 +12,7 @@ const Card = (props) => {
   const handleAddToCard = () => {
     dispatch(
       addCourseToCart({
-        course_id: props._id,
+        course_id: props._id
       })
     );
   };
@@ -26,7 +26,7 @@ const Card = (props) => {
     category,
     students_count,
     badge3,
-    description,
+    description
   } = props;
 
   return (
@@ -36,11 +36,11 @@ const Card = (props) => {
         <Link
           to={`/course/${_id}/info`}
           state={{
-            course_id: _id,
+            course_id: _id
           }}
         >
           <img
-            src={require("../../image/carryu_big_logo_white_background.png")}
+            src={thumbnail || require("../../image/2.JPG")}
             alt="課程圖片"
             className="object-cover transition-all duration-300 w-full h-48 "
           />
