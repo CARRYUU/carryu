@@ -8,8 +8,8 @@ const Course = (props) => {
       <div>
         
         <body>
-          <div className="bg-black/25  my-5 h-40 px-10 pt-5">
-            <h1 className=" my-10 font-bold text-4xl mb-10 text-left m-5 text-white">
+          <div >
+            <h1 className=" my-10 font-bold text-4xl mb-10 text-left m-5 text-mainBlue">
               My Learing
             </h1>
           </div>
