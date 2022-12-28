@@ -40,7 +40,7 @@ const Card = (props) => {
           }}
         >
           <img
-            src={require("../../image/2.JPG")}
+            src={thumbnail||require("../../image/2.JPG")}
             alt="課程圖片"
             className="object-cover "
           />
