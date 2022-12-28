@@ -7,7 +7,8 @@ const courseValidation = require("../config/validation").courseValidation;
 // @access  Private/Instructor
 exports.createNewCourse = (req, res) => {
   // Desctructure the request body
-  let { title, description, price, thumbnail, category } = req.body;
+  let { title, description, price, category } = req.body;
+  const thumbnail = req.file ? req.file.filename : null;
 
   // Get the user from the request object
   const user = req.user;
