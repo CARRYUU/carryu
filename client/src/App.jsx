@@ -16,9 +16,10 @@ import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 import CompleteBuy from "./components/CompleteBuy/CompleteBuy";
-import CreateCourse from "./components/CreateCourse/CreateCourse";
+import CreateNewCourse from "./components/CreateNewCourse/CreateNewCourse";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
+import InstructorHomepage from "./components/InstructorHomepage/InstructorHomepage";
 
 function App() {
   return (
@@ -49,12 +50,13 @@ function App() {
         <Route path="/auth/login" element={<Login />} />
 
         <Route path="/user/register" element={<Register />} />
+        <Route path="/intructor/homepage" element={<InstructorHomepage />} />
         <Route path="/user/profile" element={<EditProfile />} />
         <Route path="/user/password/update" element={<EditPassword />} />
 
         <Route path="/course/search/:title" element={<SearchResult />} />
         <Route path="/course/:id/info" element={<CourseInfo />} />
-        <Route path="/course/create" element={<CreateCourse />} />
+        <Route path="/course/create" element={<CreateNewCourse />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
