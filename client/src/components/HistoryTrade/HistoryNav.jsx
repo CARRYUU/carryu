@@ -31,16 +31,11 @@ const HistoryNav = () => {
           <li
             
             className="bg-slate-50 rounded-xl px-5 hover:text-gray-800 hover:border-b-2 text-gray-500 cursor-pointer"
-            role="presentation"
           >
             <button
               onClick={()=>toggleTab(1)}
               className={toggleState===1?"tabs active-tabs":"tabs"}
               // className="inline-block p-4 rounded-t-lg border-b-2"
-              id="historybuy-tab"
-              data-tabs-target="#historybuy"
-              type="button"
-              role="tab"
             >
               購買課程
             </button>
@@ -54,10 +49,6 @@ const HistoryNav = () => {
               onClick={()=>toggleTab(2)}
               className={toggleState===2?"tabs active-tabs":"tabs"}
               // className="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300"
-              id="historyreturn-tab "
-              data-tabs-target="#histroyreturn"
-              type="button"
-              role="tab"
             >
               退訂紀錄
             </button>
@@ -67,15 +58,11 @@ const HistoryNav = () => {
       <div >
         <div
           className={toggleState===1?"contet":"content active-content"}
-          id="historybuy"
-          role="tabpanel"
         >
           <HistoryBuy />
         </div>
         <div
           className={toggleState===2?"contet":"content active-content"}
-          id="historyreturn"
-          role="tabpanel"
         >
           <HistoryReturn />
         </div>
