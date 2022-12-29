@@ -2,7 +2,7 @@ const User = require("../models/user-model");
 const Course = require("../models/course-model");
 
 // @desc    Add purchase record to user's purchase history
-// @route   POST api/transaction/purchase/
+// @route   PUT api/transaction/purchase/
 // @access  Private
 exports.addPurchaseRecord = async (req, res) => {
   const { user_id, course_id, payment_type } = req.body;
@@ -96,7 +96,7 @@ exports.addPurchaseRecord = async (req, res) => {
 };
 
 // @desc    Add refund record to user's purchase history
-// @route   DELETE api/transaction/refund/
+// @route   PUT api/transaction/refund/
 // @access  Private
 exports.addRefundRecord = async (req, res) => {
   const { course_id } = req.body;
