@@ -44,8 +44,14 @@ export const getCourseContentById = (id) => API.get(`/course/${id}/content`);
 export const getAllCourses = () => API.get("/course");
 export const getCourseByCategory = (category) =>
   API.get(`/course/category/${category}`);
-export const getTenMostPopularCourses = () => API.get("/course/popular");
-export const getTenMostNewestCourses = () => API.get("/course/newest");
+export const getTenMostPopularCourses = () =>
+  API.get("/course/popular", {
+    timeout: 20000,
+  });
+export const getTenMostNewestCourses = () =>
+  API.get("/course/newest", {
+    timeout: 20000,
+  });
 export const getARandomCourse = () => API.get("/course/random");
 export const addCourseComment = (id, data) =>
   API.post(`/course/${id}/comment`, data);
