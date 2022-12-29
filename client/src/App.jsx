@@ -23,6 +23,10 @@ import HistoryTrade from "./components/HistoryTrade/HistoryTrade";
 import HistoryBuy from "./components/HistoryTrade/HistoryBuy";
 import HistoryReturn from "./components/HistoryTrade/HistoryReturn";
 
+import HistoryChallenge from "./components/HistoryChallenge/HitoryChallenge";
+import ChallengSuc from "./components/HistoryChallenge/ChallengeSuc";
+import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
+
 
 function App() {
   return (
@@ -67,6 +71,10 @@ function App() {
         <Route path="/history-trade" element={<HistoryTrade/>}/>
         <Route path="/history-buy" element={<HistoryBuy/>}/>
         <Route path="/history-return" element={<HistoryReturn/>}/>
+
+        <Route path="/history-challenge" element={<HistoryChallenge/>}/>
+        <Route path="/challenge-suc" element={<ChallengSuc/>}/>
+        <Route path="/challenge-fail" element={<ChallengeFail/>}/>
 
         <Route path="/study" element={<Study />} />
       </Routes>
