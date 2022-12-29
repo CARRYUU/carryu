@@ -49,7 +49,9 @@ const Cart = () => {
               </div>
             )}
           </div>
-          <TotalPrice totalPrice={totalPrice} />
+          {cartItems && cartItems.length > 0 && (
+            <TotalPrice totalPrice={totalPrice} />
+          )}
         </div>
       </body>
     </div>

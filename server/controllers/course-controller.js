@@ -7,7 +7,8 @@ const courseValidation = require("../config/validation").courseValidation;
 // @access  Private/Instructor
 exports.createNewCourse = (req, res) => {
   // Desctructure the request body
-  let { title, description, price, thumbnail, category } = req.body;
+  let { title, description, price, category } = req.body;
+  const thumbnail = req.file ? req.file.filename : null;
 
   // Get the user from the request object
   const user = req.user;
@@ -139,6 +140,7 @@ exports.getCourseInfoById = async (req, res) => {
           thumbnail: course.thumbnail,
           category: course.category,
           students_count: course.students.length,
+          created: course.created,
         },
       });
     })
@@ -697,7 +699,8 @@ exports.removeStudentFromCourse = async (req, res) => {
       })
       .catch((err) => {
         res.status(400).json({
-          err_msg: "Course save failed, which lead to remove student failed",
+          err_msg:
+            "Course save failed, which lead to remove student from course failed",
           error: err,
         });
       });

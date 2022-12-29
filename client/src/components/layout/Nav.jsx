@@ -4,6 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoEarthSharp } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/auth/authSlice";
+
 import Dropdown from "./Dropdown";
 
 const Nav = () => {
@@ -97,5 +98,4 @@ const Nav = () => {
     </nav>
   );
 };
-
 export default Nav;

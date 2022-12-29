@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ReactComponent as SmallLogo } from "../../icon/carryu_small_logo.svg";
+import { ReactComponent as BigLogo } from "../../icon/carryu_big_logo.svg";
 
 const Footer = () => {
   return (
@@ -7,15 +9,8 @@ const Footer = () => {
       <footer class="p-4 bg-white  shadow md:px-6 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
           <Link to="/" class="flex items-center mb-4 sm:mb-0">
-            <img
-              src={require("../../icon/logo.png")}
-              className="mr-0 h-12 flex flex-none"
-              alt="CarryU Logo"
-            />
-            <img
-              src={require("../../icon/name.png")}
-              className="text-mainBlue flex flex-none ml-1 w-32"
-            ></img>
+          <SmallLogo className="fill-currentColor ml-4 mr-0 h-12 flex flex-none" />
+          <BigLogo className="flex ml-1 w-32" />
           </Link>
           <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0">
             <li>
