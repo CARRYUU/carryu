@@ -4,14 +4,16 @@ const { isAuthenticatedUser } = require("../middlerware/auth-middleware");
 const {
   addChallengeRecord,
   setChallengeToSuccess,
+  setChallengeToFailed,
   getChallengeHistory,
 } = require("../controllers/challenge-controller");
 
-router.route("/add").post(isAuthenticatedUser, addChallengeRecord);
+router.route("/add").put(isAuthenticatedUser, addChallengeRecord);
 
 router
   .route("/set-to-success")
-  .post(isAuthenticatedUser, setChallengeToSuccess);
+  .patch(isAuthenticatedUser, setChallengeToSuccess);
+router.route("/set-to-failed").patch(isAuthenticatedUser, setChallengeToFailed);
 
 router.route("/").get(isAuthenticatedUser, getChallengeHistory);
 
