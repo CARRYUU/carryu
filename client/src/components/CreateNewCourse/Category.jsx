@@ -26,11 +26,11 @@ const CategoryTitle = (props) => {
   });
 
   return (
-    <div>
+    <div className="w-3/5">
       <label className="block mb-2 text-lg font-bold text-gray-900">
         Course title & category
       </label>
-      <div className="relative flex justify-center mb-4">
+      <div className="relative flex mb-4">
         <button
           ref={imgRef}
           onClick={() => setOpen(!open)}
@@ -51,7 +51,7 @@ const CategoryTitle = (props) => {
             ></path>
           </svg>
         </button>
-        <div className="w-2/3">
+        <div className="w-full">
           <input
             onChange={props.onChange}
             value={props.titleValue}
@@ -64,7 +64,7 @@ const CategoryTitle = (props) => {
         {open && (
           <div
             ref={menuRef}
-            className="absolute top-12 left-16 bg-gray-100 text-mainBlue font-bold p-3 w-48 shadow-lg  "
+            className="absolute top-12 left-0 bg-gray-100 text-mainBlue font-bold p-3 w-48 shadow-lg  "
           >
             <ul>
               <div>

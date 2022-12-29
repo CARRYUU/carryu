@@ -12,7 +12,7 @@ import Button from "../layout/Button";
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
-    password: "",
+    password: ""
   });
 
   const { email, password } = formData;
@@ -32,7 +32,7 @@ const Login = () => {
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     }));
   };
 
@@ -47,7 +47,7 @@ const Login = () => {
       <div className="h-4/6">
         <Title pageTitle="Login" />
         <div className="flex flex-col items-center justfiy-center px-4 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="flex flex-col items-center justfiy-center w-3/4 py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
+          <div className="flex flex-col items-center justfiy-center w-1/3 py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
             <Input
               labelName="Email"
               type="email"

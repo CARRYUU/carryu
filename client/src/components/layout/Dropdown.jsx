@@ -16,11 +16,9 @@ const Dropdown = () => {
 
   const [open, setOpen] = useState(false);
   const Menus = [
-    { key: "Login", value: "/auth/login" },
     { key: "Logout", value: "/auth/logout" },
-    { key: "Register", value: "/user/register" },
     { key: "Profile & Settings", value: "/user/profile" },
-    { key: "Edit Password", value: "/user/password/update" },
+    { key: "Edit Password", value: "/user/password/update" }
   ];
 
   const menuRef = useRef();

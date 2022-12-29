@@ -1,6 +1,6 @@
 import React from "react";
 
-const UploadFile = () => {
+const UploadFile = (props) => {
   return (
     <div>
       <label className="block mb-2 text-lg font-bold text-gray-900">
@@ -12,6 +12,8 @@ const UploadFile = () => {
             className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 mb-1"
             aria-describedby="file_input_help"
             type="file"
+            onChange={props.handleChange}
+            file={props.file}
           ></input>
           <label
             for="dropzone-file"
