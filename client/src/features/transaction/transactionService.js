@@ -1,9 +1,9 @@
-import * as api from "./api.js";
+import * as api from "../api";
 import { toast } from "react-toastify";
 
 const addPurchaseRecord = async (transactionData, thunkAPI) => {
   try {
-    const { response } = await api.addPurchaseRecord(transactionData);
+    const response = await api.addPurchaseRecord(transactionData);
 
     if (!response.data) {
       console.log("No data returned from addPurchaseRecord API call.");
@@ -17,6 +17,7 @@ const addPurchaseRecord = async (transactionData, thunkAPI) => {
 
     return response.data;
   } catch (error) {
+    console.log("addPurchaseRecord error");
     const message =
       (error.response && error.response.data && error.response.data.err_msg) ||
       error.message ||
@@ -33,7 +34,7 @@ const addPurchaseRecord = async (transactionData, thunkAPI) => {
 
 const addRefundRecord = async (transactionData, thunkAPI) => {
   try {
-    const { response } = await api.addRefundRecord(transactionData);
+    const response = await api.addRefundRecord(transactionData);
 
     if (!response.data) {
       console.log("No data returned from addRefundRecord API call.");
@@ -47,6 +48,8 @@ const addRefundRecord = async (transactionData, thunkAPI) => {
 
     return response.data;
   } catch (error) {
+    console.log("addRefundRecord error");
+
     const message =
       (error.response && error.response.data && error.response.data.err_msg) ||
       error.message ||
