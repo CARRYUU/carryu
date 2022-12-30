@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import ChallengeSuc from "./ChallengeSuc";
 import ChallengeFail from "./ChallengeFail";
 
