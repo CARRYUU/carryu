@@ -612,13 +612,15 @@ exports.getCourseTAs = async (req, res) => {
 };
 
 // @desc    Add student to course
-// @route   POST api/course/:_id/student
+// @route   POST api/course/student
 // @access  Private
 exports.addStudentToCourse = async (req, res) => {
-  const { _id } = req.params;
-  const { user_id } = req.body;
+  console.log("Adding student to course...");
+  console.log(req.body);
 
-  Course.findById(_id).then(async (course) => {
+  const { user_id, course_id } = req.body;
+
+  Course.findById(course_id).then(async (course) => {
     if (!course) {
       return res.status(404).json({
         msg: "Course not found",
@@ -664,13 +666,12 @@ exports.addStudentToCourse = async (req, res) => {
 };
 
 // @desc    Remove student from course
-// @route   DELETE api/course/:_id/student
+// @route   DELETE api/course/student
 // @access  Private
 exports.removeStudentFromCourse = async (req, res) => {
-  const { _id } = req.params;
-  const { user_id } = req.body;
+  const { user_id, course_id } = req.body;
 
-  Course.findById(_id).then(async (course) => {
+  Course.findById(course_id).then(async (course) => {
     if (!course) {
       return res.status(404).json({
         msg: "Course not found",
