@@ -26,6 +26,7 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
   - [Developer Tools](#developer-tools)
   - [Tools' Official Document](#tools-official-document)
   - [Learning Resources](#learning-resources)
+- [TODO](#todo)
 
 ## Project Documents
 
@@ -175,3 +176,47 @@ $ npm run start
 - [2020 iT 邦鐵人賽 成為看起來很強的後端](https://youtube.com/playlist?list=PLS5AiLcCHgNxd341NwuY9EOpVvY5Z8VOs) - 花一個下午的時間就可以大致了解後端藍圖，賺。
 
 其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
+
+## TODO
+
+- **Auth**
+
+  - [x] Login/Logout
+
+- **User**
+
+  - [x] Register new user
+  - [x] Update user profile
+  - [x] Update user password
+  - [x] Switch user role
+
+- **Course**
+
+  - [x] Create a new course (still have bugs to fix, validation)
+  - [x] Search course by title(insensitive search)
+  - [x] Get course information like title, instructor, description, price...
+  - [x] Get ten most popular courses
+  - [x] Get ten most newest courses
+  - [x] Add student into course.
+  - [x] Browse single course page.
+  - [ ] Study mode
+
+- **Cart**
+
+  - [x] Add/Remove course item in/from shopping cart. (Available when user logged in.)
+  - [x] Get course items from shopping cart.
+
+- **Transaction**
+
+  - [x] Add purchase record.
+  - [x] Add refund record.
+  - [x] Get purchase/refund history.
+
+- **Challenge**
+
+  - [ ] Let it roll
+  - [ ] Get points after succeed challenge.
+
+- **Other Pages & Functions**
+  - [ ] About
+  - [ ] Buy course directly
