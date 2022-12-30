@@ -6,8 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/auth/authSlice";
 
 import Dropdown from "./Dropdown";
-import { AiOutlineShoppingCart} from "react-icons/ai";
-import { BsBook } from "react-icons/bs";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -95,7 +93,6 @@ const Nav = () => {
           <IoEarthSharp size={42} className="p-2" />
         </Link>
       </div>
-
     </nav>
   );
 };
