@@ -3,7 +3,7 @@ import { getUserFromLocalStorage } from "../../utils/localStorage";
 
 const API = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
-  timeout: 20000,
+  timeout: 2000,
 });
 
 API.interceptors.request.use(
