@@ -10,14 +10,25 @@ const HistoryTrade = (props) => {
  
   return (
     <div>
-      <body >
+
+   
+
+      <body>
+
         
           <h1 className=" my-10 font-bold text-4xl mb-10 text-left m-5 text-mainBlue">
             History Trade
           </h1>
         
         <HistoryNav />
+
         
+
+        <div className="flex place-content-center">
+          {component}
+         
+        </div>
+
       </body>
     </div>
   );
