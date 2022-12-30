@@ -72,16 +72,16 @@ export const getCourseTAs = createAsyncThunk(
 );
 
 export const addStudentToCourse = createAsyncThunk(
-  "/course/:id/students",
-  async (studentData, thunkAPI) => {
-    return await courseService.addStudentToCourse(studentData, thunkAPI);
+  "/course/students",
+  async (data, thunkAPI) => {
+    return await courseService.addStudentToCourse(data, thunkAPI);
   }
 );
 
 export const removeStudentFromCourse = createAsyncThunk(
-  "/course/:id/students",
-  async (studentData, thunkAPI) => {
-    return await courseService.removeStudentFromCourse(studentData, thunkAPI);
+  "/course/students",
+  async (data, thunkAPI) => {
+    return await courseService.removeStudentFromCourse(data, thunkAPI);
   }
 );
 
