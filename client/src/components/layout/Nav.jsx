@@ -19,12 +19,9 @@ const Nav = () => {
   const Menus = [
     { key: "Sign in", value: "/auth/login" },
     { key: "Switch", value: "/intructor/homepage" },
-    { key: "Sign up", value: "/user/register" }
+    { key: "Sign up", value: "/user/register" },
   ];
 
-  const usericon = () => {
-    if (user) return <Dropdown />;
-  };
   return (
     <nav className="flex flex-end justify-around flex-[2_1_400px] w-full items-center">
       <div className="">
@@ -33,7 +30,7 @@ const Nav = () => {
             <Link to="/about">About</Link>
           </li>
           <li className="px-0.1 w-14">
-            <Link to="/challenge">Chellnge</Link>
+            <Link to="/challenge">Challenge</Link>
           </li>
         </ul>
       </div>
@@ -87,7 +84,8 @@ const Nav = () => {
       </div>
 
       <div className="flex flex-row space-x-2">
-        {usericon()}
+        {user && <Dropdown />}
+
         <Link to="/cart">
           <FaShoppingCart size={42} className="p-2" />
         </Link>
