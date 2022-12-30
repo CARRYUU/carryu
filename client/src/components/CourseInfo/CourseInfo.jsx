@@ -99,7 +99,7 @@ const CourseInfo = () => {
 
                   <div className="flex justify-center items-center">
                     {/* 金錢符號 */}
-                    <div class=" text-amber-500 h-9 mb-2">
+                    <div className=" text-amber-500 h-9 mb-2">
                       <BsCurrencyDollar size={42} />
                     </div>
 
