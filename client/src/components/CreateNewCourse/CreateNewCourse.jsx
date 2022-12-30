@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Category from "./Category";
 import UploadFile from "./UploadFile";
 import Description from "./Description";
@@ -9,26 +10,30 @@ import Title from "../layout/Title";
 import Button from "../layout/Button";
 import Input from "../layout/Input";
 
-const CreateNewCourse = (course) => {
+const CreateNewCourse = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     price: "",
     thumbnail: "",
-    category: ""
+    category: "others",
   });
-
-  const { user } = useSelector((state) => state.user);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleChangeCategory = (e) => {
+    setFormData({ ...formData, category: e.target.getAttribute("value") });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createNewCourse(formData));
+    navigate("/");
   };
 
   return (
@@ -39,27 +44,34 @@ const CreateNewCourse = (course) => {
           <div className="flex justify-center">
             <Category
               onChange={handleChange}
-              cayegoryValue={course.category}
-              titleValue={course.title}
+              handleChangeCategory={handleChangeCategory}
+              category={formData.category}
+              title={formData.title}
             />
 
             <div className="w-1/5">
               <Input
                 labelName="Price"
                 name="price"
-                type=""
+                id="price"
+                type="number"
                 placeholder="ex. 800"
                 onChange={handleChange}
-                value={course.price}
+                value={formData.price}
+                min="0"
+                max="9999"
+                step="100"
               />
             </div>
           </div>
 
           <Description
             onChange={handleChange}
-            description={course.description}
+            id="description"
+            name="description"
+            description={formData.description}
           />
-          <UploadFile onChange={handleChange} file={course.file} />
+          <UploadFile onChange={handleChange} file={formData.file} />
           <Button buttonName="Upload" onClick={handleSubmit} />
         </div>
       </div>
