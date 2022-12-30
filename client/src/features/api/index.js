@@ -63,10 +63,9 @@ export const removeCourseTA = (id, data) =>
     data,
   });
 export const getCourseTAs = (id) => API.get(`/course/${id}/teaching-assistant`);
-export const addStudentToCourse = (id, data) =>
-  API.post(`/course/${id}/student`, data);
-export const removeStudentFromCourse = (id, data) =>
-  API.delete(`/course/${id}/student`, {
+export const addStudentToCourse = (data) => API.post(`/course/student`, data);
+export const removeStudentFromCourse = (data) =>
+  API.delete(`/course/student`, {
     data,
   });
 export const getCourseStudents = (id) => API.get(`/course/${id}/student`);
@@ -80,12 +79,13 @@ export const removeCourseFromCart = (data) =>
 export const getCartItems = () => API.get("/cart");
 
 // Path: baseURL/transaction/
-export const addPurchaseRecord = (data) => API.post("/purchase", data);
-export const addRefundRecord = (data) => API.post("/refund", data);
+export const addPurchaseRecord = (data) =>
+  API.put("/transaction/purchase", data);
+export const addRefundRecord = (data) => API.put("/transaction/refund", data);
 
 // Path: baseURL/points/
 export const deletePoints = (data) => API.put("/points/delete", data);
 export const getPoints = () => API.put("/points");
 
 // Path: baseURL/payment/
-export const createPaymentIntent = (data) => API.post("/payment", data);
+export const processPayment = (data) => API.post("/payment", data);
