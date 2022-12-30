@@ -11,7 +11,7 @@ const Register = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
-    password: "",
+    password: ""
   });
 
   const { username, email, password } = formData;
@@ -21,7 +21,7 @@ const Register = () => {
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     }));
   };
 
@@ -33,7 +33,7 @@ const Register = () => {
     const formData = {
       username,
       email,
-      password,
+      password
     };
 
     console.log(formData);
@@ -44,9 +44,8 @@ const Register = () => {
   return (
     <div>
       <Title pageTitle="Register" />
-
-      <div className="p-6 space-y-6">
-        <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justfiy-center px-4 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justfiy-center w-1/3 py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
           <Input
             labelName="Username"
             type="text"

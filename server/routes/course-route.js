@@ -33,7 +33,12 @@ const {
 // create a new course
 router
   .route("/create")
-  .post(isAuthenticatedUser, isInstructor, createNewCourse);
+  .post(
+    upload.single("thumbnail"),
+    isAuthenticatedUser,
+    isInstructor,
+    createNewCourse
+  );
 
 // course info
 router

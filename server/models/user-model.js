@@ -68,10 +68,14 @@ const userSchema = new Schema({
   challenge_history: [
     {
       course_id: Schema.Types.ObjectId,
-      challenge_date: Date,
+      challenge_date: {
+        type: Date,
+        default: Date,
+      },
+
       status: {
         type: String,
-        enum: ["success", "fail", "inprogress"],
+        enum: ["success", "failed", "inprogress"],
       },
     },
   ],

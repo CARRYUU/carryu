@@ -20,7 +20,9 @@ const isAuthenticatedUser = async (req, res, next) => {
 
       // If the user is not found, return error message.
       if (!req.user) {
-        return res.status(401).json({ err_msg: "User not found." });
+        return res
+          .status(401)
+          .json({ err_msg: "Authenticated failed. User not found." });
       }
 
       next();

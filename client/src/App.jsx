@@ -16,16 +16,17 @@ import About from "./components/About/About";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 import CompleteBuy from "./components/CompleteBuy/CompleteBuy";
+import CreateNewCourse from "./components/CreateNewCourse/CreateNewCourse";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
 import MyCoursePage from "./components/MyCoursePage/MyCoursePage";
 import HistoryTrade from "./components/HistoryTrade/HistoryTrade";
 import HistoryBuy from "./components/HistoryTrade/HistoryBuy";
 import HistoryReturn from "./components/HistoryTrade/HistoryReturn";
-
 import HistoryChallenge from "./components/HistoryChallenge/HitoryChallenge";
 import ChallengSuc from "./components/HistoryChallenge/ChallengeSuc";
 import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
+import InstructorHomepage from "./components/InstructorHomepage/InstructorHomepage";
 
 
 function App() {
@@ -57,11 +58,13 @@ function App() {
         <Route path="/auth/login" element={<Login />} />
 
         <Route path="/user/register" element={<Register />} />
+        <Route path="/intructor/homepage" element={<InstructorHomepage />} />
         <Route path="/user/profile" element={<EditProfile />} />
         <Route path="/user/password/update" element={<EditPassword />} />
 
         <Route path="/course/search/:title" element={<SearchResult />} />
         <Route path="/course/:id/info" element={<CourseInfo />} />
+        <Route path="/course/create" element={<CreateNewCourse />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />

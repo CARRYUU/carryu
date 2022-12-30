@@ -7,7 +7,8 @@ const courseValidation = require("../config/validation").courseValidation;
 // @access  Private/Instructor
 exports.createNewCourse = (req, res) => {
   // Desctructure the request body
-  let { title, description, price, thumbnail, category } = req.body;
+  let { title, description, price, category } = req.body;
+  const thumbnail = req.file ? req.file.filename : null;
 
   // Get the user from the request object
   const user = req.user;
@@ -184,12 +185,11 @@ exports.getCourseContentById = async (req, res) => {
 // @access  Public
 exports.getCoursesByTitle = async (req, res) => {
   const { title } = req.params;
-
   // fuzzy search by title
   const courses = await Course.find({
     title: { $regex: title, $options: "i" },
     $orderby: { views_count: -1 },
-  });
+  }).select("-thumbnail -students -videos -teaching_assistants -comments");
 
   console.log(courses);
 
@@ -294,6 +294,7 @@ exports.getCourseAllComments = async (req, res) => {
 // @access  Public
 exports.getAllCourses = async (req, res) => {
   Course.find({})
+    .select("-thumbnail -students -videos -teaching_assistants -comments")
     .then((courses) => {
       res.status(200).json({
         msg: `Found ${courses.length} courses`,
@@ -315,6 +316,7 @@ exports.getTenMostPopularCourses = async (req, res) => {
   Course.find({})
     .sort({ students_count: -1 })
     .limit(10)
+    .select("-thumbnail -students -videos -teaching_assistants -comments")
     .then((courses) => {
       res.status(200).json({
         msg: `Found ${courses.length} courses`,
@@ -323,7 +325,7 @@ exports.getTenMostPopularCourses = async (req, res) => {
     })
     .catch((err) => {
       res.status(400).json({
-        err_msg: "Get most popular courses failed",
+        err_msg: "Get popular courses failed",
         error: err,
       });
     });
@@ -336,6 +338,7 @@ exports.getTenNewestCourses = async (req, res) => {
   Course.find({})
     .sort({ created: -1 })
     .limit(10)
+    .select("-thumbnail -students -videos -teaching_assistants -comments")
     .then((courses) => {
       res.status(200).json({
         msg: `Found ${courses.length} courses`,
@@ -377,6 +380,7 @@ exports.getCoursesByCategory = async (req, res) => {
 
   Course.find({ category })
     .sort({ views_count: -1 })
+    .select("-thumbnail -students -videos -teaching_assistants -comments")
     .then((courses) => {
       res.status(200).json({
         msg: `Found ${courses.length} courses`,
@@ -698,7 +702,8 @@ exports.removeStudentFromCourse = async (req, res) => {
       })
       .catch((err) => {
         res.status(400).json({
-          err_msg: "Course save failed, which lead to remove student failed",
+          err_msg:
+            "Course save failed, which lead to remove student from course failed",
           error: err,
         });
       });
