@@ -25,7 +25,10 @@ const CartItem = (props) => {
         <div class="card" className="w-48 h-full">
           <img
             className="w-48 object-fill h-32"
-            src={thumbnail || require("../../image/2.JPG")}
+            src={
+              thumbnail ||
+              require("../../image/carryu_big_logo_white_background.png")
+            }
             alt="course thumbnail"
           ></img>
         </div>
