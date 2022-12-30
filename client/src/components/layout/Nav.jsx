@@ -90,8 +90,8 @@ const Nav = () => {
         <Link to="/cart">
           <FaShoppingCart size={42} className="p-2" />
         </Link>
-        <Link to="/language">
-          <IoEarthSharp size={42} className="p-2" />
+        <Link to="/mycourse-page">
+          <BsBook size={42} className="p-2" />
         </Link>
       </div>
     </nav>

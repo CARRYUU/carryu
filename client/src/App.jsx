@@ -20,14 +20,14 @@ import CreateNewCourse from "./components/CreateNewCourse/CreateNewCourse";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
 import MyCoursePage from "./components/MyCoursePage/MyCoursePage";
-import PurchaseHistory from "./components/PurchaseHistory/PurchaseHistory";
-import HistoryBuy from "./components/PurchaseHistory/HistoryBuy";
-import HistoryReturn from "./components/PurchaseHistory/HistoryReturn";
+import HistoryTrade from "./components/HistoryTrade/HistoryTrade";
+import HistoryBuy from "./components/HistoryTrade/HistoryBuy";
+import HistoryReturn from "./components/HistoryTrade/HistoryReturn";
 import HistoryChallenge from "./components/HistoryChallenge/HistoryChallenge";
-import ConfirmChallenge from "./components/Challenge/ConfirmChallenge";
 import ChallengSuc from "./components/HistoryChallenge/ChallengeSuc";
 import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
 import InstructorHomepage from "./components/InstructorHomepage/InstructorHomepage";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
   return (
@@ -81,6 +81,8 @@ function App() {
         <Route path="/challenge-fail" element={<ChallengeFail />} />
 
         <Route path="/study" element={<Study />} />
+
+        <Route path="/errorpage" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </div>
