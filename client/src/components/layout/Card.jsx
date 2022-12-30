@@ -40,9 +40,9 @@ const Card = (props) => {
           }}
         >
           <img
-            src={thumbnail||require("../../image/2.JPG")}
+            src={require("../../image/carryu_big_logo_white_background.png")}
             alt="課程圖片"
-            className="object-cover "
+            className="object-cover transition-all duration-300 w-full h-48 "
           />
         </Link>
 
