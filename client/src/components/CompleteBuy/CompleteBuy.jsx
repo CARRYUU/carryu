@@ -16,7 +16,7 @@ const CompleteBuy = () => {
           <SellerInfo />
         </div>
       </div>
-      <Link to="/Course">
+      <Link to="/history-trade">
         <CourseCheckButton buttonName="CourseCheck" />
       </Link>
     </div>
