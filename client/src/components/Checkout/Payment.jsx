@@ -1,37 +1,63 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { MdOutlineAtm, MdGrade } from "react-icons/md";
+import { AiFillCreditCard } from "react-icons/ai";
 
-class Payment extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "React",
-    };
-    this.onChangeValue = this.onChangeValue.bind(this);
-  }
-
-  onChangeValue(event) {
-    console.log(event.target.value);
-  }
-
-  render() {
-    return (
-      <div onChange={this.onChangeValue}>
+const Payment = (props) => {
+  return (
+    <div>
+      <fieldset>
         <h3 className="font-bold">Payment</h3>
-        <h3 className="font-bold text-sm text-gray-400/70">
-          only this choice (´∀｀){" "}
-        </h3>
-        <div className="bg-gray-100/70 m-2 rounded-md p-2 flex relative max-w-2xl">
-          <input type="radio" value="Male" name="Payment" /> ATM
+        <div className="bg-gray-100/70 m-2 rounded-md p-2 flex relative max-w-xl">
+          <input
+            type="radio"
+            id="ATM"
+            value="ATM"
+            name="payment"
+            className="pl-2"
+            onClick={props.handlePaymentMethod}
+          />
+          <label htmlFor="ATM" className="pl-2">
+            ATM
+          </label>
           <div className="right-0 absolute">
-            <img
-              src={require("../../icon/atmicon.png")}
-              className="w-8 right-0 mx-2"
-            ></img>
+            <MdOutlineAtm className="text-2xl" />
           </div>
         </div>
-      </div>
-    );
-  }
-}
+        <div className="bg-gray-100/70 m-2 rounded-md p-2 flex relative max-w-xl">
+          <input
+            type="radio"
+            id="CREADIT_CARD"
+            value="CREADIT_CARD"
+            name="payment"
+            className="pl-2"
+            onClick={props.handlePaymentMethod}
+          />
+          <label htmlFor="CREADIT_CARD" className="pl-2">
+            Credit Card
+          </label>
+          <div className="right-0 absolute">
+            <AiFillCreditCard className="text-2xl" />
+          </div>
+        </div>
+        <div className="bg-gray-100/70 m-2 rounded-md p-2 flex relative max-w-xl">
+          <input
+            type="radio"
+            id="POINTS"
+            value="POINTS"
+            name="payment"
+            className="pl-2"
+            onClick={props.handlePaymentMethod}
+          />
+          <label htmlFor="POINTS" className="pl-2">
+            Points
+          </label>
+          <div className="right-0 absolute">
+            <MdGrade className="text-2xl" />
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  );
+};
 
 export default Payment;
