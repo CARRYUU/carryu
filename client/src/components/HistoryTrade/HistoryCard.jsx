@@ -5,16 +5,17 @@ const HistoryCard = (props) => {
 
   return (
     <div>
-      <div class="list flex cardSearch  my-4 max-w-xl h-32">
-        <div class="card" className="w-48 h-full">
+      <div class="list flex cardSearch  my-4 max-w-xl h-32 ">
+        <div class="card" className=" w-48 h-full">
           <img
             className="w-48 object-fill h-32"
             src={require("../../image/2.JPG")}
             alt="course thumbnail"
           ></img>
         </div>
-        <div className="mx-2">
-          <h3 className="font-bold text-m m-2">{title} </h3>
+      
+        <div className=" mx-2 text-left">
+          <h3 className="font-bold text-m m-2">{title}</h3>
           <div className="flex ">
             <div class="middle" className="badge ml-1">
               {badge1}

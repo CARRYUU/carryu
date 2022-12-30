@@ -25,7 +25,7 @@ const HistoryTrade = (props) => {
         
 
         <div className="flex place-content-center">
-          {component}
+         
          
         </div>
 
