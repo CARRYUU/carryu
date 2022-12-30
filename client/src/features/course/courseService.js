@@ -275,9 +275,10 @@ const getCourseTAs = async (id, thunkAPI) => {
   }
 };
 
-const addStudentToCourse = async (studentData, thunkAPI) => {
+const addStudentToCourse = async (data, thunkAPI) => {
   try {
-    const response = await api.addStudentToCourse(studentData);
+    console.log(data);
+    const response = await api.addStudentToCourse(data);
 
     if (!response.data) {
       console.log("No data returned from addStudentToCourse API call.");
@@ -301,9 +302,9 @@ const addStudentToCourse = async (studentData, thunkAPI) => {
   }
 };
 
-const removeStudentFromCourse = async (studentData, thunkAPI) => {
+const removeStudentFromCourse = async (data, thunkAPI) => {
   try {
-    const response = await api.removeStudentFromCourse(studentData);
+    const response = await api.removeStudentFromCourse(data);
 
     if (!response.data) {
       console.log("No data returned from removeStudentFromCourse API call.");
