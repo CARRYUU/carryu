@@ -5,6 +5,7 @@ import userReducer from "./features/user/userSlice";
 import allCoursesReducer from "./features/allCourses/allCoursesSlice";
 import courseReducer from "./features/course/courseSlice";
 import cartReducer from "./features/cart/cartSlice";
+import transactionReducer from "./features/transaction/transactionSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,5 +14,6 @@ export const store = configureStore({
     courses: allCoursesReducer,
     course: courseReducer,
     cart: cartReducer,
+    transaction: transactionReducer,
   },
 });
