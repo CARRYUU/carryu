@@ -31,7 +31,7 @@ const Card = (props) => {
 
   return (
     <div>
-      <div className="snap-center card my-6 mx-6 x-72 h-[440px] ">
+      <div className=" snap-center card my-6 mx-6 x-72 h-[440px] ">
         {/* 圖片 */}
         <Link
           to={`/course/${_id}/info`}
@@ -42,7 +42,7 @@ const Card = (props) => {
           <img
             src={require("../../image/carryu_big_logo_white_background.png")}
             alt="課程圖片"
-            className="object-cover w-full h-48 transition-all duration-300 hover:shadow-2xl opacity-80 hover:opacity-100"
+            className="object-cover h-48 w-96"
           />
         </Link>
 
