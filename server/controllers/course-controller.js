@@ -6,6 +6,9 @@ const courseValidation = require("../config/validation").courseValidation;
 // @route   POST api/course/create
 // @access  Private/Instructor
 exports.createNewCourse = (req, res) => {
+  console.log("Creating new course...");
+  console.log(req.body);
+
   // Desctructure the request body
   let { title, description, price, category } = req.body;
   const thumbnail = req.file ? req.file.filename : null;
@@ -15,7 +18,7 @@ exports.createNewCourse = (req, res) => {
 
   // Validate the course data.
   const { error } = courseValidation({ title, price, category });
-  if (error) return res.status(400).json({ msg: error.details[0].message });
+  if (error) return res.status(400).json({ err_msg: error.details[0].message });
 
   // Create new course object and save it into database.
   const course = new Course({
@@ -30,14 +33,15 @@ exports.createNewCourse = (req, res) => {
   course
     .save()
     .then((result) => {
-      res.status(200).json({
+      return res.status(200).json({
         msg: "Course added successfully",
         savedObject: result,
       });
     })
     .catch((err) => {
-      res.status(400).json({
-        msg: "Course add failed",
+      console.log(err);
+      return res.status(400).json({
+        err_msg: "Course add failed",
         error: err,
       });
     });
@@ -86,7 +90,7 @@ exports.updateCourseInfo = async (req, res) => {
       course
         .save()
         .then((course) => {
-          res.status(200).json({
+          return res.status(200).json({
             msg: "Course info updated successfully",
             course_info: {
               title: course.title,
@@ -98,7 +102,7 @@ exports.updateCourseInfo = async (req, res) => {
           });
         })
         .catch((err) => {
-          res.status(400).json({
+          return res.status(400).json({
             err_msg: "Course info update failed in save()",
             error: err,
           });
@@ -130,7 +134,7 @@ exports.getCourseInfoById = async (req, res) => {
       const instructor = await User.findById(course.instructor);
 
       // Return the course info.
-      res.status(200).json({
+      return res.status(200).json({
         msg: "Course found",
         course_info: {
           title: course.title,
@@ -145,7 +149,7 @@ exports.getCourseInfoById = async (req, res) => {
       });
     })
     .catch((err) => {
-      res.status(400).json({
+      return res.status(400).json({
         err_msg: "Get course info failed",
         error: err,
       });
@@ -167,13 +171,13 @@ exports.getCourseContentById = async (req, res) => {
       }
 
       // Return the course content.
-      res.status(200).json({
+      return res.status(200).json({
         msg: "Course found",
         course_content: course,
       });
     })
     .catch((err) => {
-      res.status(400).json({
+      return res.status(400).json({
         err_msg: "Get course content failed",
         error: err,
       });
@@ -241,20 +245,20 @@ exports.addCourseComment = async (req, res) => {
       course
         .save()
         .then((course) => {
-          res.status(200).json({
+          return res.status(200).json({
             msg: "Comment added successfully",
             new_comment: course.comments[0],
           });
         })
         .catch((err) => {
-          res.status(400).json({
+          return res.status(400).json({
             err_msg: "Add course comment failed",
             error: err,
           });
         });
     })
     .catch((err) => {
-      res.status(400).json({
+      return res.status(400).json({
         err_msg: "Add course comment failed",
         error: err,
       });
@@ -276,13 +280,13 @@ exports.getCourseAllComments = async (req, res) => {
       }
 
       // Return the course comments.
-      res.status(200).json({
+      return res.status(200).json({
         msg: `Found ${course.comments.length} comments`,
         comments: course.comments,
       });
     })
     .catch((err) => {
-      res.status(400).json({
+      return res.status(400).json({
         err_msg: "Get course comments failed",
         error: err,
       });
@@ -296,13 +300,13 @@ exports.getAllCourses = async (req, res) => {
   Course.find({})
     .select("-thumbnail -students -videos -teaching_assistants -comments")
     .then((courses) => {
-      res.status(200).json({
+      return res.status(200).json({
         msg: `Found ${courses.length} courses`,
         courses,
       });
     })
     .catch((err) => {
-      res.status(400).json({
+      return res.status(400).json({
         err_msg: "Get all courses failed",
         error: err,
       });
@@ -318,13 +322,13 @@ exports.getTenMostPopularCourses = async (req, res) => {
     .limit(10)
     .select("-thumbnail -students -videos -teaching_assistants -comments")
     .then((courses) => {
-      res.status(200).json({
+      return res.status(200).json({
         msg: `Found ${courses.length} courses`,
         courses,
       });
     })
     .catch((err) => {
-      res.status(400).json({
+      return res.status(400).json({
         err_msg: "Get popular courses failed",
         error: err,
       });
@@ -340,13 +344,13 @@ exports.getTenNewestCourses = async (req, res) => {
     .limit(10)
     .select("-thumbnail -students -videos -teaching_assistants -comments")
     .then((courses) => {
-      res.status(200).json({
+      return res.status(200).json({
         msg: `Found ${courses.length} courses`,
         courses,
       });
     })
     .catch((err) => {
-      res.status(400).json({
+      return res.status(400).json({
         err_msg: "Get newest courses failed",
         error: err,
       });
@@ -382,13 +386,13 @@ exports.getCoursesByCategory = async (req, res) => {
     .sort({ views_count: -1 })
     .select("-thumbnail -students -videos -teaching_assistants -comments")
     .then((courses) => {
-      res.status(200).json({
+      return res.status(200).json({
         msg: `Found ${courses.length} courses`,
         courses,
       });
     })
     .catch((err) => {
-      res.status(400).json({
+      return res.status(400).json({
         err_msg: "Get courses by category failed",
         error: err,
       });
@@ -401,7 +405,7 @@ exports.getCoursesByCategory = async (req, res) => {
 exports.getARandomCourse = async (req, res) => {
   Course.aggregate([{ $sample: { size: 1 } }])
     .then((course) => {
-      res.status(200).json({
+      return res.status(200).json({
         msg: "Found a course",
         course_info: {
           title: course.title,
@@ -415,7 +419,7 @@ exports.getARandomCourse = async (req, res) => {
       });
     })
     .catch((err) => {
-      res.status(400).json({
+      return res.status(400).json({
         err_msg: "Get random course failed",
         error: err,
       });
