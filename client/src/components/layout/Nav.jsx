@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { BsBook } from "react-icons/bs";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -80,12 +78,16 @@ const Nav = () => {
         })}
       </div>
 
-      <Link to="/cart">
-        <AiOutlineShoppingCart className="p-2 " size={40} />
-      </Link>
-      <Link to="/mycourse-page">
-        <BsBook size={40} className="p-2" />
-      </Link>
+      <div className="flex flex-row space-x-2">
+        {user && <Dropdown />}
+
+        <Link to="/cart">
+          <FaShoppingCart size={42} className="p-2" />
+        </Link>
+        <Link to="/language">
+          <IoEarthSharp size={42} className="p-2" />
+        </Link>
+      </div>
     </nav>
   );
 };
