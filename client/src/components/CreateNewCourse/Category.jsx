@@ -1,19 +1,19 @@
 import React, { useState, useRef } from "react";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
 
 const CategoryTitle = (props) => {
   const [open, setOpen] = useState(false);
   const allCategories = [
-    { key: "web-development" },
-    { key: "programming-language" },
-    { key: "finance" },
-    { key: "it-and-software" },
-    { key: "art-design" },
-    { key: "music" },
-    { key: "system-design" },
-    { key: "music" },
-    { key: "marketing" },
-    { key: "others" }
+    { key: "web-development", value: "web-development" },
+    { key: "programming-language", value: "programming-language" },
+    { key: "finance", value: "finance" },
+    { key: "it-and-software", value: "it-and-software" },
+    { key: "art-design", value: "art-design" },
+    { key: "system-design", value: "system-design" },
+    { key: "music", value: "music" },
+    { key: "marketing", value: "marketing" },
+    { key: "others", value: "others" },
   ];
 
   const menuRef = useRef();
@@ -34,55 +34,52 @@ const CategoryTitle = (props) => {
         <button
           ref={imgRef}
           onClick={() => setOpen(!open)}
+          name="category"
+          id="category"
           className=" flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-semibold text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 "
         >
-          category
-          <svg
-            aria-hidden="true"
-            class="w-4 h-4 ml-1"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
+          {open && (
+            <div
+              ref={menuRef}
+              className="absolute top-12 left-0 bg-gray-100 text-mainBlue font-bold p-3 w-48 shadow-lg  "
+            >
+              <ul>
+                <div>
+                  {allCategories.map((obj) => {
+                    return (
+                      <li
+                        className="p-1 text-la cursor-pointer rounded hover:bg-mainBlue hover:text-white"
+                        key={obj.key}
+                        value={obj.value}
+                        onClick={props.handleChangeCategory}
+                      >
+                        {obj.value}
+                      </li>
+                    );
+                  })}
+                </div>
+              </ul>
+            </div>
+          )}
+          {props.category}
+          <RiArrowDropDownLine
+            className="ml-1"
+            size={20}
+            pointerEvents="none"
+          />
         </button>
         <div className="w-full">
           <input
             onChange={props.onChange}
-            value={props.titleValue}
+            value={props.title}
+            name="title"
+            id="title"
             type="text"
             className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
             placeholder="ex. 30 days become the React master"
             required
           ></input>
         </div>
-        {open && (
-          <div
-            ref={menuRef}
-            className="absolute top-12 left-0 bg-gray-100 text-mainBlue font-bold p-3 w-48 shadow-lg  "
-          >
-            <ul>
-              <div>
-                {allCategories.map((obj) => {
-                  return (
-                    <li
-                      value={props.cayegoryValue}
-                      className="p-1 text-la cursor-pointer rounded hover:bg-mainBlue hover:text-white"
-                      key={obj.key}
-                    >
-                      {obj.key}
-                    </li>
-                  );
-                })}
-              </div>
-            </ul>
-          </div>
-        )}
       </div>
     </div>
   );
