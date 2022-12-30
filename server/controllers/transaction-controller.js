@@ -5,7 +5,10 @@ const Course = require("../models/course-model");
 // @route   PUT api/transaction/purchase/
 // @access  Private
 exports.addPurchaseRecord = async (req, res) => {
-  const { user_id, course_id, payment_type } = req.body;
+  console.log("Adding purchase record...");
+  console.log(req.body);
+
+  const { user_id, course_id, payment_method } = req.body;
 
   User.findById(user_id)
     .then((user) => {
@@ -54,9 +57,9 @@ exports.addPurchaseRecord = async (req, res) => {
           const purchase_record = {
             type: "buy",
             course_id,
-            course_name: course.name,
+            title: course.title,
             price: course.price,
-            payment_type: payment_type,
+            payment_method,
             date: new Date(),
           };
 
@@ -158,7 +161,7 @@ exports.addRefundRecord = async (req, res) => {
             course_id,
             course_name: course.name,
             price: course.price,
-            payment_type: "POINTS",
+            payment_method: "POINTS",
             date: new Date(),
           };
 
