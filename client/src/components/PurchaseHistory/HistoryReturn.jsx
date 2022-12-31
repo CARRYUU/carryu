@@ -9,6 +9,9 @@ const HistoryReturn = () => {
 
   const { user } = useSelector((state) => state.user);
   const purchase_history = user?.purchase_history;
+  const refund_history = purchase_history?.filter(
+    (item) => item.type === "refund"
+  );
 
   useEffect(() => {
     dispatch(getUserPurchaseHistory());
@@ -16,10 +19,10 @@ const HistoryReturn = () => {
 
   return (
     <div id="history-buy" className="my-2">
-      {purchase_history &&
-        purchase_history?.length > 0 &&
-        purchase_history.map((item) => {
-          if (item.type === "buy") {
+      {refund_history &&
+        refund_history?.length > 0 &&
+        refund_history.map((item) => {
+          if (item.type === "refund") {
             return (
               <HistoryCard
                 key={item._id}
@@ -34,7 +37,7 @@ const HistoryReturn = () => {
           }
         })}
 
-      {purchase_history?.length === 0 && (
+      {refund_history?.length === 0 && (
         <div className="text-center">
           <h1 className="text-2xl mt-4">No Refund History Now!</h1>
         </div>
