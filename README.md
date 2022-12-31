@@ -220,3 +220,4 @@ $ npm run start
 - **Other Pages & Functions**
   - [ ] About
   - [ ] Buy course directly
+  - [ ] My learning courses
