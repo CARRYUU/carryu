@@ -22,8 +22,8 @@ import Study from "./components/Study/Study";
 import MyCoursePage from "./components/MyCoursePage/MyCoursePage";
 
 import HistoryTrade from "./components/HistoryTrade/HistoryTrade";
-import HistoryBuy from "./components/HistoryTrade/HistoryBuy";
-import HistoryReturn from "./components/HistoryTrade/HistoryReturn";
+import HistoryBuy from "./components/PurchaseHistory/HistoryBuy";
+import HistoryReturn from "./components/PurchaseHistory/HistoryReturn";
 
 import PurchaseHistory from "./components/PurchaseHistory/PurchaseHistory";
 

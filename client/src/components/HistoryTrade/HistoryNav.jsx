@@ -1,7 +1,7 @@
 import React, { useEffect, useRef ,useState} from "react";
 import { Link } from "react-router-dom";
-import HistoryBuy from "./HistoryBuy";
-import HistoryReturn from "./HistoryReturn";
+import HistoryBuy from "../PurchaseHistory/HistoryBuy";
+import HistoryReturn from "../PurchaseHistory/HistoryReturn";
 import { Tab, Tabs } from "react-tabs";
 import Alpine from 'alpinejs'
  

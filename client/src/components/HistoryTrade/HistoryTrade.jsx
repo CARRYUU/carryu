@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HistoryNav from "./HistoryNav";
-import HistoryCard from "./HistoryCard";
-import HistoryBuy from "./HistoryBuy";
-import HistoryReturn from "./HistoryReturn";
+import HistoryCard from "../PurchaseHistory/HistoryCard";
+import HistoryBuy from "../PurchaseHistory/HistoryBuy";
+import HistoryReturn from "../PurchaseHistory/HistoryReturn";
 
 const HistoryTrade = (props) => {
   
