@@ -68,8 +68,14 @@ const About = () => {
 
         {/*成員照片->githob*/}
 
-        <Member/>
-          
+        <div className="flex flex-row flex-wrap">
+          <img  
+            src={require("../../image/2.JPG")} 
+            alt="" 
+            className=" object-cover w-50 h-96 rounded-t-lg  md:h-96 md:w-50 md:rounded-t-lg my-auto pl-20"
+            />
+          <Member/>
+        </div> 
 
         </div>
       </div>
