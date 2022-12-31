@@ -68,7 +68,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/complete-buy" element={<CompleteBuy />} />
-        <Route path="/mycourse-page" element={<MyCoursePage />} />
+        <Route path="/mycourse" element={<MyCoursePage />} />
 
         <Route path="/purchase-history" element={<PurchaseHistory />} />
         <Route path="/purchase-history/buy" element={<HistoryBuy />} />
