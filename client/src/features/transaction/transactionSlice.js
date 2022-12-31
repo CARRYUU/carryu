@@ -21,7 +21,7 @@ export const addRefundRecord = createAsyncThunk(
 const initialState = {
   transactions: [],
   status: "idle",
-  error: null,
+  transaction_error: null,
 };
 
 export const transactionSlice = createSlice({
@@ -38,7 +38,7 @@ export const transactionSlice = createSlice({
     },
     [addPurchaseRecord.rejected]: (state, action) => {
       state.status = "failed";
-      state.error = action.error.message;
+      state.transaction_error = action.error.message;
     },
     [addRefundRecord.pending]: (state, action) => {
       state.status = "loading";
@@ -49,7 +49,9 @@ export const transactionSlice = createSlice({
     },
     [addRefundRecord.rejected]: (state, action) => {
       state.status = "failed";
-      state.error = action.error.message;
+      state.transaction_error = action.error.message;
     },
   },
 });
+
+export default transactionSlice.reducer;

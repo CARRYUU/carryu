@@ -42,11 +42,15 @@ const Card = (props) => {
           <img
             src={require("../../image/carryu_big_logo_white_background.png")}
             alt="課程圖片"
+<<<<<<< HEAD
 
             // className="object-cover h-48 w-96"
 
             className="object-cover transition-all duration-300 w-full h-48 "
 
+=======
+            className="object-cover w-full h-48 transition-all duration-300 hover:shadow-2xl opacity-80 hover:opacity-100"
+>>>>>>> 785dd587cc15eb7782b6070d18fe87c7fa70990f
           />
         </Link>
 

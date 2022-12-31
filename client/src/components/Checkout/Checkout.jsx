@@ -1,11 +1,26 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { getCartItems } from "../../features/cart/cartSlice";
+
 import CheckoutItem from "./CheckoutItem";
 import Payment from "./Payment";
 import CheckoutPrice from "./CheckoutPrice";
 
 const Checkout = () => {
+  const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
+
+  const [paymentMethod, setPaymentMethod] = useState("ATM");
+
+  const handlePaymentMethod = (e) => {
+    console.log("hi");
+    setPaymentMethod(e.target.value);
+  };
+
+  useEffect(() => {
+    dispatch(getCartItems());
+  }, []);
 
   return (
     <div>
@@ -16,15 +31,15 @@ const Checkout = () => {
         <div className="flex text-left m-5 flex-wrap">
           <div id="ShopList" className="flex-col flex-1 text-left ">
             <div>
-              <Payment />
+              <Payment handlePaymentMethod={handlePaymentMethod} />
             </div>
             <h3 className="font-bold text-xl ">Order detail</h3>
             <hr className="mx-10 my-4 h-0.5 bg-gray-100" />
             {cartItems && cartItems.length > 0 ? (
               cartItems.map((item) => (
                 <CheckoutItem
-                  key={item.id}
-                  id={item.id}
+                  key={item._id}
+                  id={item._id}
                   title={item.title}
                   price={item.price}
                   imageUri={item.imageUri}
@@ -36,7 +51,7 @@ const Checkout = () => {
               <div className="text-center">No checkout items.</div>
             )}
           </div>
-          <CheckoutPrice cartItems={cartItems} />
+          <CheckoutPrice cartItems={cartItems} paymentMethod={paymentMethod} />
         </div>
       </div>
     </div>

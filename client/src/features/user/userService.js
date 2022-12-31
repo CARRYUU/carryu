@@ -80,6 +80,8 @@ const getUserProfile = async (thunkAPI) => {
 
 const getUserPurchaseHistory = async (thunkAPI) => {
   try {
+    console.log("Getting user purchase history...");
+
     const response = await api.getUserPurchaseHistory();
 
     if (!response.data) {

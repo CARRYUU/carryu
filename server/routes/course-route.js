@@ -69,15 +69,15 @@ router.route("/random").get(getARandomCourse);
 
 // course teaching assistants
 router
-  .route("/:_id/teaching-assistant")
+  .route("/teaching-assistant")
   .get(getCourseTAs)
   .put(isAuthenticatedUser, addCourseTA)
   .delete(isAuthenticatedUser, removeCourseTA);
 
 // course students
+router.route("/:courseId/students").get(getCourseStudents);
 router
-  .route("/:_id/student")
-  .get(getCourseStudents)
+  .route("/student")
   .post(isAuthenticatedUser, addStudentToCourse)
   .delete(isAuthenticatedUser, removeStudentFromCourse);
 

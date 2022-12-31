@@ -20,14 +20,21 @@ import CreateNewCourse from "./components/CreateNewCourse/CreateNewCourse";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
 import MyCoursePage from "./components/MyCoursePage/MyCoursePage";
+
 import HistoryTrade from "./components/HistoryTrade/HistoryTrade";
 import HistoryBuy from "./components/HistoryTrade/HistoryBuy";
 import HistoryReturn from "./components/HistoryTrade/HistoryReturn";
+
+import PurchaseHistory from "./components/PurchaseHistory/PurchaseHistory";
+
 import HistoryChallenge from "./components/HistoryChallenge/HistoryChallenge";
 import ChallengSuc from "./components/HistoryChallenge/ChallengeSuc";
 import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
 import InstructorHomepage from "./components/InstructorHomepage/InstructorHomepage";
+
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+
+
 
 function App() {
   return (
@@ -69,15 +76,15 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/complete-buy" element={<CompleteBuy />} />
-        <Route path="/mycourse-page" element={<MyCoursePage/>}/>
-        
-        <Route path="/history-trade" element={<HistoryTrade/>}/>
-        <Route path="/history-buy" element={<HistoryBuy/>}/>
-        <Route path="/history-return" element={<HistoryReturn/>}/>
+        <Route path="/mycourse" element={<MyCoursePage />} />
 
-        <Route path="/history-challenge" element={<HistoryChallenge/>}/>
-        <Route path="/challenge-suc" element={<ChallengSuc/>}/>
-        <Route path="/challenge-fail" element={<ChallengeFail/>}/>
+        <Route path="/purchase-history" element={<PurchaseHistory />} />
+        <Route path="/purchase-history/buy" element={<HistoryBuy />} />
+        <Route path="/purchase-history/refund" element={<HistoryReturn />} />
+
+        <Route path="/history-challenge" element={<HistoryChallenge />} />
+        <Route path="/challenge-suc" element={<ChallengSuc />} />
+        <Route path="/challenge-fail" element={<ChallengeFail />} />
 
         <Route path="/study" element={<Study />} />
 

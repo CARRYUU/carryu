@@ -1,17 +1,17 @@
 import React from "react";
 
 const HistoryCard = (props) => {
-    const { _id, title, price, thumbnail, badge1, badge2 } = props;
+  const { title, price, thumbnail, badge1, badge2 } = props;
 
   return (
     <div>
       <div class="list flex cardSearch  my-4 max-w-xl h-32 ">
         <div class="card" className=" w-48 h-full">
           <img
-            className="w-48 object-fill h-32"
-            src={require("../../image/2.JPG")}
+            className="w-48 object-cover h-32"
+            src={require("../../image/carryu_big_logo_white_background.png")}
             alt="course thumbnail"
-          ></img>
+          />
         </div>
       
         <div className=" mx-2 text-left">

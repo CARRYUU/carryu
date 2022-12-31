@@ -1,4 +1,4 @@
-import React, { useEffect,useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
@@ -9,6 +9,7 @@ import {
   getTenMostPopularCourses,
   getTenMostNewestCourses,
 } from "../../features/allCourses/allCoursesSlice";
+import { getUserPurchaseHistory } from "../../features/user/userSlice";
 
 const HomePage = () => {
   //slide function
@@ -40,18 +41,18 @@ const HomePage = () => {
         <div className="flex items-center relative">
           <MdChevronLeft
             className="cursor-pointer opacity-50 hover:opacity-100"
-            onClick={()=>slideLeft(0)}
+            onClick={() => slideLeft(0)}
             size={40}
           />
           <div
-            ref={(el)=>slider.current[0]=el}
+            ref={(el) => (slider.current[0] = el)}
             className=" w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
             <HomePageCourseList coursesData={tenMostPopularCourses} />
           </div>
           <MdChevronRight
             className="cursor-pointer opacity-50 hover:opacity-100"
-            onClick={()=>slideRight(0)}
+            onClick={() => slideRight(0)}
             size={40}
           />
         </div>
@@ -62,18 +63,18 @@ const HomePage = () => {
         <div className="flex items-center relative">
           <MdChevronLeft
             className="cursor-pointer opacity-50 hover:opacity-100"
-            onClick={()=>slideLeft(1)}
+            onClick={() => slideLeft(1)}
             size={40}
           />
           <div
-            ref={(el)=>slider.current[1]=el}
+            ref={(el) => (slider.current[1] = el)}
             className=" w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
             <HomePageCourseList coursesData={tenMostNewestCourses} />
           </div>
           <MdChevronRight
             className="cursor-pointer opacity-50 hover:opacity-100"
-            onClick={()=>slideRight(1)}
+            onClick={() => slideRight(1)}
             size={40}
           />
         </div>

@@ -48,14 +48,14 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Course",
       },
-      course_name: String,
+      title: String,
       price: Number,
-      payment_type: {
+      payment_method: {
         type: String,
         required: "Payment method is required.",
         enum: ["ATM", "POINTS", "CREADIT_CARD"],
       },
-      purchase_date: {
+      date: {
         type: Date,
         default: Date.now,
       },
