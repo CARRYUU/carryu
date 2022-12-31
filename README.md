@@ -215,6 +215,7 @@ $ npm run start
 - **Challenge**
 
   - [ ] Let it roll
+  - [ ] Challenge History
   - [ ] Get points after succeed challenge.
 
 - **Other Pages & Functions**
