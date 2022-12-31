@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+/* Tabs */
+.active-content{
+  /* place-items:center; */
+  margin-right: 10rem;
+}
+.content{
+  place-items:center;
+  display:none;
+}
+.active-tabs{
+  color: rgb(26, 69, 162);
+  display:inline-block ;
+  border-bottom-width: 2px;
+  border-bottom-color:rgb(26, 69, 162) ;
+}
+.active-tabs::before{
+  content:"";
+  display:block;
+}
+
+.tabs{
+  padding: 0.2rem;
+
+}
+
+.tabs:not(:last-child){
+  border: right 1px solid rgba(0,0,0,274);
+  
+}

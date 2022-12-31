@@ -11,21 +11,17 @@ const Register = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
-    password: "",
+    password: ""
   });
-
-  // For alert message
-  // const [message, setMessage] = useState("");
 
   const { username, email, password } = formData;
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     }));
   };
 
@@ -37,7 +33,7 @@ const Register = () => {
     const formData = {
       username,
       email,
-      password,
+      password
     };
 
     console.log(formData);
@@ -48,17 +44,8 @@ const Register = () => {
   return (
     <div>
       <Title pageTitle="Register" />
-      {/* {message && (
-        <div
-          class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
-          role="alert"
-        >
-          <span class="font-medium">Danger alert!</span> Change a few things up
-          and try submitting again.
-        </div>
-      )} */}
-      <div className="p-6 space-y-6">
-        <div className="flex-col">
+      <div className="flex flex-col items-center justfiy-center px-4 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justfiy-center w-1/3 py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
           <Input
             labelName="Username"
             type="text"
@@ -86,10 +73,9 @@ const Register = () => {
             value={password}
             palceholder="Enter your password..."
           />
+
+          <Button buttonName="Register" onClick={handleRegister} />
         </div>
-      </div>
-      <div className="mb-8">
-        <Button buttonName="Register" onClick={handleRegister} />
       </div>
     </div>
   );

@@ -1,44 +1,59 @@
-import React from "react";
-import Header from "../layout/Header";
-import Footer from "../layout/Footer";
-import CheckoutList from "./CheckoutList";
-import TotalPrice from "../Cart/TotalPrice";
-import ShopList from "../Cart/CartItem";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { getCartItems } from "../../features/cart/cartSlice";
+
+import CheckoutItem from "./CheckoutItem";
 import Payment from "./Payment";
 import CheckoutPrice from "./CheckoutPrice";
 
-const Checkout = (props) => {
+const Checkout = () => {
+  const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cart);
+
+  const [paymentMethod, setPaymentMethod] = useState("ATM");
+
+  const handlePaymentMethod = (e) => {
+    console.log("hi");
+    setPaymentMethod(e.target.value);
+  };
+
+  useEffect(() => {
+    dispatch(getCartItems());
+  }, []);
+
   return (
     <div>
-      <body className="mx-20 bg-slate-50 rounded-md pt-2">
+      <div className="mx-20 bg-slate-50 rounded-md pt-2">
         <h1 className="font-bold text-2xl mb-10 text-left m-5 text-primary">
           Checkout
         </h1>
         <div className="flex text-left m-5 flex-wrap">
           <div id="ShopList" className="flex-col flex-1 text-left ">
             <div>
-              <Payment />
+              <Payment handlePaymentMethod={handlePaymentMethod} />
             </div>
             <h3 className="font-bold text-xl ">Order detail</h3>
             <hr className="mx-10 my-4 h-0.5 bg-gray-100" />
-            <CheckoutList
-              imageUri={require("../../image/3.JPG")}
-              title="陽明山大爆走"
-              badge1="爬起來"
-              badge2="耶~我誰"
-              price="50000"
-            />
-            <CheckoutList
-              imageUri={require("../../image/4.JPG")}
-              title="山岳攝影"
-              badge1="相機"
-              badge2="photoshop"
-              price="400"
-            />
+            {cartItems && cartItems.length > 0 ? (
+              cartItems.map((item) => (
+                <CheckoutItem
+                  key={item._id}
+                  id={item._id}
+                  title={item.title}
+                  price={item.price}
+                  imageUri={item.imageUri}
+                  badge1={item.category}
+                  badge2={item.students_count}
+                />
+              ))
+            ) : (
+              <div className="text-center">No checkout items.</div>
+            )}
           </div>
-          <CheckoutPrice Coursetitle="陽明山大抱走" Courseprice="500" />
+          <CheckoutPrice cartItems={cartItems} paymentMethod={paymentMethod} />
         </div>
-      </body>
+      </div>
     </div>
   );
 };

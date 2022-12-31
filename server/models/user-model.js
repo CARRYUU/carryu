@@ -48,14 +48,14 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Course",
       },
-      course_name: String,
+      title: String,
       price: Number,
-      payment_type: {
+      payment_method: {
         type: String,
         required: "Payment method is required.",
         enum: ["ATM", "POINTS", "CREADIT_CARD"],
       },
-      purchase_date: {
+      date: {
         type: Date,
         default: Date.now,
       },
@@ -68,10 +68,14 @@ const userSchema = new Schema({
   challenge_history: [
     {
       course_id: Schema.Types.ObjectId,
-      challenge_date: Date,
+      challenge_date: {
+        type: Date,
+        default: Date,
+      },
+
       status: {
         type: String,
-        enum: ["success", "fail", "inprogress"],
+        enum: ["success", "failed", "inprogress"],
       },
     },
   ],

@@ -12,7 +12,7 @@ const EditPassword = () => {
   const [formData, setFormData] = useState({
     old_password: "",
     new_password: "",
-    confirm_password: "",
+    confirm_password: ""
   });
 
   const { user } = useSelector((state) => state.user);
@@ -29,8 +29,8 @@ const EditPassword = () => {
   return (
     <div>
       <Title pageTitle="Password Setting" />
-      <div className="p-6 space-y-6">
-        <div className="flex-col">
+      <div className="flex flex-col items-center justfiy-center px-4 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justfiy-center w-1/3 py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
           <Input
             labelName="Old password"
             type="password"
@@ -55,10 +55,8 @@ const EditPassword = () => {
             name="confirm_password"
             placeholder="Enter your confimation password ..."
           />
+          <Button buttonName="Save all" onClick={handleSubmit} />
         </div>
-      </div>
-      <div className="mb-8">
-        <Button buttonName="Save all" onClick={handleSubmit} />
       </div>
     </div>
   );

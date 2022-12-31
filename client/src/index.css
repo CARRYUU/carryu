@@ -93,6 +93,10 @@ code {
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {
-    @apply  bg-mainBlue
+    @apply bg-mainBlue;
   }
+}
+
+.min-h-screen {
+  min-height: 60vh;
 }

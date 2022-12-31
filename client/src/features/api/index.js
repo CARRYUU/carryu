@@ -44,8 +44,14 @@ export const getCourseContentById = (id) => API.get(`/course/${id}/content`);
 export const getAllCourses = () => API.get("/course");
 export const getCourseByCategory = (category) =>
   API.get(`/course/category/${category}`);
-export const getTenMostPopularCourses = () => API.get("/course/popular");
-export const getTenMostNewestCourses = () => API.get("/course/newest");
+export const getTenMostPopularCourses = () =>
+  API.get("/course/popular", {
+    timeout: 20000,
+  });
+export const getTenMostNewestCourses = () =>
+  API.get("/course/newest", {
+    timeout: 20000,
+  });
 export const getARandomCourse = () => API.get("/course/random");
 export const addCourseComment = (id, data) =>
   API.post(`/course/${id}/comment`, data);
@@ -57,10 +63,9 @@ export const removeCourseTA = (id, data) =>
     data,
   });
 export const getCourseTAs = (id) => API.get(`/course/${id}/teaching-assistant`);
-export const addStudentToCourse = (id, data) =>
-  API.post(`/course/${id}/student`, data);
-export const removeStudentFromCourse = (id, data) =>
-  API.delete(`/course/${id}/student`, {
+export const addStudentToCourse = (data) => API.post(`/course/student`, data);
+export const removeStudentFromCourse = (data) =>
+  API.delete(`/course/student`, {
     data,
   });
 export const getCourseStudents = (id) => API.get(`/course/${id}/student`);
@@ -72,3 +77,15 @@ export const removeCourseFromCart = (data) =>
     data,
   });
 export const getCartItems = () => API.get("/cart");
+
+// Path: baseURL/transaction/
+export const addPurchaseRecord = (data) =>
+  API.put("/transaction/purchase", data);
+export const addRefundRecord = (data) => API.put("/transaction/refund", data);
+
+// Path: baseURL/points/
+export const deletePoints = (data) => API.put("/points/delete", data);
+export const getPoints = () => API.put("/points");
+
+// Path: baseURL/payment/
+export const processPayment = (data) => API.post("/payment", data);

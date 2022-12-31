@@ -16,12 +16,11 @@ const Dropdown = () => {
 
   const [open, setOpen] = useState(false);
   const Menus = [
-    { key: "Login", value: "/auth/login" },
     { key: "Logout", value: "/auth/logout" },
-    { key: "Profile", value: "/user/profile" },
-    { key: "Register", value: "/user/register" },
-    { key: "Edit Profile", value: "/user/profile/update" },
+    { key: "Profile & Settings", value: "/user/profile" },
     { key: "Edit Password", value: "/user/password/update" },
+    { key: "Learning Course", value: "/mycourse" },
+    { key: "Purchase History", value: "purchase-history" },
   ];
 
   const menuRef = useRef();
@@ -82,8 +81,7 @@ const Dropdown = () => {
                   } else if (
                     !user &&
                     obj.key !== "Logout" &&
-                    obj.key !== "Profile" &&
-                    obj.key !== "Edit Profile" &&
+                    obj.key !== "Profile & Settings" &&
                     obj.key !== "Edit Password"
                   ) {
                     return (
