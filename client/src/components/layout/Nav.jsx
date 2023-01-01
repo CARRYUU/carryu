@@ -4,6 +4,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoEarthSharp } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/auth/authSlice";
+import {BsBook} from "react-icons/bs"
+
 
 import Dropdown from "./Dropdown";
 
@@ -89,8 +91,8 @@ const Nav = () => {
         <Link to="/cart">
           <FaShoppingCart size={42} className="p-2" />
         </Link>
-        <Link to="/language">
-          <IoEarthSharp size={42} className="p-2" />
+        <Link to="/mycourse">
+          <BsBook size={42} className="p-2" />
         </Link>
       </div>
     </nav>
