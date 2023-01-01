@@ -1,29 +1,33 @@
 import React from "react";
+import Member from "./Member";
 
 const About = () => {
   return (
     <div>
       <div
         name="about"
-        className="w-full h-full bg-gradient-to-b from-gray-800 to-black text-white px-6 py-14"
+        className="w-full h-full  text-black px-6 py-14"
       >
+        
         <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
           <div className="pb-8">
-            <p
-              className="capitalize inline-block text-6xl font-bold relative cursor-pointer 
-                transition-all duration-500 before:content-[''] before:absolute 
-                before:-bottom-2 before:left-0 before:w-0 before:h-1.5 
-                before:rounded-full before:opacity-0 before:transition-all 
-                before:duration-500 before:bg-gradient-to-r before:from-gray-600 
-                before:via-slate-400 before:to-zinc-500 hover:before:w-full 
-                hover:before:opacity-100"
-            >
-              Welcome! We Are CarryU
-            </p>
+          
+            <div class="mb-4 text-left px-20">
+				      <p class="text-base md:text-sm text-mainBlue font-bold">&lt; <a href="/" class="text-base md:text-sm text-mainBlue font-bold no-underline hover:underline">BACK TO HOMEPAGE</a></p>
+						  <h1 class="font-extrabold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl  md:text-5xl lg:text-6xl">Welcome! We Are CarryU.</h1>
+						  <p class="text-sm md:text-base font-normal text-gray-600 mt-2">Published 1 January 2023</p>
+			      </div>
+
           </div>
 
-          <p className="text-xl mt-10 px-20 leading-8 tracking-wider text-left break-words">
-            "CarryU" is narrowed down from "Carry you". <br />
+
+
+          <p className="text-xl mt-3 px-20 leading-8 tracking-wider text-left break-words">
+            <div className="text-3xl italic font-semibold text-gray-900 dark:text-white">
+              "CarryU" is narrowed down from "Carry you". 
+            </div>
+            
+            <br />
             We hope that this project will be in place In the process of
             learning, someone becomes the best helping hand in each position, so
             the platform "covers you" and helps you expand Learn and become a
@@ -40,8 +44,13 @@ const About = () => {
 
           <br />
 
-          <p className="text-xl px-20 leading-8 tracking-wider text-left break-words'">
+          <p className="text-xl mt-3 px-20 leading-8 tracking-wider text-left break-words'">
+            <div className="text-3xl italic font-semibold text-gray-900 dark:text-white">
             「CarryU」是從英文的「Carry you」進行縮寫。
+            </div>
+
+          
+
             <br />
             我們希望本專案能夠在所
             有人學習的過程中成為各位最好的助力之手，由此平台「罩你」，幫助你增廣
@@ -51,6 +60,23 @@ const About = () => {
             程的良好環境，而非為了不同領域的課程需花費額外心力在搜索該領域專屬的
             平台上。
           </p>
+
+          <div>
+          <h1 class="text-left px-20 py-10 text-5xl font-normal ">Our teams
+          <small class="text-3xl ml-2 font-semibold text-gray-500 "> NCU</small></h1>
+          </div>
+
+        {/*成員照片->githob*/}
+
+        <div className="flex flex-row flex-wrap">
+          <img  
+            src={require("../../image/2.JPG")} 
+            alt="" 
+            className=" object-cover w-50 h-96 rounded-t-lg  md:h-96 md:w-50 md:rounded-t-lg my-auto pl-20"
+            />
+          <Member/>
+        </div> 
+
         </div>
       </div>
     </div>
