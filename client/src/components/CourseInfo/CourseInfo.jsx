@@ -6,6 +6,10 @@ import moment from "moment";
 
 import { getCourseInfoById } from "../../features/course/courseSlice";
 import { addCourseToCart } from "../../features/cart/cartSlice";
+import {
+  switchBuyDirectly,
+  setOneCourseToPurchase,
+} from "../../features/transaction/transactionSlice";
 
 import Title from "../layout/Title";
 import Button from "../layout/Button";
@@ -40,6 +44,11 @@ const CourseInfo = () => {
 
   const handleAddToCart = () => {
     dispatch(addCourseToCart({ course_id: id }));
+  };
+
+  const handleBuyDirectly = () => {
+    dispatch(setOneCourseToPurchase(courseInfo));
+    dispatch(switchBuyDirectly(true));
   };
 
   return (
@@ -111,7 +120,10 @@ const CourseInfo = () => {
                     {/* 立即購買按鈕 */}
                     <div>
                       <Link to="/checkout">
-                        <Button buttonName="Buy it Now" />
+                        <Button
+                          buttonName="Buy it Now"
+                          onClick={handleBuyDirectly}
+                        />
                       </Link>
                     </div>
 
