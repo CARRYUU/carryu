@@ -20,11 +20,7 @@ import CreateNewCourse from "./components/CreateNewCourse/CreateNewCourse";
 import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
 import MyCoursePage from "./components/MyCoursePage/MyCoursePage";
-import HistoryTrade from "./components/HistoryTrade/HistoryTrade";
-<<<<<<< HEAD
-import HistoryBuy from "./components/HistoryTrade/HistoryBuy";
-import HistoryReturn from "./components/HistoryTrade/HistoryReturn";
-=======
+
 import HistoryBuy from "./components/PurchaseHistory/HistoryBuy";
 import HistoryReturn from "./components/PurchaseHistory/HistoryReturn";
 
@@ -42,7 +38,7 @@ function App() {
     <div className="App">
       <ToastContainer
         position="top-center"
-        autoClose={2000}
+        autoClose={1000}
         limit={3}
         hideProgressBar={false}
         newestOnTop={false}
@@ -90,7 +86,7 @@ function App() {
 
         <Route path="/study" element={<Study />} />
 
-        <Route path="/errorpage" element={<ErrorPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </div>
