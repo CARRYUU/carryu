@@ -179,6 +179,8 @@ $ npm run start
 
 ## TODO
 
+last updated in : 2023/1/2
+
 - **Auth**
 
   - [x] Login/Logout
@@ -214,11 +216,13 @@ $ npm run start
 
 - **Challenge**
 
-  - [ ] Let it roll
+  - [x] Let it roll
+  - [ ] Challenge confirmation Page
   - [ ] Challenge History
   - [ ] Get points after succeed challenge.
 
 - **Other Pages & Functions**
   - [ ] About
-  - [ ] Buy course directly
+  - [x] Buy course directly
   - [x] My learning courses
+  - [x] 404 Error Page
