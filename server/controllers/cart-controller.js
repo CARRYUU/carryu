@@ -183,6 +183,19 @@ exports.getCartItems = async (req, res) => {
             });
           }
 
+          courses = courses.map((course) => {
+            return {
+              _id: course._id,
+              title: course.title,
+              description: course.description,
+              price: course.price,
+              instructor: course.instructor,
+              category: course.category,
+              students_count: course.students_count,
+              created: course.created,
+            };
+          });
+
           return res.status(200).json({
             success: true,
             message: `${courses.length} courses in cart returned.`,
