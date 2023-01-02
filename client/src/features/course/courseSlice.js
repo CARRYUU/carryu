@@ -94,6 +94,7 @@ export const getCourseStudents = createAsyncThunk(
 
 const initialState = {
   courseInfo: {},
+  aRandomCourse: {},
   courseContent: {},
   isLoading: false,
 };
@@ -145,6 +146,7 @@ const courseSlice = createSlice({
       state.isLoading = true;
     },
     [getARandomCourse.fulfilled]: (state, action) => {
+      state.aRandomCourse = action.payload;
       state.isLoading = false;
     },
     [getARandomCourse.rejected]: (state, action) => {
