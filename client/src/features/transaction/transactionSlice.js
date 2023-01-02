@@ -20,14 +20,23 @@ export const addRefundRecord = createAsyncThunk(
 
 const initialState = {
   transactions: [],
+  oneCourseToPurchase: null,
+  purchaseDirectly: false,
   status: "idle",
-  transaction_error: null,
+  transactionError: null,
 };
 
 export const transactionSlice = createSlice({
   name: "transaction",
   initialState,
-  reducers: {},
+  reducers: {
+    switchBuyDirectly: (state, action) => {
+      state.purchaseDirectly = action.payload;
+    },
+    setOneCourseToPurchase: (state, action) => {
+      state.oneCourseToPurchase = action.payload;
+    },
+  },
   extraReducers: {
     [addPurchaseRecord.pending]: (state, action) => {
       state.status = "loading";
@@ -38,7 +47,7 @@ export const transactionSlice = createSlice({
     },
     [addPurchaseRecord.rejected]: (state, action) => {
       state.status = "failed";
-      state.transaction_error = action.error.message;
+      state.transactionError = action.error.message;
     },
     [addRefundRecord.pending]: (state, action) => {
       state.status = "loading";
@@ -49,9 +58,12 @@ export const transactionSlice = createSlice({
     },
     [addRefundRecord.rejected]: (state, action) => {
       state.status = "failed";
-      state.transaction_error = action.error.message;
+      state.transactionError = action.error.message;
     },
   },
 });
+
+export const { switchBuyDirectly, setOneCourseToPurchase } =
+  transactionSlice.actions;
 
 export default transactionSlice.reducer;
