@@ -14,17 +14,17 @@ const CheckoutPrice = (props) => {
   const { user } = useSelector((state) => state.auth.user);
   const { transaction_error } = useSelector((state) => state.transaction);
 
-  const { cartItems } = props;
+  const { checkoutItemList } = props;
 
   let totalPrice = 0;
 
-  cartItems.forEach((item) => {
+  checkoutItemList.forEach((item) => {
     totalPrice += item.price;
   });
 
   const handlePurchase = (e) => {
     e.preventDefault();
-    cartItems.forEach((course) => {
+    checkoutItemList.forEach((course) => {
       dispatch(
         addStudentToCourse({
           user_id: user._id,
@@ -54,7 +54,7 @@ const CheckoutPrice = (props) => {
       <div id="totalPrice" className="flex-col m-4 flex-none text-left">
         <div>
           <h3 className="font-bold text-m text-gray-500">Summary:</h3>
-          {cartItems.map((item) => (
+          {checkoutItemList.map((item) => (
             <div key={item._id}>
               <hr className="border-double  mb-4 h-0.5 bg-gray-100 mx-2"></hr>
               <div className="flex m-2">
