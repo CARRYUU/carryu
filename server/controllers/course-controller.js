@@ -137,6 +137,7 @@ exports.getCourseInfoById = async (req, res) => {
       return res.status(200).json({
         msg: "Course found",
         course_info: {
+          _id: course._id,
           title: course.title,
           instructor: instructor.username,
           description: course.description,
@@ -403,22 +404,50 @@ exports.getCoursesByCategory = async (req, res) => {
 // @route   GET api/course/random
 // @access  Public
 exports.getARandomCourse = async (req, res) => {
+  console.log("Getting a random course...");
+
   Course.aggregate([{ $sample: { size: 1 } }])
     .then((course) => {
-      return res.status(200).json({
-        msg: "Found a course",
-        course_info: {
-          title: course.title,
-          instructor: instructor.username,
-          description: course.description,
-          price: course.price,
-          thumbnail: course.thumbnail,
-          category: course.category,
-          students_count: course.students.length,
-        },
-      });
+      if (!course) {
+        return res.status(404).json({
+          err_msg: "Course not found",
+        });
+      }
+
+      course = course[0];
+
+      // Get the instructor of the course.
+      User.findById(course.instructor)
+        .then((instructor) => {
+          const instructorName = instructor
+            ? instructor.username
+            : "THIS_ACCOUNT_HAS_BEEN_DELETED";
+
+          return res.status(200).json({
+            msg: "Found a course",
+            course_info: {
+              title: course.title,
+              instructor: instructorName,
+              description: course.description,
+              price: course.price,
+              thumbnail: course.thumbnail,
+              category: course.category,
+              students_count: course.students.length,
+            },
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+
+          return res.status(400).json({
+            err_msg: "Get random course failed. Instructor not found",
+            error: err,
+          });
+        });
     })
     .catch((err) => {
+      console.log(err);
+
       return res.status(400).json({
         err_msg: "Get random course failed",
         error: err,
