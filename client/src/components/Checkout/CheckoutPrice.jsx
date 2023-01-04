@@ -12,7 +12,9 @@ const CheckoutPrice = (props) => {
   const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.auth.user);
-  const { transaction_error } = useSelector((state) => state.transaction);
+  const { transaction_error, purchaseDirectly } = useSelector(
+    (state) => state.transaction
+  );
 
   const { checkoutItemList } = props;
 
@@ -39,7 +41,7 @@ const CheckoutPrice = (props) => {
         })
       );
 
-      if (!transaction_error) {
+      if (!transaction_error && !purchaseDirectly) {
         dispatch(removeCourseFromCart({ course_id: course._id }));
       }
     });
