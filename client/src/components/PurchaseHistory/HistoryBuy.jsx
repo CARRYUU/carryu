@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import moment from "moment";
+
 import HistoryCard from "./HistoryCard";
 
 import { getUserPurchaseHistory } from "../../features/user/userSlice";
@@ -27,8 +29,8 @@ const HistoryBuy = () => {
                 title={item.title}
                 price={item.price}
                 thumbnail={item.thumbnail}
-                badge1={item.badge1}
-                badge2={item.badge2}
+                badge1={item.payment_method}
+                badge2={moment(item.date).format("YYYY-MM-DD")}
               />
             );
           }
