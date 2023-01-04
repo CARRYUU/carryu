@@ -190,7 +190,7 @@ last updated in : 2023/1/2
   - [x] Register new user
   - [x] Update user profile
   - [x] Update user password
-  - [x] Switch user role
+  - [x] Switch user role (student-instructor)
 
 - **Course**
 
@@ -201,7 +201,7 @@ last updated in : 2023/1/2
   - [x] Get ten most newest courses
   - [x] Add student into course.
   - [x] Browse single course page.
-  - [ ] Study mode
+  - [x] Study mode
 
 - **Cart**
 
@@ -211,7 +211,7 @@ last updated in : 2023/1/2
 - **Transaction**
 
   - [x] Add purchase record.
-  - [x] Add refund record.
+  - [ ] Add refund record.(backend is done)
   - [x] Get purchase/refund history.
 
 - **Challenge**
@@ -227,6 +227,7 @@ last updated in : 2023/1/2
   - [x] Buy course directly
   - [x] My learning courses
   - [x] 404 Error Page
+  - [ ] comment function in study mode
 
 - **Bugs**
   - [x] 尚未登入卻直接購買課程會白屏
