@@ -71,7 +71,7 @@ const isCourseMember = async (req, res, next) => {
     .then((course) => {
       if (!course) {
         return res.status(404).json({
-          msg: "Course not found",
+          err_msg: "Course not found",
         });
       }
 
