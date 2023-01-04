@@ -222,7 +222,11 @@ last updated in : 2023/1/2
   - [ ] Get points after succeed challenge.
 
 - **Other Pages & Functions**
-  - [ ] About
+
+  - [x] About
   - [x] Buy course directly
   - [x] My learning courses
   - [x] 404 Error Page
+
+- **Bugs**
+  - [x] 尚未登入卻直接購買課程會白屏
