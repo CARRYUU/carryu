@@ -120,18 +120,25 @@ exports.updateUserProfile = async (req, res) => {
 // @route   GET api/user/purchase-history
 // @access  Private
 exports.getUserPurchaseHistory = async (req, res) => {
-  const user = await User.findById(req.user._id);
+  // get user purchase history from database, sorted by date
+  User.findById(req.user._id)
+    .populate("purchase_history")
+    .exec(function (err, user) {
+      if (err) {
+        return res.status(400).json({
+          err_msg: "Get purchase history failed",
+        });
+      }
 
-  if (!user) {
-    return res.status(404).json({
-      err_msg: "User not found",
+      const purchase_history = user.purchase_history.sort(
+        (a, b) => b.date - a.date
+      );
+
+      return res.status(200).json({
+        msg: `Found ${purchase_history.length} records in ${user.username}'s purchase history.`,
+        purchase_history: purchase_history,
+      });
     });
-  }
-
-  return res.status(200).json({
-    msg: `Found ${user.purchase_history.length} records in ${user.username}'s purchase history.`,
-    purchase_history: user.purchase_history,
-  });
 };
 
 // @desc    Update user's password
