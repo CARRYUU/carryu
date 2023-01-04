@@ -5,15 +5,12 @@ import Title from "../layout/Title";
 import Button from "../layout/Button";
 import Input from "../layout/Input";
 
-import {
-  updateUserProfile,
-  getUserProfile
-} from "../../features/user/userSlice";
+import { updateUserProfile } from "../../features/user/userSlice";
 
 const EditProfile = () => {
   const [formData, setFormData] = useState({
     username: "",
-    email: ""
+    email: "",
   });
 
   const { user } = useSelector((state) => state.auth.user);
@@ -25,7 +22,7 @@ const EditProfile = () => {
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
