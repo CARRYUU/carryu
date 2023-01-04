@@ -23,6 +23,7 @@ const CourseInfo = () => {
   moment().format();
 
   const { courseInfo, isLoading } = useSelector((state) => state.course);
+  const { user } = useSelector((state) => state.auth);
 
   let { id } = useParams();
 
@@ -64,7 +65,7 @@ const CourseInfo = () => {
               <div className="flex flex-wrap md:flex-row justify-center items-center bg-white border rounded-lg max-w-3xl shadow-md md:w-3/5   dark:bg-gray-100 dark:hover:bg-gray-200">
                 {/* 圖片 */}
                 <img
-                  src={require("../../image/2.JPG")}
+                  src={require("../../assets/images/carryu_big_logo_white_background.png")}
                   alt="課程圖片"
                   className=" object-cover w-full h-96 rounded-t-lg  md:h-96 md:w-full md:rounded-t-lg my-auto"
                 />
@@ -119,12 +120,21 @@ const CourseInfo = () => {
 
                     {/* 立即購買按鈕 */}
                     <div>
-                      <Link to="/checkout">
-                        <Button
-                          buttonName="Buy it Now"
-                          onClick={handleBuyDirectly}
-                        />
-                      </Link>
+                      {user ? (
+                        <Link to="/checkout">
+                          <Button
+                            buttonName="Buy it Now"
+                            onClick={handleBuyDirectly}
+                          />
+                        </Link>
+                      ) : (
+                        <Link to="/login">
+                          <Button
+                            buttonName="Login to Buy"
+                            onClick={handleBuyDirectly}
+                          />
+                        </Link>
+                      )}
                     </div>
 
                     {/* 加入購物車按鈕 */}
