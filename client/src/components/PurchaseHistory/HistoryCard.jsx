@@ -9,11 +9,11 @@ const HistoryCard = (props) => {
         <div class="card" className=" w-48 h-full">
           <img
             className="w-48 object-cover h-32"
-            src={require("../../image/carryu_big_logo_white_background.png")}
+            src={require("../../assets/images/carryu_big_logo_gray_background.png")}
             alt="course thumbnail"
           />
         </div>
-      
+
         <div className=" mx-2 text-left">
           <h3 className="font-bold text-m m-2">{title}</h3>
           <div className="flex ">

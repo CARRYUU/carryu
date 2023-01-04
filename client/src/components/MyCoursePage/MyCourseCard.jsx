@@ -7,7 +7,7 @@ const MyCourseCard = (props) => {
         <div className="snap-center card mx-2">
           {/* 圖片 */}
           <img
-            src={require("../../image/carryu_big_logo_white_background.png")}
+            src={require("../../assets/images/carryu_big_logo_gray_background.png")}
             alt="課程圖片"
             className="object-cover"
           />

@@ -19,10 +19,11 @@ const SearchResultCard = (props) => {
         <div className="cardSearch flex flex-initial pl-2 item-left my-4 text-left h-52">
           <div className="flex w-72">
             <img
-              src={require("../../image/3.JPG")}
+              src={require("../../assets/images/carryu_big_logo_gray_background.png")}
               class="thumbnail"
               width="288px"
-            ></img>
+              alt="course thumbnail"
+            />
           </div>
           <div class="card-details" className="pl-2">
             <div className="m-2">
