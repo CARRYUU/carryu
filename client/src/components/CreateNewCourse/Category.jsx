@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { useSelector, useDispatch } from "react-redux";
 
 const CategoryTitle = (props) => {
   const [open, setOpen] = useState(false);

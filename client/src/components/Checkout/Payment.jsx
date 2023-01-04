@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MdOutlineAtm, MdGrade } from "react-icons/md";
 import { AiFillCreditCard } from "react-icons/ai";
 
