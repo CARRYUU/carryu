@@ -69,6 +69,7 @@ function App() {
         <Route path="/course/search/:title" element={<SearchResult />} />
         <Route path="/course/:id/info" element={<CourseInfo />} />
         <Route path="/course/create" element={<CreateNewCourse />} />
+        <Route path="/course/:id/content" element={<Study />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
@@ -83,8 +84,6 @@ function App() {
         <Route path="/history-challenge" element={<HistoryChallenge />} />
         <Route path="/challenge-suc" element={<ChallengSuc />} />
         <Route path="/challenge-fail" element={<ChallengeFail />} />
-
-        <Route path="/study" element={<Study />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>
