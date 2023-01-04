@@ -31,7 +31,7 @@ const Card = (props) => {
 
   return (
     <div>
-      <div className=" snap-center card my-6 mx-6 x-72 h-[440px] ">
+      <div className=" snap-center card my-6 mx-6 x-72 h-[540px] ">
         {/* 圖片 */}
         <Link
           to={`/course/${_id}/info`}
