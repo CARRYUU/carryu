@@ -36,9 +36,7 @@ const Course = () => {
       <div className="flex flex-wrap px-5">
         {my_courses?.map((item) => {
           return (
-            <Link to="/study">
-              <CourseCard courseTitle={item.title} />
-            </Link>
+            <CourseCard courseId={item.course_id} courseTitle={item.title} />
           );
         })}
 
