@@ -94,8 +94,8 @@ export const getCourseStudents = createAsyncThunk(
 
 const initialState = {
   courseInfo: {},
-  aRandomCourse: {},
-  courseContent: {},
+  aRandomCourse: null,
+  courseContent: null,
   isLoading: false,
 };
 
