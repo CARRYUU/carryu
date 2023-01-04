@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const MyCourseCard = (props) => {
   const navigate = useNavigate();
 
-  const { courseId, courseTitle } = props;
+  const { courseId } = props;
 
   const handleClickToStudy = (e) => {
     e.preventDefault();

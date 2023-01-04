@@ -1,7 +1,13 @@
 import React from "react";
 
 const HistoryCard = (props) => {
-  const { title, price, thumbnail, badge1, badge2 } = props;
+  const {
+    title,
+    price,
+    // thumbnail,
+    badge1,
+    badge2,
+  } = props;
 
   return (
     <div>

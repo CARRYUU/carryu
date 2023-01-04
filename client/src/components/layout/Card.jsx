@@ -22,7 +22,7 @@ const Card = (props) => {
     title,
     salePrice,
     originalPrice,
-    thumbnail,
+    // thumbnail,
     category,
     students_count,
     badge3,

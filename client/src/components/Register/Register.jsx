@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { registerUser } from "../../features/user/userSlice";
 
 import Input from "../layout/Input";
@@ -11,7 +10,7 @@ const Register = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const { username, email, password } = formData;
@@ -21,7 +20,7 @@ const Register = () => {
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -33,7 +32,7 @@ const Register = () => {
     const formData = {
       username,
       email,
-      password
+      password,
     };
 
     console.log(formData);
