@@ -21,7 +21,6 @@ import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
 import MyCoursePage from "./components/MyCoursePage/MyCoursePage";
 
-import HistoryTrade from "./components/HistoryTrade/HistoryTrade";
 import HistoryBuy from "./components/PurchaseHistory/HistoryBuy";
 import HistoryReturn from "./components/PurchaseHistory/HistoryReturn";
 
@@ -34,14 +33,12 @@ import InstructorHomepage from "./components/InstructorHomepage/InstructorHomepa
 
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
-
-
 function App() {
   return (
     <div className="App">
       <ToastContainer
         position="top-center"
-        autoClose={2000}
+        autoClose={1000}
         limit={3}
         hideProgressBar={false}
         newestOnTop={false}
@@ -72,6 +69,7 @@ function App() {
         <Route path="/course/search/:title" element={<SearchResult />} />
         <Route path="/course/:id/info" element={<CourseInfo />} />
         <Route path="/course/create" element={<CreateNewCourse />} />
+        <Route path="/course/:id/content" element={<Study />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
@@ -86,9 +84,7 @@ function App() {
         <Route path="/challenge-suc" element={<ChallengSuc />} />
         <Route path="/challenge-fail" element={<ChallengeFail />} />
 
-        <Route path="/study" element={<Study />} />
-
-        <Route path="/errorpage" element={<ErrorPage/>}/>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </div>

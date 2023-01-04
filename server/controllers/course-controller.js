@@ -126,7 +126,7 @@ exports.getCourseInfoById = async (req, res) => {
     .then(async (course) => {
       if (!course) {
         return res.status(404).json({
-          msg: "Course not found",
+          err_msg: "Course not found",
         });
       }
 
@@ -137,11 +137,11 @@ exports.getCourseInfoById = async (req, res) => {
       return res.status(200).json({
         msg: "Course found",
         course_info: {
+          _id: course._id,
           title: course.title,
-          instructor: instructor.username,
+          instructor: instructor?.username || "Unknown Account",
           description: course.description,
           price: course.price,
-          thumbnail: course.thumbnail,
           category: course.category,
           students_count: course.students.length,
           created: course.created,
@@ -160,20 +160,38 @@ exports.getCourseInfoById = async (req, res) => {
 // @route   GET api/course/:_id/content
 // @access  Private/CourseMember
 exports.getCourseContentById = async (req, res) => {
+  console.log("Getting course content...");
+  console.log(req.params);
+
   const { _id } = req.params;
 
   Course.findById(_id)
-    .then((course) => {
+    .then(async (course) => {
       if (!course) {
         return res.status(404).json({
-          msg: "Course not found",
+          err_msg: "Course not found",
         });
       }
+
+      // Get instructor name.
+      const instructor = await User.findById(course.instructor);
 
       // Return the course content.
       return res.status(200).json({
         msg: "Course found",
-        course_content: course,
+        course_content: {
+          _id: course._id,
+          title: course.title,
+          instructor: instructor?.username || "Unknown Account",
+          description: course.description,
+          price: course.price,
+          category: course.category,
+          students_count: course.students.length,
+          created: course.created,
+          videos: course.videos,
+          teaching_assistants: course.teaching_assistants,
+          comments: course.comments,
+        },
       });
     })
     .catch((err) => {
@@ -403,22 +421,50 @@ exports.getCoursesByCategory = async (req, res) => {
 // @route   GET api/course/random
 // @access  Public
 exports.getARandomCourse = async (req, res) => {
+  console.log("Getting a random course...");
+
   Course.aggregate([{ $sample: { size: 1 } }])
     .then((course) => {
-      return res.status(200).json({
-        msg: "Found a course",
-        course_info: {
-          title: course.title,
-          instructor: instructor.username,
-          description: course.description,
-          price: course.price,
-          thumbnail: course.thumbnail,
-          category: course.category,
-          students_count: course.students.length,
-        },
-      });
+      if (!course) {
+        return res.status(404).json({
+          err_msg: "Course not found",
+        });
+      }
+
+      course = course[0];
+
+      // Get the instructor of the course.
+      User.findById(course.instructor)
+        .then((instructor) => {
+          const instructorName = instructor
+            ? instructor.username
+            : "THIS_ACCOUNT_HAS_BEEN_DELETED";
+
+          return res.status(200).json({
+            msg: "Found a course",
+            course_info: {
+              title: course.title,
+              instructor: instructorName,
+              description: course.description,
+              price: course.price,
+              thumbnail: course.thumbnail,
+              category: course.category,
+              students_count: course.students.length,
+            },
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+
+          return res.status(400).json({
+            err_msg: "Get random course failed. Instructor not found",
+            error: err,
+          });
+        });
     })
     .catch((err) => {
+      console.log(err);
+
       return res.status(400).json({
         err_msg: "Get random course failed",
         error: err,

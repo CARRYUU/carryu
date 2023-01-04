@@ -129,6 +129,8 @@ const getARandomCourse = async (thunkAPI) => {
       return;
     }
 
+    toast.success("Rolling!");
+
     return response.data;
   } catch (error) {
     const message =

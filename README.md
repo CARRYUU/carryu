@@ -179,6 +179,8 @@ $ npm run start
 
 ## TODO
 
+last updated in : 2023/1/2
+
 - **Auth**
 
   - [x] Login/Logout
@@ -188,7 +190,7 @@ $ npm run start
   - [x] Register new user
   - [x] Update user profile
   - [x] Update user password
-  - [x] Switch user role
+  - [x] Switch user role (student-instructor)
 
 - **Course**
 
@@ -199,7 +201,7 @@ $ npm run start
   - [x] Get ten most newest courses
   - [x] Add student into course.
   - [x] Browse single course page.
-  - [ ] Study mode
+  - [x] Study mode
 
 - **Cart**
 
@@ -209,16 +211,23 @@ $ npm run start
 - **Transaction**
 
   - [x] Add purchase record.
-  - [x] Add refund record.
+  - [ ] Add refund record.(backend is done)
   - [x] Get purchase/refund history.
 
 - **Challenge**
 
-  - [ ] Let it roll
+  - [x] Let it roll
+  - [ ] Challenge confirmation Page
   - [ ] Challenge History
   - [ ] Get points after succeed challenge.
 
 - **Other Pages & Functions**
-  - [ ] About
-  - [ ] Buy course directly
+
+  - [x] About
+  - [x] Buy course directly
   - [x] My learning courses
+  - [x] 404 Error Page
+  - [ ] comment function in study mode
+
+- **Bugs**
+  - [x] 尚未登入卻直接購買課程會白屏

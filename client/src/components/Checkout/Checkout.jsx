@@ -10,17 +10,27 @@ import CheckoutPrice from "./CheckoutPrice";
 const Checkout = () => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
+  const { purchaseDirectly, oneCourseToPurchase } = useSelector(
+    (state) => state.transaction
+  );
 
   const [paymentMethod, setPaymentMethod] = useState("ATM");
 
   const handlePaymentMethod = (e) => {
-    console.log("hi");
     setPaymentMethod(e.target.value);
   };
 
   useEffect(() => {
-    dispatch(getCartItems());
+    if (!purchaseDirectly) {
+      dispatch(getCartItems());
+    }
   }, []);
+
+  console.log(oneCourseToPurchase);
+
+  const checkoutItemList = purchaseDirectly ? [oneCourseToPurchase] : cartItems;
+
+  console.log(checkoutItemList);
 
   return (
     <div>
@@ -35,8 +45,8 @@ const Checkout = () => {
             </div>
             <h3 className="font-bold text-xl ">Order detail</h3>
             <hr className="mx-10 my-4 h-0.5 bg-gray-100" />
-            {cartItems && cartItems.length > 0 ? (
-              cartItems.map((item) => (
+            {checkoutItemList && checkoutItemList.length > 0 ? (
+              checkoutItemList.map((item) => (
                 <CheckoutItem
                   key={item._id}
                   id={item._id}
@@ -51,7 +61,10 @@ const Checkout = () => {
               <div className="text-center">No checkout items.</div>
             )}
           </div>
-          <CheckoutPrice cartItems={cartItems} paymentMethod={paymentMethod} />
+          <CheckoutPrice
+            checkoutItemList={checkoutItemList}
+            paymentMethod={paymentMethod}
+          />
         </div>
       </div>
     </div>

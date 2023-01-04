@@ -4,29 +4,37 @@ import Member from "./Member";
 const About = () => {
   return (
     <div>
-      <div
-        name="about"
-        className="w-full h-full  text-black px-6 py-14"
-      >
-        
+      <div name="about" className="w-full h-full  text-black px-6 py-14">
         <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
           <div className="pb-8">
-          
             <div class="mb-4 text-left px-20">
-				      <p class="text-base md:text-sm text-mainBlue font-bold">&lt; <a href="/" class="text-base md:text-sm text-mainBlue font-bold no-underline hover:underline">BACK TO HOMEPAGE</a></p>
-						  <h1 class="font-extrabold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl  md:text-5xl lg:text-6xl">Welcome! We Are CarryU.</h1>
-						  <p class="text-sm md:text-base font-normal text-gray-600 mt-2">Published 1 January 2023</p>
-			      </div>
-
+              <p class="text-base md:text-sm text-mainBlue font-bold ">
+                &lt;{" "}
+                <a
+                  href="/"
+                  class="text-base md:text-sm text-mainBlue font-bold no-underline hover:underline"
+                >
+                  BACK TO HOMEPAGE
+                </a>
+              </p>
+              <h1 class="font-extrabold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-5xl lg:text-6xl text-center">
+                Welcome! We Are CarryU
+              </h1>
+              <img
+                src={require("../../assets/images/carryu_big_logo_white_background.png")}
+                alt=""
+                className=" object-cover w-50 h-96 rounded-lg md:h-96 md:w-50 md:rounded--lg my-auto"
+              />
+              <p class="text-sm md:text-base font-normal text-gray-600 mt-2">
+                Published 1 January 2023
+              </p>
+            </div>
           </div>
 
-
-
           <p className="text-xl mt-3 px-20 leading-8 tracking-wider text-left break-words">
-            <div className="text-3xl italic font-semibold text-gray-900 dark:text-white">
-              "CarryU" is narrowed down from "Carry you". 
+            <div className="text-3xl italic font-semibold text-gray-900 ">
+              "CarryU" is narrowed down from "Carry you".
             </div>
-            
             <br />
             We hope that this project will be in place In the process of
             learning, someone becomes the best helping hand in each position, so
@@ -45,12 +53,9 @@ const About = () => {
           <br />
 
           <p className="text-xl mt-3 px-20 leading-8 tracking-wider text-left break-words'">
-            <div className="text-3xl italic font-semibold text-gray-900 dark:text-white">
-            「CarryU」是從英文的「Carry you」進行縮寫。
+            <div className="text-3xl italic font-semibold text-gray-900">
+              「CarryU」是從英文的「Carry you」進行縮寫。
             </div>
-
-          
-
             <br />
             我們希望本專案能夠在所
             有人學習的過程中成為各位最好的助力之手，由此平台「罩你」，幫助你增廣
@@ -62,21 +67,18 @@ const About = () => {
           </p>
 
           <div>
-          <h1 class="text-left px-20 py-10 text-5xl font-normal ">Our teams
-          <small class="text-3xl ml-2 font-semibold text-gray-500 "> NCU</small></h1>
+            <div>
+              <h1 class="text-left px-20 py-4 text-5xl font-normal mt-8">
+                Our teams
+                <small class="text-3xl ml-2 font-semibold text-gray-500 ">
+                  {" "}
+                  NCU
+                </small>
+              </h1>
+            </div>
+
+            <Member />
           </div>
-
-        {/*成員照片->githob*/}
-
-        <div className="flex flex-row flex-wrap">
-          <img  
-            src={require("../../image/2.JPG")} 
-            alt="" 
-            className=" object-cover w-50 h-96 rounded-t-lg  md:h-96 md:w-50 md:rounded-t-lg my-auto pl-20"
-            />
-          <Member/>
-        </div> 
-
         </div>
       </div>
     </div>

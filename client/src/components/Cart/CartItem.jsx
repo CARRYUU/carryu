@@ -27,7 +27,7 @@ const CartItem = (props) => {
             className="w-48 object-fill h-32"
             src={
               thumbnail ||
-              require("../../image/carryu_big_logo_white_background.png")
+              require("../../assets/images/carryu_big_logo_gray_background.png")
             }
             alt="course thumbnail"
           ></img>
