@@ -126,7 +126,7 @@ exports.getCourseInfoById = async (req, res) => {
     .then(async (course) => {
       if (!course) {
         return res.status(404).json({
-          msg: "Course not found",
+          err_msg: "Course not found",
         });
       }
 
@@ -139,10 +139,9 @@ exports.getCourseInfoById = async (req, res) => {
         course_info: {
           _id: course._id,
           title: course.title,
-          instructor: instructor.username,
+          instructor: instructor?.username || "Unknown Account",
           description: course.description,
           price: course.price,
-          thumbnail: course.thumbnail,
           category: course.category,
           students_count: course.students.length,
           created: course.created,
@@ -161,20 +160,38 @@ exports.getCourseInfoById = async (req, res) => {
 // @route   GET api/course/:_id/content
 // @access  Private/CourseMember
 exports.getCourseContentById = async (req, res) => {
+  console.log("Getting course content...");
+  console.log(req.params);
+
   const { _id } = req.params;
 
   Course.findById(_id)
-    .then((course) => {
+    .then(async (course) => {
       if (!course) {
         return res.status(404).json({
-          msg: "Course not found",
+          err_msg: "Course not found",
         });
       }
+
+      // Get instructor name.
+      const instructor = await User.findById(course.instructor);
 
       // Return the course content.
       return res.status(200).json({
         msg: "Course found",
-        course_content: course,
+        course_content: {
+          _id: course._id,
+          title: course.title,
+          instructor: instructor?.username || "Unknown Account",
+          description: course.description,
+          price: course.price,
+          category: course.category,
+          students_count: course.students.length,
+          created: course.created,
+          videos: course.videos,
+          teaching_assistants: course.teaching_assistants,
+          comments: course.comments,
+        },
       });
     })
     .catch((err) => {
