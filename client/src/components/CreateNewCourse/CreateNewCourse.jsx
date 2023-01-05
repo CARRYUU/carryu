@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Category from "./Category";
 import UploadFile from "./UploadFile";
 import Description from "./Description";
@@ -12,7 +11,6 @@ import Input from "../layout/Input";
 
 const CreateNewCourse = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: "",
@@ -33,7 +31,6 @@ const CreateNewCourse = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createNewCourse(formData));
-    navigate("/");
   };
 
   return (
