@@ -31,9 +31,9 @@ const SearchResult = () => {
   }
 
   return (
-    <div>
+    <div >
       <Title pageTitle={`「${searchedText}」有${numResults}個結果`} />
-      <div className="flex-col">
+      <div className="flex-col mx-2  ">
         {courses?.map((course) => (
           <SearchResultCard
             key={course._id}

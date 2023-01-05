@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Roll = (props) => {
   return (
     <div className="shadow-black">
+
       <Link to="/confirm-challenge">
         <button
           type="button"

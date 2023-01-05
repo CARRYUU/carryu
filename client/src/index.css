@@ -8,23 +8,65 @@
   .card {
     @apply bg-white text-gray-700
       w-72 min-h-[10rem] 
-      shadow-lg rounded-md overflow-hidden
+       rounded-md overflow-hidden
       snap-center;
   }
 
   .cardSearch {
     @apply bg-white text-gray-700
-      min-w-[10rem] w-screen
-      max-w-6xl
-      max-h-60
+      
+      max-h-44
+      max-w-2xl
+      sm:scale-100 scale-90
       shadow-lg rounded-md overflow-hidden;
+  }
+
+  .cardSearchForSM{
+    @apply bg-white text-gray-700
+    text-xs
+    shadow-lg rounded-md overflow-hidden;
+  }
+
+  .cardCart{
+    @apply bg-white text-gray-700
+      
+      max-h-60
+      max-w-2xl
+      sm:scale-100 scale-90
+      shadow-lg rounded-md overflow-hidden;
+  }
+
+  .cardimg{
+    @apply h-full sm:w-48 w-28 flex-none;
+  }
+  
+  .cancalBotton{
+    @apply bg-red-100 text-white hover:bg-red-700
+    px-1.5 py-0.5 rounded-md
+    text-xs ;
+  }
+
+  .historyCard{
+    @apply bg-white text-gray-700
+    sm:scale-100 scale-90
+    max-w-6xl
+    max-h-60
+    shadow-lg rounded-md overflow-hidden;
+  }
+
+  .QAcard{
+    @apply bg-white text-gray-700
+   
+    max-w-6xl
+    max-h-60
+    shadow-lg rounded-md overflow-hidden;
   }
 
   .badge {
     @apply px-3 py-1 rounded-full text-xs bg-gray-100;
   }
   .class-title {
-    @apply font-semibold text-2xl
+    @apply font-semibold text-2xl 
       overflow-ellipsis overflow-hidden whitespace-nowrap;
   }
   .discount-percent {
@@ -43,7 +85,7 @@
 
   .button-primary {
     @apply bg-mainBlue hover:bg-blue-700
-    px-6 py-2 rounded-md
+    px-4 py-2 rounded-md
     text-white font-medium
     tracking-wider transition;
   }

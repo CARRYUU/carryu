@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Category from "./Category";
 import UploadFile from "./UploadFile";
 import Description from "./Description";
@@ -19,7 +18,7 @@ const CreateNewCourse = () => {
     description: "",
     price: "",
     thumbnail: "",
-    category: "others"
+    category: "others",
   });
 
   const handleChange = (e) => {

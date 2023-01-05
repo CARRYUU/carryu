@@ -26,11 +26,14 @@ import HistoryReturn from "./components/PurchaseHistory/HistoryReturn";
 
 import PurchaseHistory from "./components/PurchaseHistory/PurchaseHistory";
 
+
 import ConfirmChallenge from "./components/Challenge/ConfirmChallenge";
 import HistoryChallenge from "./components/HistoryChallenge/HistoryChallenge";
 import ChallengSuc from "./components/HistoryChallenge/ChallengeSuc";
 import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
 import InstructorHomepage from "./components/InstructorHomepage/InstructorHomepage";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
+
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 function App() {
@@ -51,39 +54,48 @@ function App() {
       />
       <Header />
       <Routes>
-        <Route path="/" exact element={<Homepage />} />
-        <Route path="/challenge" element={<Challenge />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/challenge" element={<Challenge />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
 
-        <Route path="/about" element={<About />} />
+        <Route exact path="/about" element={<About />} />
 
-        <Route path="/auth/login" element={<Login />} />
+        <Route exact path="/auth/login" element={<Login />} />
 
-        <Route path="/user/register" element={<Register />} />
-        <Route path="/intructor/homepage" element={<InstructorHomepage />} />
-        <Route path="/user/profile" element={<EditProfile />} />
-        <Route path="/user/password/update" element={<EditPassword />} />
+        <Route exact path="/user/register" element={<Register />} />
+        <Route
+          exact
+          path="/intructor/homepage"
+          element={<InstructorHomepage />}
+        />
+        <Route exact path="/user/profile" element={<EditProfile />} />
+        <Route exact path="/user/password/update" element={<EditPassword />} />
 
         <Route path="/course/search/:title" element={<SearchResult />} />
         <Route path="/course/:id/info" element={<CourseInfo />} />
-        <Route path="/course/create" element={<CreateNewCourse />} />
+     
+        <Route exact path="/course/create" element={<CreateNewCourse />} />
         <Route path="/course/:id/content" element={<Study />} />
 
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/complete-buy" element={<CompleteBuy />} />
-        <Route path="/mycourse" element={<MyCoursePage />} />
+        <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/complete-buy" element={<CompleteBuy />} />
+        <Route exact path="/mycourse" element={<MyCoursePage />} />
 
-        <Route path="/purchase-history" element={<PurchaseHistory />} />
-        <Route path="/purchase-history/buy" element={<HistoryBuy />} />
-        <Route path="/purchase-history/refund" element={<HistoryReturn />} />
-
+        <Route exact path="/purchase-history" element={<PurchaseHistory />} />
+        <Route exact path="/purchase-history/buy" element={<HistoryBuy />} />
+        <Route
+          exact
+          path="/purchase-history/refund"
+          element={<HistoryReturn />}
+        />
+        
         <Route path="/confirm-challenge" element={<ConfirmChallenge />} />
-        <Route path="/history-challenge" element={<HistoryChallenge />} />
-        <Route path="/challenge-suc" element={<ChallengSuc />} />
-        <Route path="/challenge-fail" element={<ChallengeFail />} />
+        <Route exact path="/history-challenge" element={<HistoryChallenge />} />
+        <Route exact path="/challenge-suc" element={<ChallengSuc />} />
+        <Route exact path="/challenge-fail" element={<ChallengeFail />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

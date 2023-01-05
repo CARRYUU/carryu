@@ -18,6 +18,8 @@ const createNewCourse = async (courseData, thunkAPI) => {
 
     toast.success("Course created successfully.");
 
+    window.location.href = `/course/${response.data._id}/info`;
+
     return response.data;
   } catch (error) {
     console.log(error);

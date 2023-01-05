@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-import { IoEarthSharp } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/auth/authSlice";
 import { BsBook } from "react-icons/bs";
 
 import Dropdown from "./Dropdown";
+
+import { switchUserRole } from "../../features/user/userSlice";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const Nav = () => {
   const Menus = [
     { key: "Sign in", value: "/auth/login" },
     { key: "Switch", value: "/intructor/homepage" },
-    { key: "Sign up", value: "/user/register" }
+    { key: "Sign up", value: "/user/register" },
   ];
 
   return (
@@ -40,6 +41,7 @@ const Nav = () => {
       <div className="flex flex-row space-x-2">
         {Menus.map((obj) => {
           if (user && obj.key === "Logout") {
+            // Logout button
             return (
               <button
                 type="button"
@@ -49,6 +51,20 @@ const Nav = () => {
               >
                 {obj.key}
               </button>
+            );
+          } else if (user && obj.key === "Switch") {
+            // Switch role button
+            return (
+              <Link to={obj.value}>
+                <button
+                  type="button"
+                  onClick={() => dispatch(switchUserRole())}
+                  className="text-white font-bold bg-gradient-to-br from-orange-500 to-pink-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg text-sm px-5 py-2.5 text-center mb-0"
+                  key={obj.key}
+                >
+                  {obj.key}
+                </button>
+              </Link>
             );
           } else if (user && obj.key !== "Sign in" && obj.key !== "Sign up") {
             return (
@@ -84,16 +100,21 @@ const Nav = () => {
         })}
       </div>
 
-      <div className="flex flex-row space-x-2">
-        {user && <Dropdown />}
-
-        <Link to="/cart">
-          <FaShoppingCart size={42} className="p-2" />
-        </Link>
-        <Link to="/mycourse">
-          <BsBook size={42} className="p-2" />
-        </Link>
-      </div>
+      {user && (
+        <div className="flex items-center justify-center space-x-2">
+          <Dropdown className="mx-4" />
+          <Link to="/cart">
+            <div className="flex justify-center items-center p-2 ">
+              <FaShoppingCart size={36} />
+            </div>
+          </Link>
+          <Link to="/mycourse">
+            <div className="flex justify-center items-center p-2">
+              <BsBook size={36} />
+            </div>
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

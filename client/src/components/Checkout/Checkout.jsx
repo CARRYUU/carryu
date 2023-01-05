@@ -34,7 +34,7 @@ const Checkout = () => {
 
   return (
     <div>
-      <div className="mx-20 bg-slate-50 rounded-md pt-2">
+      <div className="mx-5 bg-slate-50 rounded-md pt-2 sm:mx-20">
         <h1 className="font-bold text-2xl mb-10 text-left m-5 text-primary">
           Checkout
         </h1>

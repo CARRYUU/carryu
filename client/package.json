@@ -1,5 +1,6 @@
 {
   "name": "carryu_client",
+  "homepage": "https://carryu-370313.du.r.appspot.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

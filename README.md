@@ -6,13 +6,13 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
 
 ## Our teams
 
-- [@xxrjun](https://github.com/xxrjun)
-- [@Tsu-Yu carrie57](https://github.com/Tsu-Yu)
-- [@Chen-LiYin](https://github.com/Chen-LiYin)
-- [@heyuhsuan](https://github.com/heyuhsuan)
-- [@Elly520](https://github.com/Elly520)
-- [@HankLiu20](https://github.com/HankLiu20)
-- [@Joe-qwe](https://github.com/Joe-qwe)
+- 鄒翔宇 [@xxrjun](https://github.com/xxrjun)
+- 張羽慈 [@Tsu-Yu carrie57](https://github.com/Tsu-Yu)
+- 陳俐吟 [@Chen-LiYin](https://github.com/Chen-LiYin)
+- 何羽軒 [@heyuhsuan](https://github.com/heyuhsuan)
+- 陳侑宣 [@Elly520](https://github.com/Elly520)
+- 劉宗翰 [@HankLiu20](https://github.com/HankLiu20)
+- 林喬楚 [@Joe-qwe](https://github.com/Joe-qwe)
 
 ## Table of Contents
 
@@ -26,7 +26,10 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
   - [Developer Tools](#developer-tools)
   - [Tools' Official Document](#tools-official-document)
   - [Learning Resources](#learning-resources)
+
+- [Deployment on GPC(App Engine)](#deployment-on-gpcapp-engine)
 - [TODO](#todo)
+  - [Limitation \& Progressing](#limitation--progressing)
 
 ## Project Documents
 
@@ -177,9 +180,17 @@ $ npm run start
 
 其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
 
+
 ## TODO
 
 last updated in : 2023/1/2
+## Deployment on GPC(App Engine)
+
+@TODO
+
+## TODO
+
+last updated in : 2023/1/5
 
 - **Auth**
 
@@ -230,4 +241,23 @@ last updated in : 2023/1/2
   - [ ] comment function in study mode
 
 - **Bugs**
-  - [x] 尚未登入卻直接購買課程會白屏
+
+  - [x] 尚未登入卻直接購買課程會白屏(23/1/5)
+  - [x] 沒註冊成功也會跳到登入畫面(23/1/5)
+  - [x] Update Profile 後沒有成功顯示更新後的畫面(23/1/5)
+  - [x] Sign up 輸入失敗會跳去 Sign in 頁面而不是留在 Sign up 頁面再試一次
+  - [x] 登入後 profile&setting 改了後灰色提示字不會立刻改，需登出後登入才會更改
+  - [x] 更改密碼後導向 Error：Not Found 頁面，只能關掉重開（但重開後密碼已經被成功更改）
+  - [ ] 不選擇 ATM/Credit Card/Points 直接按 Complete Checkout 就可以直接購買
+  - [x] switch 按鍵沒有成功切換角色
+  - [ ] 創建課程的上傳縮圖用 drag and drop 的話會在另一個瀏覽器視窗開啟圖片，但 Upload course thumbnail 還是空的
+  - [ ] 從購物車 Remove 課程會跳 Error: Not Found，重新登入確實有移除
+  - [x] About 頁面文字空格
+
+### Limitation & Progressing
+
+- Email 為帳號且唯一
+- 登入後才可以使用購物車、購買課程等功能
+- 只有切換成老師身分時才能上傳課程
+- 觀看課程部分尚未引入影片
+- 挑戰課程之 Choose Category 仍在開發階段

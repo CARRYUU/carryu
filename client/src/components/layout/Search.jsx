@@ -16,7 +16,7 @@ const Search = () => {
     event.preventDefault();
 
     navigate(`/course/search/${searchedText}`, {
-      state: { searchedText: searchedText }
+      state: { searchedText: searchedText },
     });
   };
 

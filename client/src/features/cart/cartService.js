@@ -83,6 +83,8 @@ const getCartItems = async (thunkAPI) => {
       return;
     }
 
+    window.location.href = "/cart";
+
     return response.data;
   } catch (error) {
     const message =

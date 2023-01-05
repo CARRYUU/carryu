@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MdOutlineAtm, MdGrade } from "react-icons/md";
 import { AiFillCreditCard } from "react-icons/ai";
 
@@ -7,6 +7,7 @@ const Payment = (props) => {
     <div>
       <fieldset>
         <h3 className="font-bold">Payment</h3>
+
         <div className="bg-gray-100/70 m-2 rounded-md p-2 flex relative max-w-xl">
           <input
             type="radio"
@@ -23,6 +24,7 @@ const Payment = (props) => {
             <MdOutlineAtm className="text-2xl" />
           </div>
         </div>
+
         <div className="bg-gray-100/70 m-2 rounded-md p-2 flex relative max-w-xl">
           <input
             type="radio"
@@ -39,7 +41,7 @@ const Payment = (props) => {
             <AiFillCreditCard className="text-2xl" />
           </div>
         </div>
-        <div className="bg-gray-100/70 m-2 rounded-md p-2 flex relative max-w-xl">
+        <div className="bg-gray-100/70 m-2 rounded-md p-2 flex relative w-44">
           <input
             type="radio"
             id="POINTS"

@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { useSelector, useDispatch } from "react-redux";
 
 const CategoryTitle = (props) => {
   const [open, setOpen] = useState(false);
@@ -13,7 +12,7 @@ const CategoryTitle = (props) => {
     { key: "system-design", value: "system-design" },
     { key: "music", value: "music" },
     { key: "marketing", value: "marketing" },
-    { key: "others", value: "others" }
+    { key: "others", value: "others" },
   ];
 
   const menuRef = useRef();

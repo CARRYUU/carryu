@@ -10,7 +10,8 @@ const List = (props) => {
 
   return (
     <div>
-      <h1 className="text-5xl font-bold my-4 ml-10 mb-10">{title}</h1>
+      <h1 className="text-xl font-bold my-4  mb-10">{title}</h1>
+
       <nav className="">
         <ul className="flex place-content-center font-bold mt-4 ">
           <li className="px-10 hover:text-gray-800  text-gray-500">
@@ -26,7 +27,7 @@ const List = (props) => {
         <hr className="mx-10 my-4 h-0.5 bg-gray-100" />
       </nav>
 
-      <div class="detail" className="text-left">
+      <div class="detail" className="text-left ">
         <CourseContent />
         <Overview description={description} instructor={instructor} />
         <QA />

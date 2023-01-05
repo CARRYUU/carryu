@@ -22,7 +22,7 @@ const Card = (props) => {
     title,
     salePrice,
     originalPrice,
-    thumbnail,
+    // thumbnail,
     category,
     students_count,
     badge3,
@@ -31,7 +31,7 @@ const Card = (props) => {
 
   return (
     <div>
-      <div className=" snap-center card my-6 mx-6 x-72 h-[440px] ">
+      <div className=" snap-center card my-6 mx-6 x-72 h-max sm:scale-100 scale-90">
         {/* 圖片 */}
         <Link
           to={`/course/${_id}/info`}
@@ -46,7 +46,7 @@ const Card = (props) => {
 
             // className="object-cover transition-all duration-300 w-full h-48 "
 
-            className="object-cover w-full h-48 transition-all duration-300 hover:shadow-2xl opacity-80 hover:opacity-100"
+            className="object-cover w-full h-48 transition-all duration-300 hover:shadow-2xl opacity-90 hover:opacity-100"
           />
         </Link>
 
