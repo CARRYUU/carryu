@@ -1,7 +1,7 @@
 import React from "react";
 
 import Overview from "./Overview";
-import QA from "./QA";
+import Comment from "./Comment";
 import CourseContent from "./CourseContent";
 
 const List = (props) => {
@@ -20,7 +20,7 @@ const List = (props) => {
             <a href="#overview">Overview</a>
           </li>
           <li className="px-10 hover:text-gray-800   text-gray-500">
-            <a href="#qa">Q&A</a>
+            <a href="#comments">Comments</a>
           </li>
         </ul>
         <hr className="mx-10 my-4 h-0.5 bg-gray-100" />
@@ -29,7 +29,7 @@ const List = (props) => {
       <div class="detail" className="text-left ">
         <CourseContent />
         <Overview description={description} instructor={instructor} />
-        <QA />
+        <Comment />
       </div>
     </div>
   );
