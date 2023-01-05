@@ -11,6 +11,7 @@ const List = (props) => {
   return (
     <div>
       <h1 className="text-xl font-bold my-4  mb-10">{title}</h1>
+
       <nav className="">
         <ul className="flex place-content-center font-bold mt-4 ">
           <li className="px-10 hover:text-gray-800  text-gray-500">

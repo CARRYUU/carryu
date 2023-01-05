@@ -19,9 +19,9 @@ const HistoryCard = (props) => {
             alt="course thumbnail"
           />
         </div>
-
         <div className=" mx-2 text-left ">
           <h3 className="font-bold text-m ml-2 mt-2">{title}</h3>
+
           <div className="flex ">
             <div class="middle" className="badge ml-1">
               {badge1}
