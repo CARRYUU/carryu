@@ -34,8 +34,6 @@ import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
 import InstructorHomepage from "./components/InstructorHomepage/InstructorHomepage";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
-import ErrorPage from "./components/ErrorPage/ErrorPage";
-
 function App() {
   return (
     <div className="App">
