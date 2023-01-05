@@ -255,3 +255,4 @@ last updated in : 2023/1/5
 - 只有切換成老師身分時才能上傳課程
 - 觀看課程部分尚未引入影片
 - 挑戰課程之 Choose Category 仍在開發階段
+- 無法做到 Client-side rendering，故靜態資源頁面重整回出現錯誤
