@@ -1,5 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { IoEarthSharp } from "react-icons/io5";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../features/auth/authSlice";
+import { BsBook } from "react-icons/bs";
+
 import Dropdown from "./Dropdown";
 
 const Nav = () => {
