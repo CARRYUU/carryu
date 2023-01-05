@@ -26,7 +26,7 @@ const List = (props) => {
         <hr className="mx-10 my-4 h-0.5 bg-gray-100" />
       </nav>
 
-      <div class="detail" className="text-left">
+      <div class="detail" className="text-left ">
         <CourseContent />
         <Overview description={description} instructor={instructor} />
         <QA />

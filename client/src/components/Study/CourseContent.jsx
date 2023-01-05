@@ -4,6 +4,7 @@ const CourseContent = () => {
   return (
     <div id="content" className="mx-5 ml-10">
       <ul className="my-2 text-xl font-bold">
+        <h1 className=" font-bold text-3xl mb-5 text-left text-mainBlue italic">Course Content</h1>
         <li className="hover:text-gray-500">
           <a href="#0">此區域尚在開發中</a>
         </li>
