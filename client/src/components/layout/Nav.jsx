@@ -83,7 +83,7 @@ const Nav = () => {
         })}
       </div>
 
-      <div className="flex flex-row space-x-2">
+      <div className="flex flex-row space-x-2 items-center justify-center">
         {user && <Dropdown />}
 
         <Link to="/cart">
