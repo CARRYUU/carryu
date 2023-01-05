@@ -2,6 +2,7 @@ import React from "react";
 import { GiPerspectiveDiceSixFacesSix } from "react-icons/gi";
 import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
 import { GiPerspectiveDiceSixFacesTwo } from "react-icons/gi";
+import { Link } from "react-router-dom";
 import Button from "../layout/Button";
 
 const ConfirmChallenge = () => {
@@ -30,7 +31,9 @@ const ConfirmChallenge = () => {
             className="md:animate-spin"
           />
         </div>
-        <Button buttonName="Yes, let's GO!!!" onClick="" />
+        <Link to="/get-point">
+          <Button buttonName="Yes, let's GO!!!" onClick="" />
+        </Link>
       </div>
     </div>
   );
