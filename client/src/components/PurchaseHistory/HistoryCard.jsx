@@ -11,16 +11,16 @@ const HistoryCard = (props) => {
 
   return (
     <div>
-      <div class="list flex historyCard  my-4 max-w-xl h-32 ">
-        <div className=" w-48 h-full">
+      <div class="list flex historyCard  my-4   ">
+        <div className=" cardimg">
           <img
-            className="w-48 object-cover h-32 flex flex-auto"
+            className="w-48 object-cover h-full flex flex-auto"
             src={require("../../assets/images/carryu_big_logo_gray_background.png")}
             alt="course thumbnail"
           />
         </div>
 
-        <div className=" mx-2 text-left">
+        <div className=" mx-2 text-left ">
           <h3 className="font-bold text-m ml-2 mt-2">{title}</h3>
           <div className="flex ">
             <div class="middle" className="badge ml-1">

@@ -21,10 +21,10 @@ const CartItem = (props) => {
 
   return (
     <div>
-      <div class="list flex cardSearch hover:bg-slate-100/60 my-4 max-w-2xl h-32">
-        <div class="card" className="w-48 h-full">
+      <div class="list flex cardCart hover:bg-slate-100/60 my-4   ">
+        <div class="card" className=" cardimg">
           <img
-            className="w-48 object-fill h-32"
+            className="w-48 object-cover h-40"
             src={
               thumbnail ||
               require("../../assets/images/carryu_big_logo_gray_background.png")
@@ -32,7 +32,7 @@ const CartItem = (props) => {
             alt="course thumbnail"
           ></img>
         </div>
-        <div className="mx-2">
+        <div className="mx-2 flex-1">
           <h3 className="font-bold text-m m-2">{title} </h3>
           <div className="flex ">
             <div class="middle" className="badge ml-1">

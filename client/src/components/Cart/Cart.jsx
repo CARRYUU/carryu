@@ -20,9 +20,9 @@ const Cart = () => {
 
   return (
     <div>
-      <body className="mx-20">
-        <div className="w-32 flex-initial "></div>
-        <h1 className="font-bold text-2xl mb-10 text-left m-5 text-primary">
+      <body className=" sm:mx-10">
+        
+        <h1 className="text-mainBlue font-bold text-2xl mb-10 text-left m-5 text-primary">
           Shopping Cart
         </h1>
         <div className="flex text-left m-5 flex-wrap">
