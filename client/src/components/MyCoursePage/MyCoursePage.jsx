@@ -45,7 +45,7 @@ const Course = () => {
             <h1 className="text-2xl mt-4">No Course History Now!</h1>
 
             <Link to="/">
-              <button className="bg-mainBlue text-white font-bold py-2 px-4 rounded-full">
+              <button className="bg-mainBlue text-white font-bold py-2 px-4 rounded-full my-5 text-3xl">
                 Let's Go To Buy Some Courses!
               </button>
             </Link>
