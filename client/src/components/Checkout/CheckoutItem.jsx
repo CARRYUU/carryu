@@ -6,7 +6,7 @@ const CheckoutItem = (props) => {
       <div className="list flex cardSearch hover:bg-slate-100/60 my-4 max-w-2xl">
         <div className="card w-48">
           <img
-            src={require("../../image/carryu_big_logo_white_background.png")}
+            src={require("../../assets/images/carryu_big_logo_gray_background.png")}
             alt="課程圖片"
             className="w-48 object-cover h-full"
           />

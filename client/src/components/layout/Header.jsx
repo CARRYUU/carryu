@@ -2,8 +2,8 @@ import React from "react";
 import Search from "./Search";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
-import { ReactComponent as SmallLogo } from "../../icon/carryu_small_logo.svg";
-import { ReactComponent as BigLogo } from "../../icon/carryu_big_logo.svg";
+import { ReactComponent as SmallLogo } from "../../assets/icons/carryu_small_logo.svg";
+import { ReactComponent as BigLogo } from "../../assets/icons/carryu_big_logo.svg";
 
 const Header = () => {
   return (

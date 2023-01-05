@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Errorimg from "../../icon/404.svg";
+import Errorimg from "../../assets/icons/404.svg";
 
 const ErrorPage = () => {
   return (
