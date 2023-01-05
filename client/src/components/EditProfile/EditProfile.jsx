@@ -36,8 +36,8 @@ const EditProfile = () => {
   return (
     <div>
       <Title pageTitle="Profile & Setting" />
-      <div className="flex flex-col items-center justfiy-center px-4 py-8 mx-auto md:h-screen lg:py-0">
-        <div className="flex flex-col items-center justfiy-center w-1/3 py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
+      <div className="flex max-w-md flex-col items-center justfiy-center px-4 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justfiy-center w-full py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
           <Input
             labelName="Username"
             name="username"
