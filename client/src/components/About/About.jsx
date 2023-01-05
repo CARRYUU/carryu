@@ -4,7 +4,7 @@ import Member from "./Member";
 const About = () => {
   return (
     <div>
-      <div name="about" className="w-full h-full  text-black px-6 py-14">
+      <div name="about" className="w-full h-full  text-black  ">
         <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
           <div className="pb-8">
             <div class="mb-4 text-left px-20">
@@ -23,7 +23,7 @@ const About = () => {
               <img
                 src={require("../../assets/images/carryu_big_logo_white_background.png")}
                 alt=""
-                className=" object-cover w-50 h-96 rounded-lg md:h-96 md:w-50 md:rounded--lg my-auto"
+                className="w-screen object-cover w-50 h-96 rounded-lg md:h-96 md:w-50 md:rounded--lg my-auto"
               />
               <p class="text-sm md:text-base font-normal text-gray-600 mt-2">
                 Published 1 January 2023

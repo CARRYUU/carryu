@@ -16,25 +16,26 @@ const SearchResultCard = (props) => {
   return (
     <div>
       <section class="parent-section">
-        <div className="cardSearch flex flex-initial pl-2 item-left my-4 text-left h-52">
-          <div className="flex w-72">
+        <div className="cardSearch flex flex-initial pl-2 item-left my-4 text-left h-52 sm:scale-100 scale-90">
+          <div className="mt-5 sm:w-60 w-28">
             <img
               src={require("../../assets/images/carryu_big_logo_gray_background.png")}
               class="thumbnail"
               width="288px"
+              className="min-w-72 "
               alt="course thumbnail"
             />
           </div>
-          <div class="card-details" className="pl-2">
+          <div class="card-details" className="pl-2 flex-none min-w-96">
             <div className="m-2">
-              <h1 className="class-title">{props.title}</h1>
+              <h1 className="class-title text-xl ">{props.title}</h1>
             </div>
-            <div className="flex items-center gap-2 mx-1">
+            <div className="flex items-center gap-2 mx-1 ">
               {props.badge1 && <div className="badge">{props.badge1}</div>}
               {props.badge2 && <div className="badge">{props.badge2}</div>}
               {props.badge3 && <div className="badge">{props.badge3}</div>}
             </div>
-            <div class="content" className="px-2 ">
+            <div class="content" className="px-2 text-xs">
               <p>{props.description}</p>
             </div>
 
@@ -49,7 +50,7 @@ const SearchResultCard = (props) => {
               </span>
             </div>
 
-            <div className=" flex gap-2 m-5">
+            <div className=" flex gap-2 mt-2">
               <button className="button-primary" onClick={handleAddToCard}>
                 Add to cart
               </button>
