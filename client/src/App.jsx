@@ -26,7 +26,7 @@ import HistoryReturn from "./components/PurchaseHistory/HistoryReturn";
 
 import PurchaseHistory from "./components/PurchaseHistory/PurchaseHistory";
 
->>>>>>> 27a1924 (merge conflict)
+import ConfirmChallenge from "./components/Challenge/ConfirmChallenge";
 import HistoryChallenge from "./components/HistoryChallenge/HistoryChallenge";
 import ChallengSuc from "./components/HistoryChallenge/ChallengeSuc";
 import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
