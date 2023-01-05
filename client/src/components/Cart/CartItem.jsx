@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { removeCourseFromCart } from "../../features/cart/cartSlice";
 
@@ -16,7 +16,9 @@ const CartItem = (props) => {
       })
     );
 
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 300);
   };
 
   return (

@@ -21,7 +21,6 @@ const Cart = () => {
   return (
     <div>
       <body className=" sm:mx-10">
-        
         <h1 className="text-mainBlue font-bold text-2xl mb-10 text-left m-5 text-primary">
           Shopping Cart
         </h1>
@@ -29,7 +28,12 @@ const Cart = () => {
           <div id="ShopList" className="flex-col flex-1 text-left ">
             <h3 className="font-bold text-xl ">Course in Cart</h3>
             <hr className="mx-10 my-4 h-0.5 bg-gray-100" />
-            {cartItems && cartItems.length > 0 ? (
+            {isLoading && (
+              <div className="text-center text-gray-500">
+                <h3 className="font-bold text-xl ">Loading...</h3>
+              </div>
+            )}
+            {!isLoading && cartItems && cartItems.length > 0 ? (
               cartItems.map((item) => (
                 <CartItem
                   key={item._id}
@@ -44,7 +48,7 @@ const Cart = () => {
             ) : (
               <div className="text-center text-gray-500">
                 <h3 className="font-bold text-xl ">
-                  {isLoading ? "Loading..." : "No course in cart"}
+                  {!isLoading && "No course in cart"}
                 </h3>
               </div>
             )}
