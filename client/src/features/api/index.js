@@ -53,8 +53,8 @@ export const getTenMostNewestCourses = () =>
     timeout: 20000,
   });
 export const getARandomCourse = () => API.get("/course/random");
-export const addCourseComment = (id, data) =>
-  API.post(`/course/${id}/comment`, data);
+export const addCourseComment = (id, comment) =>
+  API.post(`/course/${id}/comment`, comment);
 export const getCourseAllComments = (id) => API.get(`/course/${id}/comment`);
 export const addCourseTA = (id, data) =>
   API.post(`/course/${id}/teaching-assistant`, data);

@@ -232,7 +232,11 @@ exports.getCoursesByTitle = async (req, res) => {
 // @route   POST api/course/:_id/comment
 // @access  Private/CourseMember
 exports.addCourseComment = async (req, res) => {
+  console.log("Adding course comment...");
+
   const { _id } = req.params;
+
+  console.log(req.body);
 
   Course.findById(_id)
     .then((course) => {
