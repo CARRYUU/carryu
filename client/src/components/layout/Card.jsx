@@ -12,7 +12,7 @@ const Card = (props) => {
   const handleAddToCard = () => {
     dispatch(
       addCourseToCart({
-        course_id: props._id,
+        course_id: props._id
       })
     );
   };
@@ -26,7 +26,7 @@ const Card = (props) => {
     category,
     students_count,
     badge3,
-    description,
+    description
   } = props;
 
   return (
@@ -36,7 +36,7 @@ const Card = (props) => {
         <Link
           to={`/course/${_id}/info`}
           state={{
-            course_id: _id,
+            course_id: _id
           }}
         >
           <img

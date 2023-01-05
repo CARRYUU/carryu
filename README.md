@@ -26,6 +26,7 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
   - [Developer Tools](#developer-tools)
   - [Tools' Official Document](#tools-official-document)
   - [Learning Resources](#learning-resources)
+
 - [Deployment on GPC(App Engine)](#deployment-on-gpcapp-engine)
 - [TODO](#todo)
   - [Limitation \& Progressing](#limitation--progressing)
@@ -179,6 +180,10 @@ $ npm run start
 
 其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
 
+
+## TODO
+
+last updated in : 2023/1/2
 ## Deployment on GPC(App Engine)
 
 @TODO
@@ -236,6 +241,7 @@ last updated in : 2023/1/5
   - [ ] comment function in study mode
 
 - **Bugs**
+
   - [x] 尚未登入卻直接購買課程會白屏(23/1/5)
   - [x] 沒註冊成功也會跳到登入畫面(23/1/5)
   - [x] Update Profile 後沒有成功顯示更新後的畫面(23/1/5)

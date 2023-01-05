@@ -6,17 +6,14 @@ import { Link } from "react-router-dom";
 const InstructorHomepage = () => {
   return (
     <div>
-      <div className="flex flex-col items-center justfiy-center px-4 py-8 mx-auto md:h-screen lg:py-0">
-        <div className="flex flex-col items-center justfiy-center w-3/4 py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
+      <div className="flex max-w-5xl flex-col items-center justfiy-center px-4 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justfiy-center w-full py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
           <Title pageTitle="We’re updating the free course experience for students and instructors." />
-          <ul className="space-y-1 w-4/5 text-left list-disc list-inside text-gray-700 dark:text-gray-600">
+          <ul className="space-y-1 w-4/5 py-2 text-left list-disc list-inside text-gray-700 dark:text-gray-600">
+            <li>Free courses must have less than 2 hours of video content.</li>
             <li>
-              New free courses (published after March 17, 2020) must have less
-              than 2 hours of video content.
-            </li>
-            <li>
-              Existing free courses (published before March 17, 2020) that
-              contain more than 2 hours of video content will remain published.
+              The course that contain more than 2 hours of video content will
+              only be available for paid enrollments.
             </li>
             <li>
               All free courses will only consist of video content and resources.
@@ -24,13 +21,15 @@ const InstructorHomepage = () => {
               available for paid enrollments.
             </li>
             <li>
-              To learn more about the new free course experience and policy read
-              our FAQ on the teaching center.
+              To learn more about the new free course experience and policy
+              please contact us.
             </li>
           </ul>
-          <Link to="/course/create">
-            <Button buttonName="create your course" />
-          </Link>
+          <div className="py-2">
+            <Link to="/course/create">
+              <Button buttonName="create your course" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
