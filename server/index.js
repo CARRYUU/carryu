@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const connectDB = require("./config/database.js");
 const cors = require("cors");
+const path = require("path");
 const app = express();
 
 app.use(cors());
@@ -24,6 +25,8 @@ connectDB();
 app.use(express.json()); // automatically parse incoming JSON to object
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, "../client/build")));
+
 // Routes
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
@@ -33,6 +36,10 @@ app.use("/api/transaction", transactionRoute);
 app.use("/api/points", pointRoute);
 app.use("/api/payment", paymentRoute);
 app.use("/api/challenge", challengeRoute);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 // Listen port
 app.listen(PORT, () => {
