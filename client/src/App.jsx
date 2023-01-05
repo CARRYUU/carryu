@@ -24,6 +24,7 @@ import PurchaseHistory from "./components/PurchaseHistory/PurchaseHistory";
 import HistoryBuy from "./components/PurchaseHistory/HistoryBuy";
 import HistoryReturn from "./components/PurchaseHistory/HistoryReturn";
 import HistoryChallenge from "./components/HistoryChallenge/HistoryChallenge";
+import ConfirmChallenge from "./components/Challenge/ConfirmChallenge";
 import ChallengSuc from "./components/HistoryChallenge/ChallengeSuc";
 import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
 import InstructorHomepage from "./components/InstructorHomepage/InstructorHomepage";
@@ -74,6 +75,7 @@ function App() {
         <Route path="/purchase-history/buy" element={<HistoryBuy />} />
         <Route path="/purchase-history/refund" element={<HistoryReturn />} />
 
+        <Route path="/confirm-challenge" element={<ConfirmChallenge />} />
         <Route path="/history-challenge" element={<HistoryChallenge />} />
         <Route path="/challenge-suc" element={<ChallengSuc />} />
         <Route path="/challenge-fail" element={<ChallengeFail />} />
