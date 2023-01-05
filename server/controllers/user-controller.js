@@ -199,7 +199,7 @@ exports.updateUserPassword = async (req, res) => {
   });
 };
 
-// @desc    Switch a user role to student
+// @desc    Switch a user role to instructor
 // @route   PATCH api/user/switch-role
 // @access  Private
 exports.switchUserRole = async (req, res) => {
@@ -213,15 +213,13 @@ exports.switchUserRole = async (req, res) => {
 
   if (user.role === "student") {
     user.role = "instructor";
-  } else if (user.role === "instructor") {
-    user.role = "student";
   }
 
   const updatedUser = await user.save();
 
   return res.status(200).json({
     success: true,
-    msg: "User role switched successfully",
+    msg: "User role switched to instructor successfully",
     user_profile: {
       username: updatedUser.username,
       email: updatedUser.email,
