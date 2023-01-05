@@ -12,10 +12,8 @@ const EditPassword = () => {
   const [formData, setFormData] = useState({
     old_password: "",
     new_password: "",
-    confirm_password: ""
+    confirm_password: "",
   });
-
-  const { user } = useSelector((state) => state.user);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

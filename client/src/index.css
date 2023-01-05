@@ -19,6 +19,28 @@
       max-h-60
       shadow-lg rounded-md overflow-hidden;
   }
+  
+  .cancalBotton{
+    @apply bg-red-100 text-white hover:bg-red-700
+    px-1.5 py-0.5 rounded-md
+    text-xs ;
+  }
+
+  .historyCard{
+    @apply bg-white text-gray-700
+   
+    max-w-6xl
+    max-h-60
+    shadow-lg rounded-md overflow-hidden;
+  }
+
+  .QAcard{
+    @apply bg-white text-gray-700
+   
+    max-w-6xl
+    max-h-60
+    shadow-lg rounded-md overflow-hidden;
+  }
 
   .badge {
     @apply px-3 py-1 rounded-full text-xs bg-gray-100;

@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import Title from "../layout/Title";
 import Button from "../layout/Button";
 import Input from "../layout/Input";
 
-import { updateUserProfile } from "../../features/user/userSlice";
+import {
+  updateUserProfile,
+  getUserProfile,
+} from "../../features/user/userSlice";
 
 const EditProfile = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +17,7 @@ const EditProfile = () => {
     email: "",
   });
 
-  const { user } = useSelector((state) => state.auth.user);
+  const { user } = useSelector((state) => state.user);
 
   const { username, email } = formData;
 
@@ -28,7 +32,14 @@ const EditProfile = () => {
 
   const handleSubmit = (e) => {
     dispatch(updateUserProfile(formData));
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 1000);
   };
+
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, []);
 
   return (
     <div>
@@ -39,7 +50,7 @@ const EditProfile = () => {
             labelName="Username"
             name="username"
             type="text"
-            placeholder={user.username}
+            placeholder={user?.username}
             onChange={handleChange}
             value={username}
           />
@@ -47,7 +58,7 @@ const EditProfile = () => {
             labelName="Email"
             name="email"
             type="email"
-            placeholder={user.email}
+            placeholder={user?.email}
             onChange={handleChange}
             value={email}
           />

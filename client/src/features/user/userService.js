@@ -29,6 +29,8 @@ const registerUser = async (formData, thunkAPI) => {
         }
       )
       .then(() => {
+        window.location.href = "/auth/login";
+
         return response.data;
       });
   } catch (error) {
@@ -131,8 +133,6 @@ const updateUserProfile = async (formData, thunkAPI) => {
         }
       )
       .then(() => {
-        // history.push("/");
-        window.location.href = "/";
         return response.data;
       });
   } catch (error) {
@@ -181,8 +181,7 @@ const updateUserPassword = async (formData, thunkAPI) => {
         }
       )
       .then(() => {
-        // history.push("/");
-        window.location.href = "/auth/login";
+        window.location.href = "/";
         return response.data;
       });
   } catch (error) {
@@ -229,8 +228,6 @@ const switchUserRole = async (thunkAPI) => {
         }
       )
       .then(() => {
-        // history.push("/");
-        window.location.href = "/";
         return response.data;
       });
   } catch (error) {

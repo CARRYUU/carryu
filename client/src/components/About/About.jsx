@@ -44,10 +44,10 @@ const About = () => {
             information, access to the Internet has made self-study more and
             more common. We also take this as a starting point and expect It is
             hoped that this project can create an online teaching platform with
-            rich content, so that users have an easy opportunity to take courses
-            The good environment of the program, instead of spending money and
-            extra effort in searching for a professional in the field for
-            courses in different fields on the platform.
+            rich content, so that users have an easy opportunity to take
+            courses. The good environment of the program, instead of spending
+            money and extra effort in searching for a professional in the field
+            for courses in different fields on the platform.
           </p>
 
           <br />
@@ -57,13 +57,7 @@ const About = () => {
               「CarryU」是從英文的「Carry you」進行縮寫。
             </div>
             <br />
-            我們希望本專案能夠在所
-            有人學習的過程中成為各位最好的助力之手，由此平台「罩你」，幫助你增廣
-            見聞，成為學識淵博之人。隨著網路科技的日漸發達，人們取得資訊及產出資
-            訊的成本降低，進而使得網路自學變得越來越普遍，我們也以此為出發點，期
-            望本專案能創造出一個內容豐富的線上授課平台，讓使用者有一個容易取得課
-            程的良好環境，而非為了不同領域的課程需花費額外心力在搜索該領域專屬的
-            平台上。
+            我們希望本專案能夠在所有人學習的過程中成為各位最好的助力之手，由此平台「罩你」，幫助你增廣見聞，成為學識淵博之人。隨著網路科技的日漸發達，人們取得資訊及產出資訊的成本降低，進而使得網路自學變得越來越普遍，我們也以此為出發點，期望本專案能創造出一個內容豐富的線上授課平台，讓使用者有一個容易取得課程的良好環境，而非為了不同領域的課程需花費額外心力在搜索該領域專屬的平台上。
           </p>
 
           <div>
