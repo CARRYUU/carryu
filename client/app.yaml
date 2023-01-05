@@ -1,0 +1,12 @@
+runtime: nodejs18
+
+handlers:
+  - url: /
+    static_files: build/index.html
+    upload: build/index.html
+
+  - url: /
+    static_dir: build
+
+includes:
+  - .env
