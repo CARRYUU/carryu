@@ -230,4 +230,6 @@ last updated in : 2023/1/2
   - [ ] comment function in study mode
 
 - **Bugs**
-  - [x] 尚未登入卻直接購買課程會白屏
+  - [x] 尚未登入卻直接購買課程會白屏(23/1/5)
+  - [x] 沒註冊成功也會跳到登入畫面(23/1/5)
+  - [x] Update Profile 後沒有成功顯示更新後的畫面(23/1/5)
