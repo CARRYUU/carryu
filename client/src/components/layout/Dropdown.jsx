@@ -38,10 +38,10 @@ const Dropdown = () => {
         <button
           ref={imgRef}
           onClick={() => setOpen(!open)}
-          className="p-2
-            object-cover cursor-pointer hover:ring-mainBlue rounded-xl"
+          className="
+            object-cover cursor-pointer hover:ring-mainBlue rounded-xl w-10 h-10 flex justify-center items-center "
         >
-          <FaUserCircle size={27} className="pointer-events-none" />
+          <FaUserCircle size={36} className="pointer-events-none" />
         </button>
 
         {open && (
