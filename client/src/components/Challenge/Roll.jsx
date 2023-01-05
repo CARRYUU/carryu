@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Roll = (props) => {
   return (
     <div className="shadow-black">
-<<<<<<< HEAD
       <Link to="/confirm-challenge">
         <button
           type="button"
@@ -14,15 +13,6 @@ const Roll = (props) => {
           {props.buttonName}
         </button>
       </Link>
-=======
-      <button
-        type="button"
-        className="shadow-lg shadow-gray text-white font-black bg-gradient-to-r from-orange-500 to-pink-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-orange-400 dark:focus:ring-pink-700 rounded-full text-4xl w-96 h-60 text-center mr-2 mb-2"
-        onClick={props.onClick}
-      >
-        {props.buttonName}
-      </button>
->>>>>>> 5d39dd5 (feat: done Challenge API connection)
     </div>
   );
 };
