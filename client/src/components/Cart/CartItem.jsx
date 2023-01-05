@@ -24,7 +24,7 @@ const CartItem = (props) => {
       <div class="list flex cardCart hover:bg-slate-100/60 my-4   ">
         <div class="card" className=" cardimg">
           <img
-            className="w-48 object-cover h-36"
+            className="w-48 object-cover h-40"
             src={
               thumbnail ||
               require("../../assets/images/carryu_big_logo_gray_background.png")

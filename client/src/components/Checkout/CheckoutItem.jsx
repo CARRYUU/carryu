@@ -8,7 +8,7 @@ const CheckoutItem = (props) => {
           <img
             src={require("../../assets/images/carryu_big_logo_gray_background.png")}
             alt="課程圖片"
-            className="h-32 object-cover"
+            className="h-36 object-cover"
           />
         </div>
         <div className="mx-2">
