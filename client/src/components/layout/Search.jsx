@@ -16,13 +16,13 @@ const Search = () => {
     event.preventDefault();
 
     navigate(`/course/search/${searchedText}`, {
-      state: { searchedText: searchedText },
+      state: { searchedText: searchedText }
     });
   };
 
   return (
-    <div>
-      <div className="px-4 flex flex-[5_1_400px] items-center relative my-2">
+    <div className="">
+      <div className="flex py-2 w-full top-0 flex-wrap items-center px-4 relative">
         <label
           htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -33,7 +33,7 @@ const Search = () => {
         <input
           type="search"
           placeholder="search course..."
-          className="ring-mainBlue ring-2 hover:ring-blue-700 focus:ring-inset  block p-1 pl-6 w-80 ud-text-input  ud-text-input-small ud-text-sm ud-search-form-autocomplete-input js-header-search-field shadow-md rounded-xl"
+          className="flex items-center ring-mainBlue ring-2 hover:ring-blue-700 focus:ring-inset p-1 pl-6 ud-text-input  ud-text-input-small ud-text-sm ud-search-form-autocomplete-input js-header-search-field shadow-md rounded-xl"
           value={searchedText}
           onChange={handleChangeInput}
           name="search"
