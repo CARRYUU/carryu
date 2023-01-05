@@ -41,8 +41,6 @@ const Register = () => {
     console.log(formData);
 
     dispatch(registerUser(formData));
-
-    navigate("/auth/login");
   };
 
   return (
