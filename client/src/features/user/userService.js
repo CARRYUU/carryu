@@ -131,8 +131,6 @@ const updateUserProfile = async (formData, thunkAPI) => {
         }
       )
       .then(() => {
-        // history.push("/");
-        window.location.href = "/";
         return response.data;
       });
   } catch (error) {
