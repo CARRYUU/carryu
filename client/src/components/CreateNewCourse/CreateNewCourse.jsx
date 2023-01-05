@@ -19,7 +19,7 @@ const CreateNewCourse = () => {
     description: "",
     price: "",
     thumbnail: "",
-    category: "others",
+    category: "others"
   });
 
   const handleChange = (e) => {
@@ -39,9 +39,9 @@ const CreateNewCourse = () => {
   return (
     <div>
       <Title pageTitle="Let's create your course!" />
-      <div className="flex flex-col items-center justfiy-center px-4 py-8 mx-auto lg:py-0">
-        <div className="mt-auto flex flex-col justfiy-center w-3/4 py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
-          <div className="flex justify-center">
+      <div className="flex max-w-4xl items-center justfiy-center px-4 py-8 mx-auto lg:py-0">
+        <div className="mt-auto flex flex-col justify-center w-full py-8 px-2 bg-white rounded-lg shadow dark:bg-gray-100">
+          <div className="flex flex-wrap justify-center item-center">
             <Category
               onChange={handleChange}
               handleChangeCategory={handleChangeCategory}
@@ -49,13 +49,13 @@ const CreateNewCourse = () => {
               title={formData.title}
             />
 
-            <div className="w-1/5">
+            <div className="w-1/5 flex flex-wrap">
               <Input
                 labelName="Price"
                 name="price"
                 id="price"
                 type="number"
-                placeholder="ex. 800"
+                placeholder="800"
                 onChange={handleChange}
                 value={formData.price}
                 min="0"
