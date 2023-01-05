@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../features/user/userSlice";
 
@@ -7,6 +8,8 @@ import Title from "../layout/Title";
 import Button from "../layout/Button";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -38,6 +41,8 @@ const Register = () => {
     console.log(formData);
 
     dispatch(registerUser(formData));
+
+    navigate("/auth/login");
   };
 
   return (

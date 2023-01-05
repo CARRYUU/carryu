@@ -29,10 +29,6 @@ const registerUser = async (formData, thunkAPI) => {
         }
       )
       .then(() => {
-        // history.push("/");
-
-        window.location.href = "/auth/login";
-
         return response.data;
       });
   } catch (error) {
