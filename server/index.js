@@ -6,6 +6,7 @@ const path = require("path");
 const app = express();
 
 app.use(cors());
+app.set("trust proxy", true);
 const PORT = process.env.PORT || 3000;
 
 // Import routes
@@ -37,7 +38,7 @@ app.use("/api/points", pointRoute);
 app.use("/api/payment", paymentRoute);
 app.use("/api/challenge", challengeRoute);
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
