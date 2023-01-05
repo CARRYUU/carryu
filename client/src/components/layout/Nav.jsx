@@ -4,7 +4,12 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoEarthSharp } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../features/auth/authSlice";
+<<<<<<< HEAD
 import { BsBook } from "react-icons/bs";
+=======
+import {BsBook} from "react-icons/bs"
+
+>>>>>>> 27a1924 (merge conflict)
 
 import Dropdown from "./Dropdown";
 
@@ -90,7 +95,7 @@ const Nav = () => {
         <Link to="/cart">
           <FaShoppingCart size={42} className="p-2" />
         </Link>
-        <Link to="/mycourse-page">
+        <Link to="/mycourse">
           <BsBook size={42} className="p-2" />
         </Link>
       </div>

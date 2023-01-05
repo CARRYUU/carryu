@@ -21,8 +21,16 @@ import CourseInfo from "./components/CourseInfo/CourseInfo";
 import Study from "./components/Study/Study";
 import MyCoursePage from "./components/MyCoursePage/MyCoursePage";
 import HistoryTrade from "./components/HistoryTrade/HistoryTrade";
+<<<<<<< HEAD
 import HistoryBuy from "./components/HistoryTrade/HistoryBuy";
 import HistoryReturn from "./components/HistoryTrade/HistoryReturn";
+=======
+import HistoryBuy from "./components/PurchaseHistory/HistoryBuy";
+import HistoryReturn from "./components/PurchaseHistory/HistoryReturn";
+
+import PurchaseHistory from "./components/PurchaseHistory/PurchaseHistory";
+
+>>>>>>> 27a1924 (merge conflict)
 import HistoryChallenge from "./components/HistoryChallenge/HistoryChallenge";
 import ChallengSuc from "./components/HistoryChallenge/ChallengeSuc";
 import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
