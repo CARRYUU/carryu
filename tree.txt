@@ -1,0 +1,203 @@
+carryu
+├── README.md
+├── client
+│   ├── README.md
+│   ├── app.yaml
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── public
+│   │   ├── index.html
+│   │   ├── logo512.png
+│   │   └── manifest.json
+│   ├── src
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── assets
+│   │   │   ├── icons
+│   │   │   │   ├── 404.svg
+│   │   │   │   ├── carryu_big_logo.svg
+│   │   │   │   ├── carryu_big_logo_white_background.png
+│   │   │   │   └── carryu_small_logo.svg
+│   │   │   └── images
+│   │   │       ├── carryu_big_logo_gray_background.png
+│   │   │       ├── carryu_big_logo_gray_background.svg
+│   │   │       ├── carryu_big_logo_white_background.png
+│   │   │       └── carryu_big_logo_white_background.svg
+│   │   ├── components
+│   │   │   ├── About
+│   │   │   │   ├── About.jsx
+│   │   │   │   └── Member.jsx
+│   │   │   ├── Cart
+│   │   │   │   ├── Cart.jsx
+│   │   │   │   ├── CartItem.jsx
+│   │   │   │   └── TotalPrice.jsx
+│   │   │   ├── Challenge
+│   │   │   │   ├── Category.jsx
+│   │   │   │   ├── Challenge.jsx
+│   │   │   │   ├── ConfirmChallenge.jsx
+│   │   │   │   └── Roll.jsx
+│   │   │   ├── Checkout
+│   │   │   │   ├── Checkout.jsx
+│   │   │   │   ├── CheckoutButton.jsx
+│   │   │   │   ├── CheckoutItem.jsx
+│   │   │   │   ├── CheckoutPrice.jsx
+│   │   │   │   └── Payment.jsx
+│   │   │   ├── CompleteBuy
+│   │   │   │   ├── CompleteBuy.jsx
+│   │   │   │   ├── CourseCheckButton.jsx
+│   │   │   │   └── SellerInfo.jsx
+│   │   │   ├── CourseInfo
+│   │   │   │   └── CourseInfo.jsx
+│   │   │   ├── CreateNewCourse
+│   │   │   │   ├── Category.jsx
+│   │   │   │   ├── CreateNewCourse.jsx
+│   │   │   │   ├── Description.jsx
+│   │   │   │   └── UploadFile.jsx
+│   │   │   ├── EditPassword
+│   │   │   │   └── EditPassword.jsx
+│   │   │   ├── EditProfile
+│   │   │   │   └── EditProfile.jsx
+│   │   │   ├── ErrorPage
+│   │   │   │   └── ErrorPage.jsx
+│   │   │   ├── GetPoint
+│   │   │   │   └── GetPoint.jsx
+│   │   │   ├── HistoryChallenge
+│   │   │   │   ├── ChallengeCard.jsx
+│   │   │   │   ├── ChallengeFail.jsx
+│   │   │   │   ├── ChallengeNav.jsx
+│   │   │   │   ├── ChallengeRecord.jsx
+│   │   │   │   ├── ChallengeSuc.jsx
+│   │   │   │   └── HistoryChallenge.jsx
+│   │   │   ├── HomePage
+│   │   │   │   ├── HomePage.jsx
+│   │   │   │   └── HomePageCourseList.jsx
+│   │   │   ├── InstructorHomepage
+│   │   │   │   └── InstructorHomepage.jsx
+│   │   │   ├── Login
+│   │   │   │   ├── Checkbox.jsx
+│   │   │   │   └── Login.jsx
+│   │   │   ├── MyCoursePage
+│   │   │   │   ├── MyCourseCard.jsx
+│   │   │   │   └── MyCoursePage.jsx
+│   │   │   ├── PointHistory
+│   │   │   │   ├── PointHistory.jsx
+│   │   │   │   └── PointList.jsx
+│   │   │   ├── PurchaseHistory
+│   │   │   │   ├── HistoryBuy.jsx
+│   │   │   │   ├── HistoryCard.jsx
+│   │   │   │   ├── HistoryNav.jsx
+│   │   │   │   ├── HistoryReturn.jsx
+│   │   │   │   └── PurchaseHistory.jsx
+│   │   │   ├── Register
+│   │   │   │   └── Register.jsx
+│   │   │   ├── SearchResult
+│   │   │   │   ├── SearchResult.jsx
+│   │   │   │   └── SearchResultCard.jsx
+│   │   │   ├── Study
+│   │   │   │   ├── Comment.jsx
+│   │   │   │   ├── CourseContent.jsx
+│   │   │   │   ├── List.jsx
+│   │   │   │   ├── Overview.jsx
+│   │   │   │   ├── Study.jsx
+│   │   │   │   └── Video.jsx
+│   │   │   └── layout
+│   │   │       ├── Button.jsx
+│   │   │       ├── Card.jsx
+│   │   │       ├── Dropdown.jsx
+│   │   │       ├── Footer.jsx
+│   │   │       ├── Header.jsx
+│   │   │       ├── Input.jsx
+│   │   │       ├── Loading.jsx
+│   │   │       ├── Nav.jsx
+│   │   │       ├── Search.jsx
+│   │   │       └── Title.jsx
+│   │   ├── features
+│   │   │   ├── allCourses
+│   │   │   │   ├── allCoursesService.js
+│   │   │   │   └── allCoursesSlice.js
+│   │   │   ├── api
+│   │   │   │   └── index.js
+│   │   │   ├── auth
+│   │   │   │   ├── authService.js
+│   │   │   │   └── authSlice.js
+│   │   │   ├── cart
+│   │   │   │   ├── cartService.js
+│   │   │   │   └── cartSlice.js
+│   │   │   ├── challenge
+│   │   │   │   ├── challengeService.js
+│   │   │   │   └── challengeSlice.js
+│   │   │   ├── course
+│   │   │   │   ├── courseService.js
+│   │   │   │   └── courseSlice.js
+│   │   │   ├── points
+│   │   │   │   ├── pointsService.js
+│   │   │   │   └── pointsSlice.js
+│   │   │   ├── transaction
+│   │   │   │   ├── transactionService.js
+│   │   │   │   └── transactionSlice.js
+│   │   │   └── user
+│   │   │       ├── userService.js
+│   │   │       └── userSlice.js
+│   │   ├── index.css
+│   │   ├── index.js
+│   │   ├── store.js
+│   │   ├── styles
+│   │   │   └── style.scss
+│   │   └── utils
+│   │       ├── authHeader.js
+│   │       └── localStorage.js
+│   ├── tailwind.config.js
+│   └── webpack.config.js
+├── docs
+│   ├── CarryU_SAD_v1.1.1.pdf
+│   ├── CarryU_SRS_v1.3.2.pdf
+│   └── archieve
+│       ├── CarryU_SAD_v1.1.0.pdf
+│       └── CarryU_SRS_v1.3.0.pdf
+├── images
+│   ├── carryu_big_logo 1.svg
+│   ├── carryu_big_logo.png
+│   ├── carryu_big_logo.svg
+│   ├── carryu_big_logo_white_background.png
+│   ├── carryu_big_logo_white_background.svg
+│   ├── carryu_small_logo.png
+│   ├── carryu_small_logo.svg
+│   ├── carryu_small_logo_white_background.png
+│   └── carryu_small_logo_white_background.svg
+├── server
+│   ├── app.yaml
+│   ├── config
+│   │   ├── database.js
+│   │   ├── upload.js
+│   │   └── validation.js
+│   ├── controllers
+│   │   ├── auth-controller.js
+│   │   ├── cart-controller.js
+│   │   ├── challenge-controller.js
+│   │   ├── course-controller.js
+│   │   ├── payment-controller.js
+│   │   ├── point-controller.js
+│   │   ├── transaction-controller.js
+│   │   └── user-controller.js
+│   ├── index.js
+│   ├── middlerware
+│   │   └── auth-middleware.js
+│   ├── mock
+│   │   ├── courses.json
+│   │   └── users.json
+│   ├── models
+│   │   ├── course-model.js
+│   │   └── user-model.js
+│   ├── package-lock.json
+│   ├── package.json
+│   └── routes
+│       ├── auth-route.js
+│       ├── cart-route.js
+│       ├── challenge-route.js
+│       ├── course-route.js
+│       ├── payment-route.js
+│       ├── point-route.js
+│       ├── transaction-route.js
+│       └── user-route.js
+└── tree.txt
