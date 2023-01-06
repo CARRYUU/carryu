@@ -61,7 +61,7 @@ const CheckoutPrice = (props) => {
       }
     });
 
-    if (!transaction_error && !isError) {
+    if (!transaction_error) {
       navigate("/complete-buy");
     }
   };
