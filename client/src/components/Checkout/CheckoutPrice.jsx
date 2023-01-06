@@ -7,7 +7,10 @@ import { addStudentToCourse } from "../../features/course/courseSlice";
 import { addPurchaseRecord } from "../../features/transaction/transactionSlice";
 import { removeCourseFromCart } from "../../features/cart/cartSlice";
 
-import { addChallengeRecord } from "../../features/challenge/challengeSlice";
+import {
+  addChallengeRecord,
+  setHasChallenge,
+} from "../../features/challenge/challengeSlice";
 
 const CheckoutPrice = (props) => {
   const dispatch = useDispatch();
@@ -18,9 +21,7 @@ const CheckoutPrice = (props) => {
     (state) => state.transaction
   );
 
-  const { hasChallenge, setHasChallenge, isError } = useSelector(
-    (state) => state.challenge
-  );
+  const { hasChallenge, isError } = useSelector((state) => state.challenge);
 
   const { checkoutItemList } = props;
 
@@ -60,6 +61,8 @@ const CheckoutPrice = (props) => {
         dispatch(removeCourseFromCart({ course_id: course._id }));
       }
     });
+
+    console.log(transaction_error);
 
     if (!transaction_error) {
       navigate("/complete-buy");

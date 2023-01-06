@@ -5,6 +5,9 @@ const Course = require("../models/course-model");
 // @route   PUT /api/challege/add
 // @access  Private
 exports.addChallengeRecord = async (req, res) => {
+  console.log("Add challenge record");
+  console.log(req.body);
+
   const { course_id } = req.body;
   const status = "inprogress";
 
@@ -44,22 +47,25 @@ exports.addChallengeRecord = async (req, res) => {
           title: course.title,
         };
 
-        user.challenge_history.unshift(challengeRecord);
+        user.challenge_history.push(challengeRecord);
 
         await user
           .save()
           .then((user) => {
             return res.status(200).json({
               message: "Challenge record added successfully!",
-              challenge_record: user.challenge_history[0],
+              challenge_record:
+                user.challenge_history[user.challenge_history.length - 1],
             });
           })
           .catch((err) => {
+            console.log(err);
             return res.status(500).json({ err_msg: err });
           });
       });
     })
     .catch((err) => {
+      console.log(err);
       res.status(500).json({ err_msg: err });
     });
 };
