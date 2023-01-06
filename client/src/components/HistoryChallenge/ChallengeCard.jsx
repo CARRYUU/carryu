@@ -1,17 +1,20 @@
 import React from "react";
-import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { setChallengeToSuccess } from "../../features/challenge/challengeSlice";
 
-const HistoryCard = (props) => {
-  const {
-    title,
-    price,
-    // thumbnail,
-    badge1,
-    badge2,
-  } = props;
+import { addPoints } from "../../features/points/pointsSlice";
 
-  const handleRefund = () => {
-    toast.error("此功能尚未開放");
+const ChallengeCard = (props) => {
+  const dispatch = useDispatch();
+  const { courseId, title, badge1, badge2, isProgress } = props;
+
+  const handleDone = () => {
+    dispatch(setChallengeToSuccess({ course_id: courseId }));
+
+    dispatch(addPoints({ add_points: 100 }));
+
+    //refresh the page
+    window.location.reload();
   };
 
   return (
@@ -35,13 +38,14 @@ const HistoryCard = (props) => {
               {badge2}
             </div>
           </div>
-          <h3 className="font-bold text-m mx-2 py-2 text-bottom">NT${price}</h3>
           <ul className="flex mx-2 mb-1">
-            <li className="hover:text-red-800 font-bold">
-              <button className="cancalBotton" onClick={handleRefund}>
-                refund
-              </button>
-            </li>
+            {isProgress && (
+              <li className="hover:text-red-800 font-bold">
+                <button className="cancalBotton" onClick={handleDone}>
+                  Done!
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>
@@ -49,4 +53,4 @@ const HistoryCard = (props) => {
   );
 };
 
-export default HistoryCard;
+export default ChallengeCard;

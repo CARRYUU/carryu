@@ -26,9 +26,9 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
   - [Developer Tools](#developer-tools)
   - [Tools' Official Document](#tools-official-document)
   - [Learning Resources](#learning-resources)
-
-- [Deployment on GPC(App Engine)](#deployment-on-gpcapp-engine)
 - [TODO](#todo)
+- [Deployment on GPC(App Engine)](#deployment-on-gpcapp-engine)
+- [TODO](#todo-1)
   - [Limitation \& Progressing](#limitation--progressing)
 
 ## Project Documents
@@ -180,10 +180,10 @@ $ npm run start
 
 其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
 
-
 ## TODO
 
 last updated in : 2023/1/2
+
 ## Deployment on GPC(App Engine)
 
 @TODO
@@ -228,8 +228,8 @@ last updated in : 2023/1/5
 - **Challenge**
 
   - [x] Let it roll
-  - [ ] Challenge confirmation Page
-  - [ ] Challenge History
+  - [x] Challenge confirmation Page
+  - [x] Challenge History
   - [ ] Get points after succeed challenge.
 
 - **Other Pages & Functions**
@@ -238,7 +238,7 @@ last updated in : 2023/1/5
   - [x] Buy course directly
   - [x] My learning courses
   - [x] 404 Error Page
-  - [ ] comment function in study mode
+  - [x] comment function in study mode
 
 - **Bugs**
 
@@ -248,10 +248,9 @@ last updated in : 2023/1/5
   - [x] Sign up 輸入失敗會跳去 Sign in 頁面而不是留在 Sign up 頁面再試一次
   - [x] 登入後 profile&setting 改了後灰色提示字不會立刻改，需登出後登入才會更改
   - [x] 更改密碼後導向 Error：Not Found 頁面，只能關掉重開（但重開後密碼已經被成功更改）
-  - [ ] 不選擇 ATM/Credit Card/Points 直接按 Complete Checkout 就可以直接購買
   - [x] switch 按鍵沒有成功切換角色
   - [ ] 創建課程的上傳縮圖用 drag and drop 的話會在另一個瀏覽器視窗開啟圖片，但 Upload course thumbnail 還是空的
-  - [ ] 從購物車 Remove 課程會跳 Error: Not Found，重新登入確實有移除
+  - [x] 從購物車 Remove 課程會跳 Error: Not Found，重新登入確實有移除
   - [x] About 頁面文字空格
 
 ### Limitation & Progressing

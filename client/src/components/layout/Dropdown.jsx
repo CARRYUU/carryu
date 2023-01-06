@@ -21,7 +21,12 @@ const Dropdown = () => {
     { key: "Edit Password", value: "/user/password/update" },
     { key: "Learning Course", value: "/mycourse" },
     { key: "Purchase History", value: "purchase-history" },
+    {
+      key: "Challenge History",
+      value: "/challenge-history",
+    },
     { key: "My Points", value: "/point-history" }
+
   ];
 
   const menuRef = useRef();

@@ -1,11 +1,48 @@
-import React from "react";
-import ChallengeCard from "../PurchaseHistory/HistoryCard";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { moment } from "moment";
+import ChallengeCard from "./ChallengeCard";
+
+import { getChallengeHistory } from "../../features/challenge/challengeSlice";
 
 const ChallengeFail = () => {
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.user);
+
+  const challenge_history = useSelector(
+    (state) => state.challenge.challengeHistory
+  );
+
+  useEffect(() => {
+    dispatch(getChallengeHistory());
+  }, []);
+
   return (
     <div id="challenge-fail">
-      <h1 className="my-2">挑戰失敗</h1>
-      <ChallengeCard />
+      {challenge_history &&
+        challenge_history?.length > 0 &&
+        challenge_history.map((item) => {
+          if (item.status === "failed") {
+            return (
+              <ChallengeCard
+                key={item._id}
+                _id={item._id}
+                title={item.title}
+                price={item.price}
+                thumbnail={item.thumbnail}
+                badge1={item.payment_method}
+                badge2={moment(item.date).format("YYYY-MM-DD")}
+              />
+            );
+          }
+        })}
+
+      {(!challenge_history || challenge_history?.length === 0) && (
+        <div className="text-center">
+          <h1 className="text-2xl mt-4">No Challenge Failed Now!</h1>
+        </div>
+      )}
     </div>
   );
 };
