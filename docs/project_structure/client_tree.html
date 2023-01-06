@@ -1,181 +1,244 @@
 <!DOCTYPE html>
 <html>
+
 <head>
- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <meta name="Author" content="Made by 'tree'">
- <meta name="GENERATOR" content="$Version: $ tree v2.0.4 (c) 1996 - 2022 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro $">
- <title>Client Tree</title>
- <style type="text/css">
-  BODY { font-family : monospace, sans-serif;  color: black;}
-  P { font-family : monospace, sans-serif; color: black; margin:0px; padding: 0px;}
-  A:visited { text-decoration : none; margin : 0px; padding : 0px;}
-  A:link    { text-decoration : none; margin : 0px; padding : 0px;}
-  A:hover   { text-decoration: underline; background-color : yellow; margin : 0px; padding : 0px;}
-  A:active  { margin : 0px; padding : 0px;}
-  .VERSION { font-size: small; font-family : arial, sans-serif; }
-  .NORM  { color: black;  }
-  .FIFO  { color: purple; }
-  .CHAR  { color: yellow; }
-  .DIR   { color: blue;   }
-  .BLOCK { color: yellow; }
-  .LINK  { color: aqua;   }
-  .SOCK  { color: fuchsia;}
-  .EXEC  { color: green;  }
- </style>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="Author" content="Made by 'tree'">
+	<meta name="GENERATOR"
+				content="$Version: $ tree v2.0.4 (c) 1996 - 2022 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro $">
+	<title>Client Tree</title>
+	<style type="text/css">
+		BODY {
+			font-family: monospace, sans-serif;
+			color: black;
+		}
+
+		P {
+			font-family: monospace, sans-serif;
+			color: black;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		A:visited {
+			text-decoration: none;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		A:link {
+			text-decoration: none;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		A:hover {
+			text-decoration: underline;
+			background-color: yellow;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		A:active {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.VERSION {
+			font-size: small;
+			font-family: arial, sans-serif;
+		}
+
+		.NORM {
+			color: black;
+		}
+
+		.FIFO {
+			color: purple;
+		}
+
+		.CHAR {
+			color: yellow;
+		}
+
+		.DIR {
+			color: blue;
+		}
+
+		.BLOCK {
+			color: yellow;
+		}
+
+		.LINK {
+			color: aqua;
+		}
+
+		.SOCK {
+			color: fuchsia;
+		}
+
+		.EXEC {
+			color: green;
+		}
+	</style>
 </head>
+
 <body>
-	<h1>Client Tree</h1><p>
-	<a class="DIR">./client</a><br>
-	├── <a class="NORM">package-lock.json</a><br>
-	├── <a class="NORM">README.md</a><br>
-	├── <a class="NORM">package.json</a><br>
-	├── <a class="NORM">tailwind.config.js</a><br>
-	├── <a class="NORM">webpack.config.js</a><br>
-	├── <a class="DIR">src</a><br>
-	│   ├── <a class="NORM">App.jsx</a><br>
-	│   ├── <a class="NORM">index.css</a><br>
-	│   ├── <a class="NORM">App.css</a><br>
-	│   ├── <a class="NORM">store.js</a><br>
-	│   ├── <a class="DIR">components</a><br>
-	│   │   ├── <a class="DIR">layout</a><br>
-	│   │   │   ├── <a class="NORM">Nav.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Dropdown.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Card.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Footer.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Search.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Input.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Header.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Button.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Loading.jsx</a><br>
-	│   │   │   └── <a class="NORM">Title.jsx</a><br>
-	│   │   ├── <a class="DIR">HistoryChallenge</a><br>
-	│   │   │   ├── <a class="NORM">ChallengeNav.jsx</a><br>
-	│   │   │   ├── <a class="NORM">ChallengeCard.jsx</a><br>
-	│   │   │   ├── <a class="NORM">ChallengeFail.jsx</a><br>
-	│   │   │   ├── <a class="NORM">ChallengeSuc.jsx</a><br>
-	│   │   │   ├── <a class="NORM">ChallengeRecord.jsx</a><br>
-	│   │   │   └── <a class="NORM">HistoryChallenge.jsx</a><br>
-	│   │   ├── <a class="DIR">Study</a><br>
-	│   │   │   ├── <a class="NORM">Comment.jsx</a><br>
-	│   │   │   ├── <a class="NORM">List.jsx</a><br>
-	│   │   │   ├── <a class="NORM">CourseContent.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Study.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Overview.jsx</a><br>
-	│   │   │   └── <a class="NORM">Video.jsx</a><br>
-	│   │   ├── <a class="DIR">Checkout</a><br>
-	│   │   │   ├── <a class="NORM">CheckoutPrice.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Checkout.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Payment.jsx</a><br>
-	│   │   │   ├── <a class="NORM">CheckoutItem.jsx</a><br>
-	│   │   │   └── <a class="NORM">CheckoutButton.jsx</a><br>
-	│   │   ├── <a class="DIR">PurchaseHistory</a><br>
-	│   │   │   ├── <a class="NORM">HistoryNav.jsx</a><br>
-	│   │   │   ├── <a class="NORM">HistoryCard.jsx</a><br>
-	│   │   │   ├── <a class="NORM">HistoryReturn.jsx</a><br>
-	│   │   │   ├── <a class="NORM">HistoryBuy.jsx</a><br>
-	│   │   │   └── <a class="NORM">PurchaseHistory.jsx</a><br>
-	│   │   ├── <a class="DIR">Challenge</a><br>
-	│   │   │   ├── <a class="NORM">ConfirmChallenge.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Challenge.jsx</a><br>
-	│   │   │   ├── <a class="NORM">Roll.jsx</a><br>
-	│   │   │   └── <a class="NORM">Category.jsx</a><br>
-	│   │   ├── <a class="DIR">CreateNewCourse</a><br>
-	│   │   │   ├── <a class="NORM">Category.jsx</a><br>
-	│   │   │   ├── <a class="NORM">CreateNewCourse.jsx</a><br>
-	│   │   │   ├── <a class="NORM">UploadFile.jsx</a><br>
-	│   │   │   └── <a class="NORM">Description.jsx</a><br>
-	│   │   ├── <a class="DIR">Cart</a><br>
-	│   │   │   ├── <a class="NORM">Cart.jsx</a><br>
-	│   │   │   ├── <a class="NORM">CartItem.jsx</a><br>
-	│   │   │   └── <a class="NORM">TotalPrice.jsx</a><br>
-	│   │   ├── <a class="DIR">CompleteBuy</a><br>
-	│   │   │   ├── <a class="NORM">SellerInfo.jsx</a><br>
-	│   │   │   ├── <a class="NORM">CompleteBuy.jsx</a><br>
-	│   │   │   └── <a class="NORM">CourseCheckButton.jsx</a><br>
-	│   │   ├── <a class="DIR">About</a><br>
-	│   │   │   ├── <a class="NORM">About.jsx</a><br>
-	│   │   │   └── <a class="NORM">Member.jsx</a><br>
-	│   │   ├── <a class="DIR">HomePage</a><br>
-	│   │   │   ├── <a class="NORM">HomePage.jsx</a><br>
-	│   │   │   └── <a class="NORM">HomePageCourseList.jsx</a><br>
-	│   │   ├── <a class="DIR">Login</a><br>
-	│   │   │   ├── <a class="NORM">Login.jsx</a><br>
-	│   │   │   └── <a class="NORM">Checkbox.jsx</a><br>
-	│   │   ├── <a class="DIR">MyCoursePage</a><br>
-	│   │   │   ├── <a class="NORM">MyCoursePage.jsx</a><br>
-	│   │   │   └── <a class="NORM">MyCourseCard.jsx</a><br>
-	│   │   ├── <a class="DIR">PointHistory</a><br>
-	│   │   │   ├── <a class="NORM">PointList.jsx</a><br>
-	│   │   │   └── <a class="NORM">PointHistory.jsx</a><br>
-	│   │   ├── <a class="DIR">SearchResult</a><br>
-	│   │   │   ├── <a class="NORM">SearchResultCard.jsx</a><br>
-	│   │   │   └── <a class="NORM">SearchResult.jsx</a><br>
-	│   │   ├── <a class="DIR">CourseInfo</a><br>
-	│   │   │   └── <a class="NORM">CourseInfo.jsx</a><br>
-	│   │   ├── <a class="DIR">EditPassword</a><br>
-	│   │   │   └── <a class="NORM">EditPassword.jsx</a><br>
-	│   │   ├── <a class="DIR">EditProfile</a><br>
-	│   │   │   └── <a class="NORM">EditProfile.jsx</a><br>
-	│   │   ├── <a class="DIR">ErrorPage</a><br>
-	│   │   │   └── <a class="NORM">ErrorPage.jsx</a><br>
-	│   │   ├── <a class="DIR">GetPoint</a><br>
-	│   │   │   └── <a class="NORM">GetPoint.jsx</a><br>
-	│   │   ├── <a class="DIR">InstructorHomepage</a><br>
-	│   │   │   └── <a class="NORM">InstructorHomepage.jsx</a><br>
-	│   │   └── <a class="DIR">Register</a><br>
-	│   │   &nbsp;&nbsp;&nbsp; └── <a class="NORM">Register.jsx</a><br>
-	│   ├── <a class="NORM">index.js</a><br>
-	│   ├── <a class="DIR">features</a><br>
-	│   │   ├── <a class="DIR">allCourses</a><br>
-	│   │   │   ├── <a class="NORM">allCoursesService.js</a><br>
-	│   │   │   └── <a class="NORM">allCoursesSlice.js</a><br>
-	│   │   ├── <a class="DIR">auth</a><br>
-	│   │   │   ├── <a class="NORM">authService.js</a><br>
-	│   │   │   └── <a class="NORM">authSlice.js</a><br>
-	│   │   ├── <a class="DIR">cart</a><br>
-	│   │   │   ├── <a class="NORM">cartService.js</a><br>
-	│   │   │   └── <a class="NORM">cartSlice.js</a><br>
-	│   │   ├── <a class="DIR">challenge</a><br>
-	│   │   │   ├── <a class="NORM">challengeSlice.js</a><br>
-	│   │   │   └── <a class="NORM">challengeService.js</a><br>
-	│   │   ├── <a class="DIR">course</a><br>
-	│   │   │   ├── <a class="NORM">courseService.js</a><br>
-	│   │   │   └── <a class="NORM">courseSlice.js</a><br>
-	│   │   ├── <a class="DIR">points</a><br>
-	│   │   │   ├── <a class="NORM">pointsService.js</a><br>
-	│   │   │   └── <a class="NORM">pointsSlice.js</a><br>
-	│   │   ├── <a class="DIR">transaction</a><br>
-	│   │   │   ├── <a class="NORM">transactionSlice.js</a><br>
-	│   │   │   └── <a class="NORM">transactionService.js</a><br>
-	│   │   ├── <a class="DIR">user</a><br>
-	│   │   │   ├── <a class="NORM">userService.js</a><br>
-	│   │   │   └── <a class="NORM">userSlice.js</a><br>
-	│   │   └── <a class="DIR">api</a><br>
-	│   │   &nbsp;&nbsp;&nbsp; └── <a class="NORM">index.js</a><br>
-	│   ├── <a class="DIR">assets</a><br>
-	│   │   ├── <a class="DIR">icons</a><br>
-	│   │   └── <a class="DIR">images</a><br>
-	│   ├── <a class="DIR">utils</a><br>
-	│   │   ├── <a class="NORM">localStorage.js</a><br>
-	│   │   └── <a class="NORM">authHeader.js</a><br>
-	│   └── <a class="DIR">styles</a><br>
-	│   &nbsp;&nbsp;&nbsp; └── <a class="NORM">style.scss</a><br>
-	├── <a class="NORM">app.yaml</a><br>
-	├── <a class="DIR">public</a><br>
-	│   ├── <a class="NORM">index.html</a><br>
-	│   └── <a class="NORM">manifest.json</a><br>
-	└── <a class="NORM">postcss.config.js</a><br>
-<br><br><p>
+	<h1>Client Tree</h1>
+	<p>
+		<a class="DIR">client</a><br>
+		├── <a class="NORM">package-lock.json</a><br>
+		├── <a class="NORM">README.md</a><br>
+		├── <a class="NORM">package.json</a><br>
+		├── <a class="NORM">tailwind.config.js</a><br>
+		├── <a class="NORM">webpack.config.js</a><br>
+		├── <a class="DIR">src</a><br>
+		│   ├── <a class="NORM">App.jsx</a><br>
+		│   ├── <a class="NORM">index.css</a><br>
+		│   ├── <a class="NORM">App.css</a><br>
+		│   ├── <a class="NORM">store.js</a><br>
+		│   ├── <a class="DIR">components</a><br>
+		│   │   ├── <a class="DIR">layout</a><br>
+		│   │   │   ├── <a class="NORM">Nav.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Dropdown.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Card.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Footer.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Search.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Input.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Header.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Button.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Loading.jsx</a><br>
+		│   │   │   └── <a class="NORM">Title.jsx</a><br>
+		│   │   ├── <a class="DIR">HistoryChallenge</a><br>
+		│   │   │   ├── <a class="NORM">ChallengeNav.jsx</a><br>
+		│   │   │   ├── <a class="NORM">ChallengeCard.jsx</a><br>
+		│   │   │   ├── <a class="NORM">ChallengeFail.jsx</a><br>
+		│   │   │   ├── <a class="NORM">ChallengeSuc.jsx</a><br>
+		│   │   │   ├── <a class="NORM">ChallengeRecord.jsx</a><br>
+		│   │   │   └── <a class="NORM">HistoryChallenge.jsx</a><br>
+		│   │   ├── <a class="DIR">Study</a><br>
+		│   │   │   ├── <a class="NORM">Comment.jsx</a><br>
+		│   │   │   ├── <a class="NORM">List.jsx</a><br>
+		│   │   │   ├── <a class="NORM">CourseContent.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Study.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Overview.jsx</a><br>
+		│   │   │   └── <a class="NORM">Video.jsx</a><br>
+		│   │   ├── <a class="DIR">Checkout</a><br>
+		│   │   │   ├── <a class="NORM">CheckoutPrice.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Checkout.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Payment.jsx</a><br>
+		│   │   │   ├── <a class="NORM">CheckoutItem.jsx</a><br>
+		│   │   │   └── <a class="NORM">CheckoutButton.jsx</a><br>
+		│   │   ├── <a class="DIR">PurchaseHistory</a><br>
+		│   │   │   ├── <a class="NORM">HistoryNav.jsx</a><br>
+		│   │   │   ├── <a class="NORM">HistoryCard.jsx</a><br>
+		│   │   │   ├── <a class="NORM">HistoryReturn.jsx</a><br>
+		│   │   │   ├── <a class="NORM">HistoryBuy.jsx</a><br>
+		│   │   │   └── <a class="NORM">PurchaseHistory.jsx</a><br>
+		│   │   ├── <a class="DIR">Challenge</a><br>
+		│   │   │   ├── <a class="NORM">ConfirmChallenge.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Challenge.jsx</a><br>
+		│   │   │   ├── <a class="NORM">Roll.jsx</a><br>
+		│   │   │   └── <a class="NORM">Category.jsx</a><br>
+		│   │   ├── <a class="DIR">CreateNewCourse</a><br>
+		│   │   │   ├── <a class="NORM">Category.jsx</a><br>
+		│   │   │   ├── <a class="NORM">CreateNewCourse.jsx</a><br>
+		│   │   │   ├── <a class="NORM">UploadFile.jsx</a><br>
+		│   │   │   └── <a class="NORM">Description.jsx</a><br>
+		│   │   ├── <a class="DIR">Cart</a><br>
+		│   │   │   ├── <a class="NORM">Cart.jsx</a><br>
+		│   │   │   ├── <a class="NORM">CartItem.jsx</a><br>
+		│   │   │   └── <a class="NORM">TotalPrice.jsx</a><br>
+		│   │   ├── <a class="DIR">CompleteBuy</a><br>
+		│   │   │   ├── <a class="NORM">SellerInfo.jsx</a><br>
+		│   │   │   ├── <a class="NORM">CompleteBuy.jsx</a><br>
+		│   │   │   └── <a class="NORM">CourseCheckButton.jsx</a><br>
+		│   │   ├── <a class="DIR">About</a><br>
+		│   │   │   ├── <a class="NORM">About.jsx</a><br>
+		│   │   │   └── <a class="NORM">Member.jsx</a><br>
+		│   │   ├── <a class="DIR">HomePage</a><br>
+		│   │   │   ├── <a class="NORM">HomePage.jsx</a><br>
+		│   │   │   └── <a class="NORM">HomePageCourseList.jsx</a><br>
+		│   │   ├── <a class="DIR">Login</a><br>
+		│   │   │   ├── <a class="NORM">Login.jsx</a><br>
+		│   │   │   └── <a class="NORM">Checkbox.jsx</a><br>
+		│   │   ├── <a class="DIR">MyCoursePage</a><br>
+		│   │   │   ├── <a class="NORM">MyCoursePage.jsx</a><br>
+		│   │   │   └── <a class="NORM">MyCourseCard.jsx</a><br>
+		│   │   ├── <a class="DIR">PointHistory</a><br>
+		│   │   │   ├── <a class="NORM">PointList.jsx</a><br>
+		│   │   │   └── <a class="NORM">PointHistory.jsx</a><br>
+		│   │   ├── <a class="DIR">SearchResult</a><br>
+		│   │   │   ├── <a class="NORM">SearchResultCard.jsx</a><br>
+		│   │   │   └── <a class="NORM">SearchResult.jsx</a><br>
+		│   │   ├── <a class="DIR">CourseInfo</a><br>
+		│   │   │   └── <a class="NORM">CourseInfo.jsx</a><br>
+		│   │   ├── <a class="DIR">EditPassword</a><br>
+		│   │   │   └── <a class="NORM">EditPassword.jsx</a><br>
+		│   │   ├── <a class="DIR">EditProfile</a><br>
+		│   │   │   └── <a class="NORM">EditProfile.jsx</a><br>
+		│   │   ├── <a class="DIR">ErrorPage</a><br>
+		│   │   │   └── <a class="NORM">ErrorPage.jsx</a><br>
+		│   │   ├── <a class="DIR">GetPoint</a><br>
+		│   │   │   └── <a class="NORM">GetPoint.jsx</a><br>
+		│   │   ├── <a class="DIR">InstructorHomepage</a><br>
+		│   │   │   └── <a class="NORM">InstructorHomepage.jsx</a><br>
+		│   │   └── <a class="DIR">Register</a><br>
+		│   │   &nbsp;&nbsp;&nbsp; └── <a class="NORM">Register.jsx</a><br>
+		│   ├── <a class="NORM">index.js</a><br>
+		│   ├── <a class="DIR">features</a><br>
+		│   │   ├── <a class="DIR">allCourses</a><br>
+		│   │   │   ├── <a class="NORM">allCoursesService.js</a><br>
+		│   │   │   └── <a class="NORM">allCoursesSlice.js</a><br>
+		│   │   ├── <a class="DIR">auth</a><br>
+		│   │   │   ├── <a class="NORM">authService.js</a><br>
+		│   │   │   └── <a class="NORM">authSlice.js</a><br>
+		│   │   ├── <a class="DIR">cart</a><br>
+		│   │   │   ├── <a class="NORM">cartService.js</a><br>
+		│   │   │   └── <a class="NORM">cartSlice.js</a><br>
+		│   │   ├── <a class="DIR">challenge</a><br>
+		│   │   │   ├── <a class="NORM">challengeSlice.js</a><br>
+		│   │   │   └── <a class="NORM">challengeService.js</a><br>
+		│   │   ├── <a class="DIR">course</a><br>
+		│   │   │   ├── <a class="NORM">courseService.js</a><br>
+		│   │   │   └── <a class="NORM">courseSlice.js</a><br>
+		│   │   ├── <a class="DIR">points</a><br>
+		│   │   │   ├── <a class="NORM">pointsService.js</a><br>
+		│   │   │   └── <a class="NORM">pointsSlice.js</a><br>
+		│   │   ├── <a class="DIR">transaction</a><br>
+		│   │   │   ├── <a class="NORM">transactionSlice.js</a><br>
+		│   │   │   └── <a class="NORM">transactionService.js</a><br>
+		│   │   ├── <a class="DIR">user</a><br>
+		│   │   │   ├── <a class="NORM">userService.js</a><br>
+		│   │   │   └── <a class="NORM">userSlice.js</a><br>
+		│   │   └── <a class="DIR">api</a><br>
+		│   │   &nbsp;&nbsp;&nbsp; └── <a class="NORM">index.js</a><br>
+		│   ├── <a class="DIR">assets</a><br>
+		│   │   ├── <a class="DIR">icons</a><br>
+		│   │   └── <a class="DIR">images</a><br>
+		│   ├── <a class="DIR">utils</a><br>
+		│   │   ├── <a class="NORM">localStorage.js</a><br>
+		│   │   └── <a class="NORM">authHeader.js</a><br>
+		│   └── <a class="DIR">styles</a><br>
+		│   &nbsp;&nbsp;&nbsp; └── <a class="NORM">style.scss</a><br>
+		├── <a class="NORM">app.yaml</a><br>
+		├── <a class="DIR">public</a><br>
+		│   ├── <a class="NORM">index.html</a><br>
+		│   └── <a class="NORM">manifest.json</a><br>
+		└── <a class="NORM">postcss.config.js</a><br>
+		<br><br>
+	<p>
 
-40 directories, 99 files
+		40 directories, 99 files
 
-</p>
+	</p>
 	<hr>
 	<p class="VERSION">
-		 tree v2.0.4 © 1996 - 2022 by Steve Baker and Thomas Moore <br>
-		 HTML output hacked and copyleft © 1998 by Francesc Rocher <br>
-		 JSON output hacked and copyleft © 2014 by Florian Sesser <br>
-		 Charsets / OS/2 support © 2001 by Kyosuke Tokoro
+		tree v2.0.4 © 1996 - 2022 by Steve Baker and Thomas Moore <br>
+		HTML output hacked and copyleft © 1998 by Francesc Rocher <br>
+		JSON output hacked and copyleft © 2014 by Florian Sesser <br>
+		Charsets / OS/2 support © 2001 by Kyosuke Tokoro
 	</p>
 </body>
+
 </html>

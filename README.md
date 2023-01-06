@@ -20,6 +20,7 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
 - [Table of Contents](#table-of-contents)
 - [Project Documents](#project-documents)
   - [3 Major Documents](#3-major-documents)
+  - [Project Structure](#project-structure)
 - [How to Run in Localhost?](#how-to-run-in-localhost)
 - [For Developer](#for-developer)
   - [Software Requirement](#software-requirement)
@@ -42,6 +43,24 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
 | [Software Design Description]()                                           | 依據需求規格文件(SRS)、分析規格文件(SAD)進行規範，主要用於描述實際設計之軟體架構與系統範圍之文件。藉由本文件得以了解軟體系統架構之目的，並作為軟體**實作**之依據。 |
 
 If you want to see the acrchieve files, please click [acrchieve](./docs/archieve/).
+
+### Project Structure
+
+忽略檔案: `node_modules`、`build`、`*.example`、`*.png`、`*.svg`
+
+| Tree                                                            | Description                       |
+| --------------------------------------------------------------- | --------------------------------- |
+| [CarryU Simple Tree](./docs/project_structure/carryu_tree.html) | 綜觀本專案的資料夾結構(Level = 1) |
+| [CarryU Client Tree](./docs/project_structure/client_tree.html) | 整個前端的資料夾結構              |
+| [CarryU Server Tree](./docs/project_structure/server_tree.html) | 整個後端的資料夾結構              |
+
+取得樹狀圖之範例指令為(以 macOS 執行)
+
+```Bash
+
+$ tree -C --sort size  -I 'node_modules|*build|.example|*.pdf|*.png|*.svg|server_tree.html|carryu_tree.html|client_tree.html' -H ./client -T "Client Tree" --nolinks  >> client_tree.html
+
+```
 
 ## How to Run in Localhost?
 
