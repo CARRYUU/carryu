@@ -5,10 +5,10 @@ const About = () => {
   return (
     <div>
 
-      <div name="about" className="w-full h-full  text-black px-6 py-14">
+      <div name="about" className=" w-full h-full  text-black px-6 py-14">
         <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
           <div className="pb-8">
-            <div class="mb-4 text-left px-20">
+            <div class="mb-4 text-left ">
               <p class="text-base md:text-sm text-mainBlue font-bold ">
                 &lt;{" "}
                 <a
@@ -24,7 +24,7 @@ const About = () => {
               <img
                 src={require("../../assets/images/carryu_big_logo_white_background.png")}
                 alt=""
-                className="w-screen object-cover w-50 h-96 rounded-lg md:h-96 md:w-50 md:rounded--lg my-auto"
+                className="w-screen object-cover  rounded-lg md:h-96 md:w-50 md:rounded--lg my-auto"
               />
               <p class="text-sm md:text-base font-normal text-gray-600 mt-2">
                 Published 1 January 2023
@@ -32,7 +32,7 @@ const About = () => {
             </div>
           </div>
 
-          <p className="text-xl mt-3 px-20 leading-8 tracking-wider text-left break-words">
+          <p className="text-xl mt-3 px-5 leading-8 tracking-wider text-left break-words">
             <div className="text-3xl italic font-semibold text-gray-900 ">
               "CarryU" is narrowed down from "Carry you".
             </div>
@@ -53,7 +53,7 @@ const About = () => {
 
           <br />
 
-          <p className="text-xl mt-3 px-20 leading-8 tracking-wider text-left break-words'">
+          <p className="text-xl mt-3 px-5 leading-8 tracking-wider text-left break-words'">
             <div className="text-3xl italic font-semibold text-gray-900">
               「CarryU」是從英文的「Carry you」進行縮寫。
             </div>
@@ -63,7 +63,7 @@ const About = () => {
 
           <div>
             <div>
-              <h1 class="text-left px-20 py-4 text-5xl font-normal mt-8">
+              <h1 class="text-left px-5 py-4 text-5xl font-normal mt-8">
                 Our teams
                 <small class="text-3xl ml-2 font-semibold text-gray-500 ">
                   {" "}

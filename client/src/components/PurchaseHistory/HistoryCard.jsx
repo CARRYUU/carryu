@@ -14,7 +14,7 @@ const HistoryCard = (props) => {
       <div class="list flex historyCard  my-4   ">
         <div className=" cardimg">
           <img
-            className="w-48 object-cover h-full flex flex-auto"
+            className="w-48 object-cover h-40 flex flex-auto"
             src={require("../../assets/images/carryu_big_logo_gray_background.png")}
             alt="course thumbnail"
           />
