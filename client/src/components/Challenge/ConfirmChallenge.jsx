@@ -34,6 +34,7 @@ const ConfirmChallenge = () => {
         <Link to="/get-point">
           <Button buttonName="Yes, let's GO!!!" onClick="" />
         </Link>
+
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const Member = () => {
 
   return (
     <div>
-      <div className="flex flex-wrap px-20">
+      <div className="flex flex-wrap px-10">
         {Menus.map((item) => (
           <a href={item.value}>
             <div className="flex py-2 items-center w-60">
