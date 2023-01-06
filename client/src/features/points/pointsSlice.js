@@ -20,7 +20,7 @@ export const deletePoints = createAsyncThunk(
 );
 
 const initialState = {
-  points: [],
+  points: 0,
   status: "idle",
   error: null,
   isLoading: false,
@@ -32,7 +32,7 @@ export const pointSlice = createSlice({
   reducers: {},
   extraReducers: {
     [getPoints.fulfilled]: (state, action) => {
-      state.points = action.payload;
+      state.points = action.payload.points;
       state.isLoading = false;
     },
 

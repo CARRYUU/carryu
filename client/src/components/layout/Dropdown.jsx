@@ -25,8 +25,7 @@ const Dropdown = () => {
       key: "Challenge History",
       value: "/challenge-history",
     },
-    { key: "My Points", value: "/point-history" }
-
+    { key: "My Points", value: "/points" },
   ];
 
   const menuRef = useRef();

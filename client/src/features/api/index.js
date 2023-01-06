@@ -84,9 +84,9 @@ export const addPurchaseRecord = (data) =>
 export const addRefundRecord = (data) => API.put("/transaction/refund", data);
 
 // Path: baseURL/points/
-export const addPoints = (data) => API.put("/point/add", data);
+export const addPoints = (data) => API.put("/points/add", data);
 export const deletePoints = (data) => API.put("/points/delete", data);
-export const getPoints = () => API.put("/points");
+export const getPoints = () => API.get("/points/get");
 
 // Path: baseURL/payment/
 export const processPayment = (data) => API.post("/payment", data);

@@ -4,6 +4,9 @@ const User = require("../models/user-model.js");
 //@route PUT api/points/add
 //@access Private
 const addPoints = async (req, res) => {
+  console.log("Addding points...");
+  console.log(req.body);
+
   const { add_points } = req.body;
   //check if user exists
   User.findById(req.user._id).then((user) => {
@@ -80,11 +83,7 @@ const getPoints = async (req, res) => {
     const gotpoints = user.points;
     if (gotpoints) {
       return res.status(200).json({
-        msg: `You have ${gotpoints} points`,
-      });
-    } else if (gotpoints == 0) {
-      return res.status(400).json({
-        msg: "You have 0 points",
+        points: gotpoints,
       });
     } else {
       return res.status(400).json({
