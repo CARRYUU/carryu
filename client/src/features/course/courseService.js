@@ -149,15 +149,19 @@ const getARandomCourse = async (thunkAPI) => {
   }
 };
 
-const addCourseComment = async (commentData, thunkAPI) => {
+const addCourseComment = async (data, thunkAPI) => {
   try {
-    const response = await api.addCourseComment(commentData);
+    const response = await api.addCourseComment(data._id, {
+      comment: data.comment,
+    });
 
     if (!response.data) {
       console.log("No data returned from addCourseComment API call.");
 
       return;
     }
+
+    toast.success("Comment added successfully.");
 
     return response.data;
   } catch (error) {

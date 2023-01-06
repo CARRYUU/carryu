@@ -7,6 +7,11 @@ import { addStudentToCourse } from "../../features/course/courseSlice";
 import { addPurchaseRecord } from "../../features/transaction/transactionSlice";
 import { removeCourseFromCart } from "../../features/cart/cartSlice";
 
+import {
+  addChallengeRecord,
+  setHasChallenge,
+} from "../../features/challenge/challengeSlice";
+
 const CheckoutPrice = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -15,6 +20,8 @@ const CheckoutPrice = (props) => {
   const { transaction_error, purchaseDirectly } = useSelector(
     (state) => state.transaction
   );
+
+  const { hasChallenge, isError } = useSelector((state) => state.challenge);
 
   const { checkoutItemList } = props;
 
@@ -41,10 +48,21 @@ const CheckoutPrice = (props) => {
         })
       );
 
+      if (hasChallenge) {
+        dispatch(
+          addChallengeRecord({
+            course_id: course._id,
+          })
+        );
+        dispatch(setHasChallenge(false));
+      }
+
       if (!transaction_error && !purchaseDirectly) {
         dispatch(removeCourseFromCart({ course_id: course._id }));
       }
     });
+
+    console.log(transaction_error);
 
     if (!transaction_error) {
       navigate("/complete-buy");

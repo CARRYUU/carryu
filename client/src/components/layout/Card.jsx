@@ -12,7 +12,7 @@ const Card = (props) => {
   const handleAddToCard = () => {
     dispatch(
       addCourseToCart({
-        course_id: props._id,
+        course_id: props._id
       })
     );
   };
@@ -26,17 +26,17 @@ const Card = (props) => {
     category,
     students_count,
     badge3,
-    description,
+    description
   } = props;
 
   return (
     <div>
-      <div className=" snap-center card my-6 mx-6 x-72 h-max sm:scale-100 scale-90">
+      <div className="shadow-md shadow-gray snap-center card my-6 mx-6 x-72 h-max sm:scale-100 scale-90">
         {/* 圖片 */}
         <Link
           to={`/course/${_id}/info`}
           state={{
-            course_id: _id,
+            course_id: _id
           }}
         >
           <img

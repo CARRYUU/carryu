@@ -25,20 +25,20 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="flex flex-end justify-around flex-[2_1_400px] w-full items-center">
+    <nav className="flex flex-wrap justify-around flex-[2_1_400px] w-full items-center">
       <div className="">
         <ul className="text-mainBlue font-semibold flex flex-end flex-auto w-60 px-6 justify-around text-center">
-          <li className="px-0.1 w-14">
+          <li className="px-0.1 w-14 my-1">
             <Link to="/about">About</Link>
           </li>
-          <li className="px-0.1 w-14">
+          <li className="px-0.1 w-14 my-1">
             <Link to="/challenge">Challenge</Link>
           </li>
         </ul>
       </div>
 
       {/* switch role button must be spexial */}
-      <div className="space-x-2">
+      <div className="flex flex-row space-x-2">
         {Menus.map((obj) => {
           if (user && obj.key === "Logout") {
             // Logout button
@@ -46,7 +46,7 @@ const Nav = () => {
               <button
                 type="button"
                 onClick={handleLogout}
-                className="text-white font-bold bg-gradient-to-br from-orange-500 to-pink-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg text-sm px-5 py-2.5 text-center mb-0"
+                className=" w-24 text-white font-bold bg-gradient-to-br from-orange-500 to-pink-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg text-sm px-5 py-2.5 text-center mb-0"
                 key={obj.key}
               >
                 {obj.key}
@@ -70,7 +70,7 @@ const Nav = () => {
             return (
               <Link to={obj.value}>
                 <button
-                  className="text-white font-bold bg-gradient-to-br from-orange-500 to-pink-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg text-sm px-5 py-2.5 text-center  mb-0"
+                  className="w-24 text-white font-bold bg-gradient-to-br from-orange-500 to-pink-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg text-sm px-5 py-2.5 text-center  mb-0"
                   key={obj.key}
                 >
                   {obj.key}
@@ -87,7 +87,7 @@ const Nav = () => {
             return (
               <Link to={obj.value}>
                 <button
-                  className="text-white font-bold bg-gradient-to-br from-orange-500 to-pink-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg text-sm px-5 py-2.5 text-center  mb-0"
+                  className="w-24 text-white font-bold bg-gradient-to-br from-orange-500 to-pink-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 rounded-lg text-sm px-5 py-2.5 text-center  mb-0"
                   key={obj.key}
                 >
                   {obj.key}

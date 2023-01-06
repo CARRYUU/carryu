@@ -9,6 +9,7 @@ import {
   getTenMostPopularCourses,
   getTenMostNewestCourses,
 } from "../../features/allCourses/allCoursesSlice";
+import { getUserPurchaseHistory } from "../../features/user/userSlice";
 
 const HomePage = () => {
   //slide function

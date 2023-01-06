@@ -53,8 +53,8 @@ export const getTenMostNewestCourses = () =>
     timeout: 20000,
   });
 export const getARandomCourse = () => API.get("/course/random");
-export const addCourseComment = (id, data) =>
-  API.post(`/course/${id}/comment`, data);
+export const addCourseComment = (id, comment) =>
+  API.post(`/course/${id}/comment`, comment);
 export const getCourseAllComments = (id) => API.get(`/course/${id}/comment`);
 export const addCourseTA = (id, data) =>
   API.post(`/course/${id}/teaching-assistant`, data);
@@ -84,8 +84,17 @@ export const addPurchaseRecord = (data) =>
 export const addRefundRecord = (data) => API.put("/transaction/refund", data);
 
 // Path: baseURL/points/
+export const addPoints = (data) => API.put("/points/add", data);
 export const deletePoints = (data) => API.put("/points/delete", data);
-export const getPoints = () => API.put("/points");
+export const getPoints = () => API.get("/points/get");
 
 // Path: baseURL/payment/
 export const processPayment = (data) => API.post("/payment", data);
+
+// Path: baseURL/challenge
+export const addChallengeRecord = (data) => API.put("/challenge/add", data);
+export const getChallengeHistory = () => API.get(`/challenge`);
+export const setChallengeToSuccess = (data) =>
+  API.patch(`/challenge/set-to-success`, data);
+export const setChallengeToFailed = (data) =>
+  API.patch(`/challenge/set-to-failed`, data);

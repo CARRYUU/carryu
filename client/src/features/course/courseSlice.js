@@ -38,8 +38,8 @@ export const getARandomCourse = createAsyncThunk(
 
 export const addCourseComment = createAsyncThunk(
   "/course/:id/comment",
-  async (commentData, thunkAPI) => {
-    return await courseService.addCourseComment(commentData, thunkAPI);
+  async (data, thunkAPI) => {
+    return await courseService.addCourseComment(data, thunkAPI);
   }
 );
 
@@ -97,6 +97,7 @@ const initialState = {
   aRandomCourse: null,
   courseContent: null,
   isLoading: false,
+  courseComments: [],
 };
 
 const courseSlice = createSlice({
@@ -165,6 +166,7 @@ const courseSlice = createSlice({
       state.isLoading = true;
     },
     [getCourseAllComments.fulfilled]: (state, action) => {
+      state.courseComments = action.payload.comments;
       state.isLoading = false;
     },
     [getCourseAllComments.rejected]: (state, action) => {
