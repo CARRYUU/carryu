@@ -96,7 +96,7 @@ function App() {
         <Route exact path="/challenge-suc" element={<ChallengSuc />} />
         <Route exact path="/challenge-fail" element={<ChallengeFail />} />
         <Route exact path="/get-point" element={<GetPoint />} />
-        <Route exact path="/point-history" element={<PointHistory />} />
+        <Route exact path="/points" element={<PointHistory />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>
