@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const HistoryCard = (props) => {
   const {
@@ -8,6 +9,10 @@ const HistoryCard = (props) => {
     badge1,
     badge2,
   } = props;
+
+  const handleRefund = () => {
+    toast.error("此功能尚未開放");
+  };
 
   return (
     <div>
@@ -33,7 +38,9 @@ const HistoryCard = (props) => {
           <h3 className="font-bold text-m mx-2 py-2 text-bottom">NT${price}</h3>
           <ul className="flex mx-2 mb-1">
             <li className="hover:text-red-800 font-bold">
-              <button className="cancalBotton">unsubscribe</button>
+              <button className="cancalBotton" onClick={handleRefund}>
+                refund
+              </button>
             </li>
           </ul>
         </div>
