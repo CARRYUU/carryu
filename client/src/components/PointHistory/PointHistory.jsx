@@ -4,7 +4,7 @@ import PointList from "./PointList";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { getUserPoint } from "";
+import { getPoints } from "../../features/points/pointsSlice";
 
 const PointHistory = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const PointHistory = () => {
   const point_history = user?.point_history;
 
   useEffect(() => {
-    dispatch(getUserPoint());
+    dispatch(getPoints());
   }, []);
   return (
     <div className="min-h-screen">
