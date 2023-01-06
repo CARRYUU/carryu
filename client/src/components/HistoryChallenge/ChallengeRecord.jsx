@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 import ChallengeCard from "./ChallengeCard";
-
-import { getChallengeHistory } from "../../features/challenge/challengeSlice";
 
 const ChallengeRecord = () => {
   const dispatch = useDispatch();
@@ -11,10 +9,6 @@ const ChallengeRecord = () => {
   const challenge_history = useSelector(
     (state) => state.challenge.challengeHistory.challenge_history
   );
-
-  useEffect(() => {
-    dispatch(getChallengeHistory());
-  }, []);
 
   return (
     <div id="challenge-record">

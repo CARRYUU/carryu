@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import ChallengeSuc from "./ChallengeSuc";
-import ChallengeFail from "./ChallengeFail";
 import ChallengeRecord from "./ChallengeRecord";
 
+import { getChallengeHistory } from "../../features/challenge/challengeSlice";
 const ChallengeNav = () => {
+  const dispatch = useDispatch();
+
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index) => {
     setToggleState(index);
   };
+
+  useEffect(() => {
+    dispatch(getChallengeHistory());
+  }, []);
 
   return (
     <div>

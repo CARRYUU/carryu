@@ -2,12 +2,16 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setChallengeToSuccess } from "../../features/challenge/challengeSlice";
 
+import { addPoints } from "../../features/points/pointsSlice";
+
 const ChallengeCard = (props) => {
   const dispatch = useDispatch();
   const { courseId, title, badge1, badge2, isProgress } = props;
 
   const handleDone = () => {
     dispatch(setChallengeToSuccess({ course_id: courseId }));
+
+    dispatch(addPoints({ add_points: 100 }));
 
     //refresh the page
     window.location.reload();
