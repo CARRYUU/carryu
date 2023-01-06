@@ -447,6 +447,7 @@ exports.getARandomCourse = async (req, res) => {
           return res.status(200).json({
             msg: "Found a course",
             course_info: {
+              _id: course._id,
               title: course.title,
               instructor: instructorName,
               description: course.description,

@@ -1,21 +1,21 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import pointService from "./pointsService";
+import pointsService from "./pointsService";
 
 export const getPoints = createAsyncThunk("/points", async (thunkAPI) => {
-  return await pointService.getPoints(thunkAPI);
+  return await pointsService.getPoints(thunkAPI);
 });
 
 export const addPoints = createAsyncThunk(
   "/points",
   async (point, thunkAPI) => {
-    return await pointService.addPoints(point, thunkAPI);
+    return await pointsService.addPoints(point, thunkAPI);
   }
 );
 
 export const deletePoints = createAsyncThunk(
   "/points",
   async (point, thunkAPI) => {
-    return await pointService.deletePoints(point, thunkAPI);
+    return await pointsService.deletePoints(point, thunkAPI);
   }
 );
 
@@ -64,3 +64,5 @@ export const pointSlice = createSlice({
     },
   },
 });
+
+export default pointSlice.reducer;
