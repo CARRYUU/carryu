@@ -27,9 +27,8 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
   - [Developer Tools](#developer-tools)
   - [Tools' Official Document](#tools-official-document)
   - [Learning Resources](#learning-resources)
-- [TODO](#todo)
 - [Deployment on GPC(App Engine)](#deployment-on-gpcapp-engine)
-- [TODO](#todo-1)
+- [TODO](#todo)
   - [Limitation \& Progressing](#limitation--progressing)
 
 ## Project Documents
@@ -198,10 +197,6 @@ $ npm run start
 - [2020 iT 邦鐵人賽 成為看起來很強的後端](https://youtube.com/playlist?list=PLS5AiLcCHgNxd341NwuY9EOpVvY5Z8VOs) - 花一個下午的時間就可以大致了解後端藍圖，賺。
 
 其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
-
-## TODO
-
-last updated in : 2023/1/2
 
 ## Deployment on GPC(App Engine)
 
