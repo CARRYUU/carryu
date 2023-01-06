@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { setChallengeToSuccess } from "../../features/challenge/challengeSlice";
 
@@ -6,6 +7,8 @@ import { addPoints } from "../../features/points/pointsSlice";
 
 const ChallengeCard = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { courseId, title, badge1, badge2, isProgress } = props;
 
   const handleDone = () => {
@@ -13,8 +16,7 @@ const ChallengeCard = (props) => {
 
     dispatch(addPoints({ add_points: 100 }));
 
-    //refresh the page
-    window.location.reload();
+    navigate("/get-points");
   };
 
   return (
