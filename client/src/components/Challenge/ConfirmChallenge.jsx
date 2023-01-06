@@ -30,7 +30,7 @@ const ConfirmChallenge = () => {
             className="md:animate-spin"
           />
         </div>
-        <Button buttonName="Yes, let's GO!!!" onClick="" />
+          <Button buttonName="Yes, let's GO!!!" onClick=""/>
       </div>
     </div>
   );

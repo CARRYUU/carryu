@@ -6,7 +6,7 @@ import Errorimg from "../../assets/icons/404.svg";
 const ErrorPage = () => {
   return (
     <div className="bg-gradient-to-b from-gray-800 to-black align-middle flex justify-center items-center  flex-col w-screen p-16">
-      <img src={Errorimg} className=" flex max-w-96 " alt="404" />
+      <img src={Errorimg} className=" flex w-96" alt="404" />
       <Link to="/">
         <button
           type="button"
