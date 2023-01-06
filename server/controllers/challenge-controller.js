@@ -1,4 +1,5 @@
 const User = require("../models/user-model");
+const Course = require("../models/course-model");
 
 // @desc    Add challenge record
 // @route   PUT /api/challege/add
@@ -36,25 +37,27 @@ exports.addChallengeRecord = async (req, res) => {
             "There's already a course in progress. Please finish it first!",
         });
       }
+      Course.findById(course_id).then(async (course) => {
+        const challengeRecord = {
+          course_id,
+          status,
+          title: course.title,
+        };
 
-      const challengeRecord = {
-        course_id,
-        status,
-      };
+        user.challenge_history.unshift(challengeRecord);
 
-      user.challenge_history.unshift(challengeRecord);
-
-      await user
-        .save()
-        .then((user) => {
-          return res.status(200).json({
-            message: "Challenge record added successfully!",
-            challenge_record: user.challenge_history[0],
+        await user
+          .save()
+          .then((user) => {
+            return res.status(200).json({
+              message: "Challenge record added successfully!",
+              challenge_record: user.challenge_history[0],
+            });
+          })
+          .catch((err) => {
+            return res.status(500).json({ err_msg: err });
           });
-        })
-        .catch((err) => {
-          return res.status(500).json({ err_msg: err });
-        });
+      });
     })
     .catch((err) => {
       res.status(500).json({ err_msg: err });
@@ -65,6 +68,8 @@ exports.addChallengeRecord = async (req, res) => {
 // @route   PUT /api/challege/set-to-success
 // @access  Private
 exports.setChallengeToSuccess = async (req, res) => {
+  console.log("Setting challenge to success...");
+  console.log(req.body);
   const { course_id } = req.body;
 
   User.findById(req.user._id)
