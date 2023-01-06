@@ -91,9 +91,9 @@ function App() {
         />
 
         <Route path="/confirm-challenge" element={<ConfirmChallenge />} />
-        <Route exact path="/history-challenge" element={<HistoryChallenge />} />
-        <Route exact path="/challenge-suc" element={<ChallengSuc />} />
-        <Route exact path="/challenge-fail" element={<ChallengeFail />} />
+        <Route exact path="/challenge-history" element={<HistoryChallenge />} />
+        <Route exact path="/challenge-succuss" element={<ChallengSuc />} />
+        <Route exact path="/challenge-failed" element={<ChallengeFail />} />
         <Route exact path="/get-point" element={<GetPoint />} />
 
         <Route path="*" element={<ErrorPage />} />
