@@ -30,6 +30,7 @@ import ConfirmChallenge from "./components/Challenge/ConfirmChallenge";
 import HistoryChallenge from "./components/HistoryChallenge/HistoryChallenge";
 import ChallengSuc from "./components/HistoryChallenge/ChallengeSuc";
 import ChallengeFail from "./components/HistoryChallenge/ChallengeFail";
+import GetPoint from "./components/GetPoint/GetPoint";
 import InstructorHomepage from "./components/InstructorHomepage/InstructorHomepage";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 
@@ -93,6 +94,7 @@ function App() {
         <Route exact path="/history-challenge" element={<HistoryChallenge />} />
         <Route exact path="/challenge-suc" element={<ChallengSuc />} />
         <Route exact path="/challenge-fail" element={<ChallengeFail />} />
+        <Route exact path="/get-point" element={<GetPoint />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>
