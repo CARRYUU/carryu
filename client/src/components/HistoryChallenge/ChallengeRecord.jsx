@@ -5,47 +5,43 @@ import ChallengeCard from "./ChallengeCard";
 
 import { getChallengeHistory } from "../../features/challenge/challengeSlice";
 
-const ChallengSuc = () => {
+const ChallengeRecord = () => {
   const dispatch = useDispatch();
-
-  const { user } = useSelector((state) => state.user);
 
   const challenge_history = useSelector(
     (state) => state.challenge.challengeHistory.challenge_history
   );
-
-  console.log(challenge_history);
 
   useEffect(() => {
     dispatch(getChallengeHistory());
   }, []);
 
   return (
-    <div id="challenge-suc">
+    <div id="challenge-record">
       {challenge_history &&
         challenge_history?.length > 0 &&
         challenge_history.map((item) => {
-          if (item.status === "success") {
-            return (
-              <ChallengeCard
-                key={item._id}
-                _id={item._id}
-                title={item.title}
-                thumbnail={item.thumbnail}
-                badge1={item.status}
-                badge2={moment(item.challenge_date).format("YYYY-MM-DD")}
-              />
-            );
-          }
+          return (
+            <ChallengeCard
+              key={item._id}
+              _id={item._id}
+              courseId={item.course_id}
+              title={item.title}
+              thumbnail={item.thumbnail}
+              badge1={item.status}
+              badge2={moment(item.date).format("YYYY-MM-DD")}
+              isProgress={item.status === "inprogress"}
+            />
+          );
         })}
 
       {(!challenge_history || challenge_history?.length === 0) && (
         <div className="text-center">
-          <h1 className="text-2xl mt-4">No Challenge Success Now!</h1>
+          <h1 className="text-2xl mt-4">No Challenge Record Now!</h1>
         </div>
       )}
     </div>
   );
 };
 
-export default ChallengSuc;
+export default ChallengeRecord;

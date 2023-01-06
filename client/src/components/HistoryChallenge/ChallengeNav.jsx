@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ChallengeSuc from "./ChallengeSuc";
 import ChallengeFail from "./ChallengeFail";
+import ChallengeRecord from "./ChallengeRecord";
 
 const ChallengeNav = () => {
   const [toggleState, setToggleState] = useState(1);
@@ -30,12 +31,20 @@ const ChallengeNav = () => {
               className="bg-slate-50 rounded-xl px-5 hover:text-gray-800 hover:border-b-2 text-gray-500 cursor-pointer"
               role="presentation"
             >
-              <button
+              {/* <button
                 onClick={() => toggleTab(2)}
                 className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
                 // className="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300"
               >
                 挑戰失敗
+              </button>
+               */}
+              <button
+                onClick={() => toggleTab(2)}
+                className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+                // className="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300"
+              >
+                挑戰中
               </button>
             </li>
           </ul>
@@ -46,10 +55,15 @@ const ChallengeNav = () => {
           >
             <ChallengeSuc />
           </div>
-          <div
+          {/* <div
             className={toggleState === 2 ? "contet" : "content active-content"}
           >
             <ChallengeFail />
+          </div> */}
+          <div
+            className={toggleState === 2 ? "contet" : "content active-content"}
+          >
+            <ChallengeRecord />
           </div>
         </div>
       </div>
