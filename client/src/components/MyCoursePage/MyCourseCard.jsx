@@ -12,8 +12,8 @@ const MyCourseCard = (props) => {
 
   return (
     <div>
-      <div className="inline-block duration-300 hover:scale-105 motion-reduce:transform-none h-80">
-        <div className="snap-center card mx-2">
+      <div className="inline-block duration-300 hover:scale-105 motion-reduce:transform-none h-60 shadow-md shadow-gray mx-2 my-2">
+        <div className="snap-center card">
           {/* 圖片 */}
           <img
             src={require("../../assets/images/carryu_big_logo_gray_background.png")}
