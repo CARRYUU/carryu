@@ -6,14 +6,14 @@ export const getPoints = createAsyncThunk("/points", async (thunkAPI) => {
 });
 
 export const addPoints = createAsyncThunk(
-  "/points",
+  "/points/add",
   async (point, thunkAPI) => {
     return await pointsService.addPoints(point, thunkAPI);
   }
 );
 
 export const deletePoints = createAsyncThunk(
-  "/points",
+  "/points/delete",
   async (point, thunkAPI) => {
     return await pointsService.deletePoints(point, thunkAPI);
   }
