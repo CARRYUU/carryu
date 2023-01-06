@@ -230,7 +230,7 @@ last updated in : 2023/1/5
   - [x] Let it roll
   - [x] Challenge confirmation Page
   - [x] Challenge History
-  - [ ] Get points after succeed challenge.
+  - [x] Get points after succeed challenge.
 
 - **Other Pages & Functions**
 
