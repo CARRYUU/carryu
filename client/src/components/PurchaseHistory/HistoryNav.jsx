@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-
 import { getUserPurchaseHistory } from "../../features/user/userSlice";
 import HistoryBuy from "./HistoryBuy";
 import HistoryReturn from "./HistoryReturn";
@@ -11,6 +10,7 @@ const HistoryNav = () => {
 
   useEffect(() => {
     dispatch(getUserPurchaseHistory());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [toggleState, setToggleState] = useState(1);

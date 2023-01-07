@@ -1,13 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import moment from "moment";
 import ChallengeCard from "./ChallengeCard";
 
 const ChallengSuc = () => {
-  const dispatch = useDispatch();
-
-  const { user } = useSelector((state) => state.user);
-
   const challenge_history = useSelector(
     (state) => state.challenge.challengeHistory.challenge_history
   );
@@ -18,6 +14,7 @@ const ChallengSuc = () => {
     <div id="challenge-suc">
       {challenge_history &&
         challenge_history?.length > 0 &&
+        // eslint-disable-next-line array-callback-return
         challenge_history.map((item) => {
           if (item.status === "success") {
             return (

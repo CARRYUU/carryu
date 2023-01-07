@@ -1,11 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import moment from "moment";
 import ChallengeCard from "./ChallengeCard";
 
 const ChallengeRecord = () => {
-  const dispatch = useDispatch();
-
   const challenge_history = useSelector(
     (state) => state.challenge.challengeHistory.challenge_history
   );

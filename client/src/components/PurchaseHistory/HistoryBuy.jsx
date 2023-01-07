@@ -14,12 +14,14 @@ const HistoryBuy = () => {
 
   useEffect(() => {
     dispatch(getUserPurchaseHistory());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div id="history-buy" className="my-2">
       {purchase_history &&
         purchase_history?.length > 0 &&
+        // eslint-disable-next-line array-callback-return
         purchase_history.map((item) => {
           if (item.type === "buy") {
             return (
