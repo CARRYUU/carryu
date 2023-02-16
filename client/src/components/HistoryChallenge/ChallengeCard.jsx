@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setChallengeToSuccess } from "../../features/challenge/challengeSlice";
 
 import { addPoints } from "../../features/points/pointsSlice";

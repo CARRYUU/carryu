@@ -1,7 +1,8 @@
 const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
-  entry: "./index.js",
+  entry: "./src/index.js",
   module: {
     rules: [
       {
@@ -18,4 +19,9 @@ module.exports = {
       },
     ],
   },
+  output: {
+    path: path.resolve(__dirname, "build/"),
+    filename: "bundle.js",
+  },
+  mode: "production",
 };

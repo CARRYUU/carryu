@@ -1,7 +1,6 @@
 import React from "react";
-import Checkout from "../Checkout/Checkout";
 import Button from "../layout/Button";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const TotalPrice = (props) => {
   return (

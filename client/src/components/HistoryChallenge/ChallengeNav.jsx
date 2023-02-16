@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import ChallengeSuc from "./ChallengeSuc";
 import ChallengeRecord from "./ChallengeRecord";
 
@@ -15,6 +15,7 @@ const ChallengeNav = () => {
 
   useEffect(() => {
     dispatch(getChallengeHistory());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

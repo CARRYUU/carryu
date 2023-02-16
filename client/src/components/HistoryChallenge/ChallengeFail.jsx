@@ -8,20 +8,20 @@ import { getChallengeHistory } from "../../features/challenge/challengeSlice";
 const ChallengeFail = () => {
   const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.user);
-
   const challenge_history = useSelector(
     (state) => state.challenge.challengeHistory
   );
 
   useEffect(() => {
     dispatch(getChallengeHistory());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div id="challenge-fail">
       {challenge_history &&
         challenge_history?.length > 0 &&
+        // eslint-disable-next-line array-callback-return
         challenge_history.map((item) => {
           if (item.status === "failed") {
             return (

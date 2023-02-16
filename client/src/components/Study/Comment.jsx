@@ -30,6 +30,7 @@ const Comment = () => {
 
   useEffect(() => {
     dispatch(getCourseAllComments(id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

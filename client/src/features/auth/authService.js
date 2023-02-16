@@ -37,8 +37,6 @@ const login = async (formData, thunkAPI) => {
         }
       )
       .then(() => {
-        // history.push("/");
-
         window.location.href = "/";
 
         return response.data;
