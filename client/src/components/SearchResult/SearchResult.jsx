@@ -20,10 +20,12 @@ const SearchResult = () => {
 
   useEffect(() => {
     dispatch(getCoursesByTitle(searchedText));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     dispatch(getCoursesByTitle(searchedText));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchedText]);
 
   if (isLoading) {
@@ -31,7 +33,7 @@ const SearchResult = () => {
   }
 
   return (
-    <div >
+    <div>
       <Title pageTitle={`「${searchedText}」有${numResults}個結果`} />
       <div className="flex-col mx-2  ">
         {courses?.map((course) => (

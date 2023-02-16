@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Title from "../layout/Title";
 import Button from "../layout/Button";
 import Input from "../layout/Input";

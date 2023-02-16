@@ -26,7 +26,7 @@ connectDB();
 app.use(express.json()); // automatically parse incoming JSON to object
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "build")));
 
 // Routes
 app.use("/api/auth", authRoute);
@@ -38,8 +38,10 @@ app.use("/api/points", pointRoute);
 app.use("/api/payment", paymentRoute);
 app.use("/api/challenge", challengeRoute);
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+app.get("*", (req, res) => {
+  console.log(path.join(__dirname, "build", "index.html"));
+
+  res.sendFile(__dirname, "build", "index.html");
 });
 
 // Listen port

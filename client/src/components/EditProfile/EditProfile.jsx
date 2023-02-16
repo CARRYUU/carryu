@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import Title from "../layout/Title";
@@ -39,6 +38,7 @@ const EditProfile = () => {
 
   useEffect(() => {
     dispatch(getUserProfile());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

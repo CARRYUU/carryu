@@ -24,6 +24,7 @@ const Course = () => {
 
   useEffect(() => {
     dispatch(getUserPurchaseHistory());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

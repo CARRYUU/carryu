@@ -21,7 +21,7 @@ const CheckoutPrice = (props) => {
     (state) => state.transaction
   );
 
-  const { hasChallenge, isError } = useSelector((state) => state.challenge);
+  const { hasChallenge } = useSelector((state) => state.challenge);
 
   const { checkoutItemList } = props;
 
