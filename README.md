@@ -32,6 +32,7 @@ This document is written by [@xxrjun](https://github.com/xxrjun).
 - [Deployment on GPC(App Engine)](#deployment-on-gpcapp-engine)
 - [TODO](#todo)
   - [Limitation \& Progressing](#limitation--progressing)
+- [後記 by 鄒](#後記-by-鄒)
 
 ## Project Documents
 
@@ -202,7 +203,8 @@ $ npm run start
 
 ## Deployment on GPC(App Engine)
 
-@TODO
+申請帳號，綁信用卡領三個月內300美金的額度，然後照著官方文件做分別將前端與後端進行部署即可。
+前端API_URL記得要改成部署後的網址!
 
 ## TODO
 
@@ -276,3 +278,12 @@ last updated in : 2023/1/5
 - 只有切換成老師身分時才能上傳課程
 - 觀看課程部分尚未引入影片
 - 挑戰課程之 Choose Category 仍在開發階段
+
+
+## 後記 by 鄒
+
+基本上就是累死。
+
+最後的成績文件大家都一樣的分數，我們拿到100；期末展示的部分會因為小組互評而有所不同，感謝老師、助教以及組員的肯定。
+
+<img src="./images/score.png"/>
