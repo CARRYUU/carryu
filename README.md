@@ -6,6 +6,8 @@ We are CarryU, an online courses platform!
 
 This document is written by [@xxrjun](https://github.com/xxrjun).
 
+Our server is turn down in 2023/03/04, you can checkout our [demo video on youtube](https://youtu.be/eSwv5dVzH-Q)
+
 ## Our teams
 
 - 鄒翔宇 [@xxrjun](https://github.com/xxrjun)
