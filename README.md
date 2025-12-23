@@ -203,7 +203,7 @@ $ npm run start
 - [Udemy 2022 網頁開發全攻略(HTML, CSS, JavaScript, React, SQL, Node, more)](https://www.udemy.com/course/html5-css3-z/) - Web full-stack development is a great starting point, the teacher explains it in a simple and easy-to-understand way, and you can buy it for about three or four hundred when it's on sale, very cost-effective.<br/>
 (無業配)網頁全端開發很好的入門磚，老師講得淺顯易懂，等特價的時候差不多三四百塊就買的到，非常划算。
 
-- [2020 iT 邦鐵人賽 成為看起來很強的後端](https://youtube.com/playlist?list=PLS5AiLcCHgNxd341NwuY9EOpVvY5Z8VOs) - You can get a general understanding of the backend blueprint in the afternoon and make money.<br/>
+- [2020 iT 邦鐵人賽 成為看起來很強的後端](https://youtube.com/playlist?list=PLS5AiLcCHgNxd341NwuY9EOpVvY5Z8VOs) - You can get a general understanding of the backend blueprint in one afternoon, totally worth it.<br/>
 花一個下午的時間就可以大致了解後端藍圖，賺。
 
 Other resources: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
