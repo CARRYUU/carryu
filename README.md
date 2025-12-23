@@ -33,8 +33,8 @@ Our server is turn down in 2023/03/04, you can checkout our [demo video on youtu
   - [Learning Resources](#learning-resources)
 - [Deployment on GPC(App Engine)](#deployment-on-gpcapp-engine)
 - [TODO](#todo)
-  - [Limitation \& Progressing](#limitation--progressing)
-- [後記 by 鄒](#後記-by-鄒)
+  - [Limitation & Progressing](#limitation--progressing)
+- [Diary by rjun | 後記 by 鄒](#diary-by-rjun--後記-by-鄒)
 
 ## Project Documents
 
@@ -42,23 +42,23 @@ Our server is turn down in 2023/03/04, you can checkout our [demo video on youtu
 
 | <div style="width: 370px">Document<div>                                   | Description                                                                                                                                                        |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Software Requirement Specification v1.3.2](./docs/CarryU_SRS_v1.3.2.pdf) | 描述軟體產品、專案之主要使用者、功能性與非功能性之需求規格。藉由本文件用以釐清使用者之**需求**，以作為系統軟體分析與設計之基礎，並可於測試與驗收階段作為依憑。     |
-| [Software Analysis Description](./docs/CarryU_SAD_v1.1.1.pdf)             | 依據需求規格文件(SRS)，主要用於描述邏輯之軟體架構與系統範圍之文件。藉由本文件得以分析軟體系統架構之目的，並作為軟體**設計**階段之依據。                            |
-| [Software Design Description](./docs/CarryU_SDD_v0.1.1.pdf)               | 依據需求規格文件(SRS)、分析規格文件(SAD)進行規範，主要用於描述實際設計之軟體架構與系統範圍之文件。藉由本文件得以了解軟體系統架構之目的，並作為軟體**實作**之依據。 |
+| [Software Requirement Specification v1.3.2](./docs/CarryU_SRS_v1.3.2.pdf) | Describe the software product, the main users of the project, functional and non-functional requirements. This document is used to clarify the user's **requirements** as the basis for system software analysis and design, and can be used as a reference during testing and acceptance.<br/><br/> 描述軟體產品、專案之主要使用者、功能性與非功能性之需求規格。藉由本文件用以釐清使用者之**需求**，以作為系統軟體分析與設計之基礎，並可於測試與驗收階段作為依憑。     |
+| [Software Analysis Description](./docs/CarryU_SAD_v1.1.1.pdf)             | Based on the Software Requirements Specification (SRS), it is primarily used to describe the logical software architecture and system scope of the document. Through this document, the purpose of analyzing the software system architecture can be achieved, and it serves as a basis for the software **design** stage.<br/><br/> 依據需求規格文件(SRS)，主要用於描述邏輯之軟體架構與系統範圍之文件。藉由本文件得以分析軟體系統架構之目的，並作為軟體**設計**階段之依據。                            |
+| [Software Design Description](./docs/CarryU_SDD_v0.1.1.pdf)               | Based on the Software Requirements Specification (SRS) and Software Analysis Specification (SAD), it is primarily used to describe the actual software architecture and system scope of the document. Through this document, the purpose of the software system architecture can be understood and serves as the basis for software **implementation**.<br/><br/> 依據需求規格文件(SRS)、分析規格文件(SAD)進行規範，主要用於描述實際設計之軟體架構與系統範圍之文件。藉由本文件得以了解軟體系統架構之目的，並作為軟體**實作**之依據。 |
 
 If you want to see the archive files, please click [archive](./docs/archive/).
 
 ### Project Structure
 
-忽略檔案: `node_modules`、`build`、`*.example`、`*.png`、`*.svg`
+Without: `node_modules`、`build`、`*.example`、`*.png`、`*.svg`
 
 | Tree                                                            | Description                       |
 | --------------------------------------------------------------- | --------------------------------- |
-| [CarryU Simple Tree](./docs/project_structure/carryu_tree.html) | 綜觀本專案的資料夾結構(Level = 1) |
-| [CarryU Client Tree](./docs/project_structure/client_tree.html) | 整個前端的資料夾結構              |
-| [CarryU Server Tree](./docs/project_structure/server_tree.html) | 整個後端的資料夾結構              |
+| [CarryU Simple Tree](./docs/project_structure/carryu_tree.html) | Overall view of this project's folder structure (Level = 1)<br/> 綜觀本專案的資料夾結構(Level = 1) |
+| [CarryU Client Tree](./docs/project_structure/client_tree.html) | The entire frontend folder structure<br/> 整個前端的資料夾結構              |
+| [CarryU Server Tree](./docs/project_structure/server_tree.html) | The entire backend folder structure<br/> 整個後端的資料夾結構              |
 
-取得樹狀圖之範例指令為(以 macOS 執行)
+The example command to obtain a tree diagram (to be executed on macOS)<br/> 取得樹狀圖之範例指令為(以 macOS 執行)
 
 ```Bash
 
@@ -166,19 +166,20 @@ $ npm run start
 
 | Extenstion Name                        | Description                                                                                                                                                                       |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Prettier - Code formatter              | 文字排版對齊工具，基本上是必備。                                                                                                                                                  |
-| GitLens                                | Git 超好用的套件，包含圖形化、比較分支差異等等好處說不完。Student Developer Package 可以免費使用                                                                                  |
-| GitHub Copilot or Tabnine AI           | 程式碼自動補齊、生成。前者可以於 Student Developer Package 免費取得，後者有付費與免費版本。                                                                                       |
-| WakaTime                               | 紀錄打 code 的時間 ， 免費版最多紀錄兩周 。                                                                                                                                       |
-| Git History                            | 查看檔案 Git log、檔案歷史紀錄、比較分支或 commit 紀錄 。                                                                                                                         |
-| Dracula Official                       | 好看的 VSCode 主題可以提升生產力。不一定要用這個，有很多不同主題的 extentions 等你去找。                                                                                          |
-| Material Icon Theme                    | 好看的 VSCode 圖示可以提升生產力。不一定要用這個，有很多不同圖示的 extentions 等你去找。                                                                                          |
-| ESLint                                 | 用於檢查 JavaScript 程式碼是否符合規則(語法檢查、提醒刪除多於程式碼等等)，確保你的程式碼品質在一定的水準之上 。                                                                   |
-| ES7+ React/Redux/React-Native snippets | 可以輕鬆地為 React 生成語法和代碼片段。<br/>每次需要創建一個 new component 時，只需編寫 `rce`（對於類組件）或 `rfce` or `rfc`（對於功能組件），打 `rccp` 就可以自動完成元件架構。 |
+| Prettier - Code formatter              | A text alignment tool, basically essential. 文字排版對齊工具，基本上是必備。                                                                                                                                                  |
+| GitLens                                | Git is an extremely useful package, offering numerous benefits such as visualization and comparing branch differences. The Student Developer Package is available for free.<br/><br/> Git 超好用的套件，包含圖形化、比較分支差異等等好處說不完。Student Developer Package 可以免費使用                                                                                  |
+| GitHub Copilot or Tabnine AI           | Code auto-completion and generation. The former can be obtained for free from the Student Developer Package, while the latter has both paid and free versions.<br/><br/> 程式碼自動補齊、生成。前者可以於 Student Developer Package 免費取得，後者有付費與免費版本。                                                                                       |
+| WakaTime                               | Record the time spent coding, the free version can record up to two weeks.<br/><br/> 紀錄打 code 的時間 ， 免費版最多紀錄兩周 。                                                                                                                                       |
+| Git History                            | View file Git log, file history records, compare branches or commit records.<br/><br/> 查看檔案 Git log、檔案歷史紀錄、比較分支或 commit 紀錄 。                                                                                                                         |
+| Dracula Official                       | Good-looking VSCode themes can improve productivity. You don't have to use this one; there are many different themes' extensions for you to find.<br/><br/> 好看的 VSCode 主題可以提升生產力。不一定要用這個，有很多不同主題的 extentions 等你去找。                                                                                          |
+| Material Icon Theme                    | Good-looking VSCode icons can improve productivity. You don't have to use this one; there are many different icon extensions for you to find.<br/><br/> 好看的 VSCode 圖示可以提升生產力。不一定要用這個，有很多不同圖示的 extentions 等你去找。                                                                                          |
+| ESLint                                 | Used to check if JavaScript code conforms to rules (syntax checking, reminding you to remove redundant code, etc.), ensuring your code quality is above a certain level.<br/><br/> 用於檢查 JavaScript 程式碼是否符合規則(語法檢查、提醒刪除多於程式碼等等)，確保你的程式碼品質在一定的水準之上 。                                                                   |
+| ES7+ React/Redux/React-Native snippets | It can easily generate syntax and code snippets for React. Whenever you need to create a new component, just write `rce` (for class components) or `rfce` or `rfc` (for functional components), and typing `rccp` will automatically complete the component structure.<br/><br/> 可以輕鬆地為 React 生成語法和代碼片段。<br/>每次需要創建一個 new component 時，只需編寫 `rce`（對於類組件）或 `rfce` or `rfc`（對於功能組件），打 `rccp` 就可以自動完成元件架構。 |
 
 ### Tools' Official Document
 
-> 學習看官方文件跟餵狗，即便很多官方文件寫得很藝術
+> Learning to read official documents and search on Google, even though many official documents are written very artistically<br/>
+學習看官方文件跟餵狗，即便很多官方文件寫得很藝術
 
 - Frontend Tools
   - [React.js](https://reactjs.org/docs/getting-started.html)
@@ -195,16 +196,19 @@ $ npm run start
 
 ### Learning Resources
 
-- [MDN Resources for Developers, by Developers](https://developer.mozilla.org/en-US/) - 基本上是必備的，幾乎你想的到的所有網站開發的知識這裡都有。
+- [MDN Resources for Developers, by Developers](https://developer.mozilla.org/en-US/) - It's basically essential, and almost all the knowledge you can think of for web development is here.<br/>
+基本上是必備的，幾乎你想的到的所有網站開發的知識這裡都有。
 
-- [Udemy 2022 網頁開發全攻略(HTML, CSS, JavaScript, React, SQL, Node, more)](https://www.udemy.com/course/html5-css3-z/) - (無業配)網頁全端開發很好的入門磚，老師講得淺顯易懂，等特價的時候差不多三四百塊就買的到，非常划算。
+- [Udemy 2022 網頁開發全攻略(HTML, CSS, JavaScript, React, SQL, Node, more)](https://www.udemy.com/course/html5-css3-z/) - Web full-stack development is a great starting point, the teacher explains it in a simple and easy-to-understand way, and you can buy it for about three or four hundred when it's on sale, very cost-effective.<br/>
+(無業配)網頁全端開發很好的入門磚，老師講得淺顯易懂，等特價的時候差不多三四百塊就買的到，非常划算。
 
-- [2020 iT 邦鐵人賽 成為看起來很強的後端](https://youtube.com/playlist?list=PLS5AiLcCHgNxd341NwuY9EOpVvY5Z8VOs) - 花一個下午的時間就可以大致了解後端藍圖，賺。
+- [2020 iT 邦鐵人賽 成為看起來很強的後端](https://youtube.com/playlist?list=PLS5AiLcCHgNxd341NwuY9EOpVvY5Z8VOs) - You can get a general understanding of the backend blueprint in one afternoon, totally worth it.<br/>
+花一個下午的時間就可以大致了解後端藍圖，賺。
 
-其他的可以參考: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
+Other resources: [cs-resource by xxrjun](https://github.com/xxrjun/cs-resources#%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC-web-development)
 
 ## Deployment on GPC(App Engine)
-
+Apply for an account, link a credit card to get a $300 limit within three months, and then follow the official documents to separately deploy the front-end and back-end. Remember to change the front-end API_URL to the deployed URL!<br/>
 申請帳號，綁信用卡領三個月內300美金的額度，然後照著官方文件做分別將前端與後端進行部署即可。
 前端API_URL記得要改成部署後的網址!
 
@@ -261,31 +265,47 @@ last updated in : 2023/1/5
   - [x] comment function in study mode
 
 - **Bugs**
-
-  - [x] 尚未登入卻直接購買課程會白屏(23/1/5)
-  - [x] 沒註冊成功也會跳到登入畫面(23/1/5)
-  - [x] Update Profile 後沒有成功顯示更新後的畫面(23/1/5)
-  - [x] Sign up 輸入失敗會跳去 Sign in 頁面而不是留在 Sign up 頁面再試一次
-  - [x] 登入後 profile&setting 改了後灰色提示字不會立刻改，需登出後登入才會更改
-  - [x] 更改密碼後導向 Error：Not Found 頁面，只能關掉重開（但重開後密碼已經被成功更改）
-  - [x] switch 按鍵沒有成功切換角色
-  - [ ] 創建課程的上傳縮圖用 drag and drop 的話會在另一個瀏覽器視窗開啟圖片，但 Upload course thumbnail 還是空的
-  - [x] 從購物車 Remove 課程會跳 Error: Not Found，重新登入確實有移除
-  - [x] About 頁面文字空格
+  - [x] Purchasing a course without login caused a blank screen<br/>
+        尚未登入卻直接購買課程會白屏(23/1/5)
+  - [x] Failed registration incorrectly redirected users to the Sign In page<br/>
+        沒註冊成功也會跳到登入畫面(23/1/5)
+  - [x] Profile updates were not reflected immediately after saving<br/>
+        Update Profile 後沒有成功顯示更新後的畫面(23/1/5)
+  - [x] Sign-up validation errors redirected users to Sign In instead of staying on Sign Up<br/>
+        Sign up 輸入失敗會跳去 Sign in 頁面而不是留在 Sign up 頁面再試一次
+  - [x] Profile & settings placeholder text did not update until re-login<br/>
+        登入後 profile&setting 改了後灰色提示字不會立刻改，需登出後登入才會更改
+  - [x] Password change redirected users to a “Not Found” error page despite successful update<br/>
+        更改密碼後導向 Error：Not Found 頁面，只能關掉重開（但重開後密碼已經被成功更改）
+  - [x] Role switch toggle failed to update user role correctly<br/>
+        switch 按鍵沒有成功切換角色
+  - [ ] Drag-and-drop course thumbnail upload opens image in a new tab instead of attaching it<br/>
+        創建課程的上傳縮圖用 drag and drop 的話會在另一個瀏覽器視窗開啟圖片，但 Upload course thumbnail 還是空的
+  - [x] Removing a course from the cart triggered a “Not Found” error, but item was removed after re-login<br/>
+        從購物車 Remove 課程會跳 Error: Not Found，重新登入確實有移除
+  - [x] Spacing issues in the About page text<br/>
+        About 頁面文字空格
 
 ### Limitation & Progressing
 
-- Email 為帳號且唯一
-- 登入後才可以使用購物車、購買課程等功能
-- 只有切換成老師身分時才能上傳課程
-- 觀看課程部分尚未引入影片
-- 挑戰課程之 Choose Category 仍在開發階段
+- Email is the account and is unique<br/>
+  Email 為帳號且唯一
+- You can only use functions like the shopping cart and purchasing courses after logging in<br/>
+  登入後才可以使用購物車、購買課程等功能
+- You can only upload courses when switched to teacher status<br/>
+  只有切換成老師身分時才能上傳課程
+- The course viewing section has not introduced videos yet<br/>
+  觀看課程部分尚未引入影片
+- The Choose Category of the challenge course is still under development<br/>
+  挑戰課程之 Choose Category 仍在開發階段
 
 
-## 後記 by 鄒
+## Diary by rjun | 後記 by 鄒
+
+Basically, it's exhausting. 
+The final grade documents are the same scores for everyone; we got 100. The final presentation part will vary due to peer evaluations within the group. Thank you to the teacher, teaching assistants, and group members for their affirmation.
 
 基本上就是累死。
-
 最後的成績文件大家都一樣的分數，我們拿到100；期末展示的部分會因為小組互評而有所不同，感謝老師、助教以及組員的肯定。
 
 <img src="./images/score.png"/>
