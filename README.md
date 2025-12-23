@@ -179,7 +179,7 @@ $ npm run start
 
 ### Tools' Official Document
 
-> Learning to read official documents and feed dogs, even though many official documents are written very artistically<br/>
+> Learning to read official documents and search on Google, even though many official documents are written very artistically<br/>
 學習看官方文件跟餵狗，即便很多官方文件寫得很藝術
 
 - Frontend Tools
