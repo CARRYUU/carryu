@@ -58,8 +58,7 @@ Without: `node_modules`、`build`、`*.example`、`*.png`、`*.svg`
 | [CarryU Client Tree](./docs/project_structure/client_tree.html) | The entire frontend folder structure<br/> 整個前端的資料夾結構              |
 | [CarryU Server Tree](./docs/project_structure/server_tree.html) | The entire backend folder structure<br/> 整個後端的資料夾結構              |
 
-The example command to obtain a tree diagram (to be executed on macOS) <br/> 
-取得樹狀圖之範例指令為(以 macOS 執行)
+The example command to obtain a tree diagram (to be executed on macOS)<br/> 取得樹狀圖之範例指令為(以 macOS 執行)
 
 ```Bash
 
